@@ -1,12 +1,14 @@
 import Link from "next/link";
 import styles from "./layout.module.css";
+import Image  from "next/image";
+import footerImage from "@/public/duet.svg"
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerSize}>
         <div className={styles.footerIcon}>
-          <div className={styles.footerImages}></div>
+          <Image src={footerImage} width={0} height={0} className={styles.footerImages}></Image>
         </div>
 
         <div className={styles.footerLinks}>
