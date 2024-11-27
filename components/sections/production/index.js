@@ -13,7 +13,7 @@ import sevDuet from "@/public/products/sevduet.png";
 
 export default function ProducTionSection() {
 
-    const imagesArray = [ sevDuet]
+    const imagesArray = [sevDuet]
 
 
     return (
@@ -21,9 +21,10 @@ export default function ProducTionSection() {
             {/* button slaqner */}
             <div className={styles.ProductsSlider}>
                 {imagesArray.map((image, index) => (
-                    <div  key={index}>
-                    <ProducItem image={image}  className={styles.sectionItem}/> 
-                    <div className={styles.testKlor}></div>
+                    <div key={index} >
+                        <ProducItem image={image} className={styles.sectionItem}
+                        />
+                        <div className={styles.testKlor}></div>
                     </div>
                 ))}
             </div>

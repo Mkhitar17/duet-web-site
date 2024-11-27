@@ -16,25 +16,11 @@
 }
 
 .testKlor {
-    width: 20%;
-    height: 200px;
-    border-radius: 100%;
-    border: 2px dotted gray;
-    position: absolute;
-    top: 150px;
-    left: 40%; /* Центрирование круга относительно изображения */
-    z-index: 1; /* Круг ниже изображения */
-    cursor: pointer;
-    transition: 1s ;
-    background-color: transparent; /* Изначально прозрачный */
+  
 }
 
-.testKlor:hover {
-    width: 20%;
-    height: 400px;
-    background-color: red; 
-    z-index: -1; 
-}
+
+
 
 .sectionItem {
     width: 100%;
