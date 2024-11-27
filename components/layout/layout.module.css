@@ -58,11 +58,8 @@
 }
 
 .footerImages {
-  background: url(/DUET.svg);
   width: 20%;
   height: 37px;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .footerLinks {
