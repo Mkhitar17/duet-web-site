@@ -72,59 +72,34 @@
 /* Define Arm Hmk's Bebas Neue */
 @font-face {
   font-family: 'Arm Hmk Bebas Neue';
-  src: url('/fonts/arm-hmks-bebas-neue/Arm Hmk\'s Bebas Neue.TTF') format('truetype');
+  src: url('/fonts/fonter.am_arm-hmks-bebas-neue/Arm Hmk\'s Bebas Neue.TTF') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
-/* Define Bokonique - Regular */
+/* Load Bokonique Regular */
 @font-face {
   font-family: 'Bokonique';
-  src: url('/fonts/bokonique/Bokonique-Regular.otf') format('opentype');
+  src: url('/fonts/fonter.am_bokonique/Bokonique-Regular.otf') format('opentype');
   font-weight: 400; /* Normal weight */
   font-style: normal;
 }
 
-/* Define Bokonique - Regular Italic */
+/* Load Bokonique Bold */
 @font-face {
   font-family: 'Bokonique';
-  src: url('/fonts/bokonique/Bokonique-Regular Italic.otf') format('opentype');
-  font-weight: 400;
-  font-style: italic;
-}
-
-/* Define Bokonique - Bold */
-@font-face {
-  font-family: 'Bokonique';
-  src: url('/fonts/bokonique/Bokonique-Bold.otf') format('opentype');
+  src: url('/fonts/fonter.am_bokonique/Bokonique-Bold.otf') format('opentype');
   font-weight: 700; /* Bold weight */
   font-style: normal;
 }
 
-/* Define Bokonique - Bold Italic */
+/* Load Bokonique Light */
 @font-face {
   font-family: 'Bokonique';
-  src: url('/fonts/bokonique/Bokonique-Bold Italic.otf') format('opentype');
-  font-weight: 700;
-  font-style: italic;
-}
-
-/* Define Bokonique - Light */
-@font-face {
-  font-family: 'Bokonique';
-  src: url('/fonts/bokonique/Bokonique-Light.otf') format('opentype');
+  src: url('/fonts/fonter.am_bokonique/Bokonique-Light.otf') format('opentype');
   font-weight: 300; /* Light weight */
   font-style: normal;
 }
-
-/* Define Bokonique - Light Italic */
-@font-face {
-  font-family: 'Bokonique';
-  src: url('/fonts/bokonique/Bokonique-Light Italic.otf') format('opentype');
-  font-weight: 300;
-  font-style: italic;
-}
-
 
 * {
   box-sizing: border-box;
@@ -141,7 +116,8 @@ body {
 body {
   color: black;
   background-color: var(--background-color);
-  font-family: 'Arm Hmk Bebas Neue';
+  /* font-family: 'Arm Hmk Bebas Neue'; */
+  font-family: 'Bokonique', sans-serif;
 
 }
 
