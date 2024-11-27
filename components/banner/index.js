@@ -17,6 +17,7 @@ export default function Header() {
 
   return (
     <div className={styles.Container}>
+       <div className={styles.Overlay}></div>
       <Image
         src={bannerimage} // Path to the image in the public folder
         alt="bannerimage"
@@ -28,9 +29,8 @@ export default function Header() {
       <div className={styles.BannerTextContainer}>
         <span>Բարի Գալուստ</span>
         <span>DUET երբ յուրաքանչյուր վայրկյանն իր հետ բերում է նոր հնարավորություններ</span>
-        <div className={styles.bannerBotton}></div>
         <Button
-        text="Click Me"
+        text="Արտադրանք"
         onClick={handleClick}
       />
       </div>

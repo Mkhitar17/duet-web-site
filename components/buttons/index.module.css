@@ -1,6 +1,6 @@
 .button {
     background-color: var(--button-background-active);
-    color: var(--text-color);
+    color: var(--text-color-white);
     border: none;
     border-radius: 8px;
     cursor: pointer;

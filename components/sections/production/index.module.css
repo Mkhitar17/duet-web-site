@@ -1,0 +1,21 @@
+.Container{
+
+
+}
+
+
+.ProductsSlider{
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    gap: 71px;
+    scrollbar-width: none;
+
+}
+
+
+
+.ProductsSlider::-webkit-scrollbar {
+width: 0px;
+display: none;
+}

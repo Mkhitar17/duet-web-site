@@ -1,0 +1,15 @@
+.Container{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 100%;
+}
+
+.ProductImageContainer{
+    width: 329px;
+}
+
+
+.ProductImage{
+
+}
