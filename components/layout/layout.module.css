@@ -44,7 +44,6 @@
 .footerSize {
   width: 95%;
   height: auto;
-  border: 1px solid red;
   margin: 0 auto;
   display: flex;
 }
@@ -105,10 +104,66 @@
   height: auto;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 }
 
 .footerContactUsTitle {
   font-size: 18px;
   font-weight: 700;
   padding-top: 20px;
+}
+
+.footerContactUsIcons_text {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.footerContactUsIcons_text_size {
+  width: 90%;
+  height: auto;
+  display: flex;
+  position: relative;
+  margin-top: 20px;
+}
+
+.footerImageIcons {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0px;
+}
+
+
+.footerTextStyle {
+  padding-left: 30px;
+}
+
+.footerSpan {
+  padding-right: 35px;
+}
+
+.footerFollowCont {
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  height: auto;
+}
+
+
+.footerFollowMe {
+  font-size: 18px;
+  padding-top: 20px;
+}
+
+
+.footerFollowIcons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
