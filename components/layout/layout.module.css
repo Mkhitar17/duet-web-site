@@ -3,12 +3,29 @@
   width: 100%;
   background-color: transparent;
   color: #fff;
-  border: 1px solid red;
   padding: 10px 20px;
   height: 114px;
+  position: absolute;
+  top: 20px;
+  background: transparent;
+  z-index: 111;
+
+}
+
+.headerSize{
+  width: 90%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+.DuetLogo{
+  width: auto;
+  height: auto;
 }
 
 .nav {
+  width: 40%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -74,7 +91,6 @@
   align-items: flex-start;
   padding-top: 20px;
   line-height: 20px;
-  /* border: 1px solid red; */
 }
 
 .linkTitle {

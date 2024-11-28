@@ -8,6 +8,10 @@ import ProducItem from "@/components/producItem";
 // import kat from "@/public/products/kat.png";
 // import limon from "@/public/products/limon-shish.png";
 import sevDuet from "@/public/products/sevduet.png";
+import prev from '@/public/prev.svg'
+import next from '@/public/NextIcon.svg'
+
+
 
 
 
@@ -18,10 +22,26 @@ export default function ProducTionSection() {
 
     return (
         <div className={styles.Container}>
-            {/* button slaqner */}
-            <div className={styles.ProductsSlider}>
+            <div className={styles.ProducItemTitleSlider}>
+                <h1 className={styles.ProducItemTitle}>Արտադրանք</h1>
+                <div className={styles.ProducItemIcons}>
+                    <Image
+                        src={prev}
+                        width={0}
+                        height={0}
+
+                    />
+                    <Image
+                        src={next}
+                        width={0}
+                        height={0}
+                    />
+
+                </div>
+            </div>            <div className={styles.ProductsSlider}>
                 {imagesArray.map((image, index) => (
                     <div key={index} >
+
                         <ProducItem image={image} className={styles.sectionItem}
                         />
                         <div className={styles.testKlor}></div>

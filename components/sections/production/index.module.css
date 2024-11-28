@@ -16,8 +16,54 @@
 }
 
 .testKlor {
-  
+    width: 18%;
+    border-radius: 100%;
+    height: 200px;
+    border: 2px dotted red;
+    position: absolute;
+    top: 180px;
+    z-index: -1;
+    /* transition:  1s ease; */
 }
+.ProductsSlider .testKlor:hover {
+     border: none;
+    
+}
+
+.ProducItemIcons{
+    width: 5.5%;
+    display: flex;
+    gap: 11px;
+}
+
+.ProducItemTitleSlider{
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+}
+.ProducItemTitle{
+    font-family: 'Arm Hmk Bebas Neue', sans-serif;
+    color: white;
+    font-weight: 400;
+    font-size: 40px;
+}
+
+/* .testKlor:hover::before {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    border-radius: 100%;
+    z-index: -1;
+    border: none;
+} */
+
 
 
 
@@ -26,8 +72,8 @@
     width: 100%;
     height: 100%;
     position: relative;
-    z-index: 2;
     margin-left: 30px;
+    /* border: 1px solid red; */
 }
 
 
