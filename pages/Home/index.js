@@ -3,6 +3,7 @@ import Image from 'next/image'
 import styles from '@/styles/Home.module.css'
 import Banner from '@/components/banner'
 import Production from '@/components/sections/production'
+import Partners from '@/components/sections/partners'
 
 
 
@@ -11,6 +12,7 @@ export default function HomePage() {
      <div className={styles.HomeContainer}>
         <Banner/>
         <Production/>
+        <Partners/>
      </div>
   )
 }

@@ -1,0 +1,34 @@
+.partnersSize{
+    width: 90%;
+    height: 200px;
+    margin: 0 auto;
+}
+.ProducItemIcons{
+    width: 5.5%;
+    display: flex;
+    gap: 11px;
+}
+
+.ProducItemTitleSlider{
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+}
+.ProducItemTitle{
+    font-family: 'Arm Hmk Bebas Neue', sans-serif;
+    color: white;
+    font-weight: 400;
+    font-size: 40px;
+}
+
+.PartnersImage{
+    width: 100%;
+    height: auto;
+    display: flex;
+    /* border: 1px solid red; */
+    margin: 0 auto;
+    margin-top: 20px;
+}
