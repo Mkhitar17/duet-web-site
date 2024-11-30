@@ -1,34 +1,23 @@
-.partnersSize{
-    width: 90%;
-    height: 200px;
-    margin: 0 auto;
-}
-.ProducItemIcons{
-    width: 5.5%;
+
+.Container{
     display: flex;
-    gap: 11px;
+    flex-direction: column;
+    gap: 36px;
 }
 
-.ProducItemTitleSlider{
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
 
+.PartnersGrid{
     display: flex;
-    justify-content: space-between;
-}
-.ProducItemTitle{
-    font-family: 'Arm Hmk Bebas Neue', sans-serif;
-    color: white;
-    font-weight: 400;
-    font-size: 40px;
+    gap: 34px;
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    padding-left: 60px;
 }
 
-.PartnersImage{
-    width: 100%;
-    height: auto;
-    display: flex;
-    /* border: 1px solid red; */
-    margin: 0 auto;
-    margin-top: 20px;
+.PartnersGrid::-webkit-scrollbar {
+    width: 0px;
+    display: none;
 }
+
+

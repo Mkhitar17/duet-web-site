@@ -2,13 +2,13 @@ import styles from "./index.module.css";
 import Image from "next/image";
 
 
-export default function ProducItem({ image }) {
+export default function ProducItem({ logo }) {
 
   return (
     <div className={styles.Container}>
       <div className={styles.ProductImageContainer}>
         <Image
-          src={image} 
+          src={logo} 
           alt="bannerimage"
           width={0} 
           height={0} 

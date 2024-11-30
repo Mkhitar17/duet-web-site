@@ -1,0 +1,39 @@
+.Container {
+    padding: 0 63px 100px 71px;
+
+}
+
+.ContentContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.TextContainer {
+    max-width: 464px;
+    display: flex;
+    flex-direction: column;
+    gap: 53px;
+
+}
+
+.TextContainer span {
+
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: -0.23px;
+    font-weight: 400;
+    color: var(--text-color-white);
+}
+
+.ImageContainer {
+    width: 636px;
+    height: 360px;
+}
+
+.AboutImage {
+    object-fit: cover;
+
+}
+

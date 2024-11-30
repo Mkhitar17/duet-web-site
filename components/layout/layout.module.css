@@ -2,7 +2,7 @@
 
   width: 100%;
   background-color: transparent;
-  color: #fff;
+  color: var(--text-color-white);
   padding: 10px 20px;
   height: 114px;
   position: absolute;
@@ -12,14 +12,15 @@
 
 }
 
-.headerSize{
+.headerSize {
   width: 90%;
   height: auto;
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
 }
-.DuetLogo{
+
+.DuetLogo {
   width: auto;
   height: auto;
 }
@@ -32,7 +33,7 @@
 }
 
 .link {
-  color: #fff;
+  color: var(--text-color-white);
   text-decoration: none;
   font-size: 18px;
 }
@@ -44,9 +45,9 @@
 
 /* footer styles */
 .footer {
-  color: #fff;
+  color: var(--text-color-white);
   text-align: center;
-  padding: 10px 20px;
+  padding: 42px 20px;
   z-index: 1;
   bottom: 0;
   width: 100%;

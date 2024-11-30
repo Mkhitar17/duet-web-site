@@ -1,0 +1,30 @@
+.Container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+.Container span {
+    font-family: 'Arm Hmk Bebas Neue', sans-serif;
+    color: var(--text-color-white);
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: -0.42px;
+}
+
+.Title{
+    font-family: 'Arm Hmk Bebas Neue', sans-serif;
+    color: white;
+    font-weight: 400;
+    font-size: 40px;
+}
+
+
+.NavigationIcons{
+    width: 5.5%;
+    display: flex;
+    gap: 11px;
+}
+
