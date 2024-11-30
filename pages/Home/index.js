@@ -5,6 +5,7 @@ import Banner from '@/components/banner'
 import Production from '@/components/sections/production'
 import Partners from '@/components/sections/partners'
 import AboutUs from '@/components/sections/aboutUs'
+import ContactSection from '@/components/contactSection'
 
 
 
@@ -15,6 +16,7 @@ export default function HomePage() {
         <Production/>
         <AboutUs/>
         <Partners/>
+        <ContactSection/>
      </div>
   )
 }
