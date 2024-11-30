@@ -82,7 +82,7 @@
   
   .inputField {
     height: 67px;
-    background-color: #f0f0f0; /* Светлый фон для полей ввода */
+    background-color: #f0f0f0;
     border: none;
     border-radius: 5px;
     padding: 10px;
@@ -98,11 +98,11 @@
   
   .textarea {
     height: 130px;
-    resize: none; /* Отключение изменения размера текстового поля */
+    resize: none; 
   }
   
   .submitButton {
-    background-color: #d50000; /* Красный цвет кнопки */
+    background-color: #d50000; 
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -115,6 +115,6 @@
   }
   
   .submitButton:hover {
-    background-color: #b40000; /* Темно-красный при наведении */
+    background-color: #b40000; 
   }
   
