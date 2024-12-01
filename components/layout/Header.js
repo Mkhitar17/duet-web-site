@@ -1,10 +1,33 @@
+import { useState } from "react";
 import Link from "next/link";
 import styles from "./layout.module.css";
 import Image from "next/image";
-import DuetLogo from "@/public/duet.svg"
-import ArmFlag from '@/public/armFlag.svg'
+import DuetLogo from "@/public/duet.svg";
+// import ArmFlag from "@/public/armFlag.svg";
+// import RussianFlag from "@/public/russianFlag.svg.webp";
+// import AmericanFlag from "@/public/americanFlag.webp";
 
 export default function Header() {
+  const flags = {
+    arm: { src: '/armFlag.svg', alt: 'Armenian Flag' },
+    rus: { src: '/russianFlag.svg.webp', alt: 'Russian Flag' },
+    usa: { src: '/americanFlag.webp', alt: 'American Flag' },
+  };
+  const [selectedFlag, setSelectedFlag] = useState('arm');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen((prev) => !prev);
+  };
+
+  const handleFlagSelect = (flag) => {
+    setSelectedFlag(flag);
+    setIsDropdownOpen(false); 
+  };
+
+  const availableFlags = Object.keys(flags).filter((key) => key !== selectedFlag);
   return (
     <header className={styles.header}>
       <div className={styles.headerSize}>
@@ -13,6 +36,7 @@ export default function Header() {
           width={0}
           height={0}
           className={styles.DuetLogo}
+          alt="Duet Logo"
         />
         <nav className={styles.nav}>
           <Link href="/" className={styles.link}>Մեր մասին</Link>
@@ -20,13 +44,37 @@ export default function Header() {
           <Link href="/contact" className={styles.link}>Հումք</Link>
           <Link href="/contact" className={styles.link}>Կապ մեզ հետ</Link>
 
-          <Image
-            src={ArmFlag}
-            width={0}
-            height={0}
-            className={styles.ArmLogo}
-          />
-          
+          <div className={styles.flagSelector}>
+            <div className={styles.selectedFlag} onClick={toggleDropdown}>
+              <Image
+                src={flags[selectedFlag].src}
+                width={30}
+                height={20}
+                alt={flags[selectedFlag].alt}
+              />
+            </div>
+
+            {isDropdownOpen && (
+              <div className={styles.flagContainer}>
+                {availableFlags.map((flag) => (
+                  <div
+                    key={flag}
+                    className={styles.flagOption}
+                    onClick={() => handleFlagSelect(flag)}
+                  >
+                    <Image
+                      src={flags[flag].src}
+                      width={30}
+                      height={20}
+                      alt={flags[flag].alt}
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+
         </nav>
       </div>
     </header>

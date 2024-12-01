@@ -41,6 +41,36 @@
 .link:hover {
   text-decoration: underline;
 }
+.flagSelector {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.flagContainer {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #ccc;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+}
+
+.flagOption {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.flagOption:hover {
+  background: #f0f0f0;
+}
+
+.selectedFlag img {
+  /* border: 1px solid #ccc; */
+  border-radius: 3px;
+}
 
 
 /* footer styles */
