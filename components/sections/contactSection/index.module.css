@@ -1,0 +1,128 @@
+.Container {
+  width: auto;
+  height: auto;
+}
+
+.ContactContentContainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 139px;
+  padding: 34px 119px 0 77px;
+}
+
+.ContactInfoContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 63px;
+}
+
+.ContactItems {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  gap: 15.49px;
+}
+
+.SocialContacts {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+
+}
+
+.PhoneNumberContainer {}
+
+.SocialIcons {
+  display: flex;
+  gap: 9px;
+}
+
+.EmailContainer {}
+
+.LocationContainer {}
+
+.PhoneNumberContainer,
+.EmailContainer,
+.LocationContainer {
+  display: flex;
+  align-items: center;
+  gap: 7.75px;
+}
+
+.PhoneNumberContainer span,
+.EmailContainer span,
+.LocationContainer span {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--text-color-white);
+
+}
+
+.LocationContainer span {
+  font-family: 'Bokonique', sans-serif !important;
+}
+
+.MapContainer {
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.formContainer {
+  width: 80%;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.inputField {
+  height: 67px;
+  background: #EEEEEE;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 17px;
+  line-height: 25.6px;
+  color: #1d1d1d;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+}
+
+.form textarea {
+  height: 190px;
+  resize: none;
+  background: #EEEEEE;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 17px;
+  line-height: 25.6px;
+  color: #1d1d1d;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  row-gap: 37px;
+}
+
+.inputRow {
+  display: flex;
+  gap: 20px;
+
+}
+
+
+.fullWidth {
+  width: 100%;
+}
