@@ -1,3 +1,4 @@
+import { useState, useRef } from "react";
 import styles from "./index.module.css";
 import Image from "next/image";
 import tel from "@/public/contact.svg";
@@ -10,15 +11,26 @@ import Button from "@/components/buttons/PrimaryButton";
 
 export default function ContactSection() {
 
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        message: "",
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Form submitted");
-        alert("Button Active!")
+        console.log("Form submitted: ", formData);
+        alert("Form Submitted Successfully!");
     };
-    const handleSubmitButton = (e) => {
-        e.preventDefault()
-        alert("Button Active!")
-    }
     return (
         <div className={styles.Container}>
             <SectionHeadline
@@ -49,9 +61,7 @@ export default function ContactSection() {
                         </div>
                         <div className={styles.LocationContainer}>
                             <Image src={location} width={24} height={24} alt="Location" />
-                            <span >
-                                Հաղթանակ թաղամաս, 1 փողոց 48 շինություն
-                            </span>
+                            <span > Հաղթանակ թաղամաս, 1 փողոց 48 շինություն</span>
                         </div>
 
                     </div>
@@ -72,11 +82,38 @@ export default function ContactSection() {
                 <div className={styles.formContainer}>
                     <form onSubmit={handleSubmit} className={styles.form}>
                         <div className={styles.inputRow}>
-                            <input type="text" placeholder="First name" className={styles.inputField} />
-                            <input type="text" placeholder="Last name" className={styles.inputField} />
+                            <input
+                                name="firstName" 
+                                value={formData.firstName}
+                                onChange={handleChange}
+                                type="text"
+                                placeholder="First name"
+                                className={styles.inputField}
+                            />
+                            <input
+                                name="lastName" 
+                                value={formData.lastName}
+                                onChange={handleChange}
+                                type="text"
+                                placeholder="Last name"
+                                className={styles.inputField}
+                            />
                         </div>
-                        <input type="email" placeholder="Mail" className={`${styles.inputField} ${styles.fullWidth}`} />
-                        <textarea placeholder="Message"></textarea>
+                        <input
+                            name="email" 
+                            value={formData.email}
+                            onChange={handleChange}
+                            type="email"
+                            placeholder="Mail"
+                            className={`${styles.inputField} ${styles.fullWidth}`}
+                        />
+                        <textarea
+                            name="message" 
+                            value={formData.message}
+                            onChange={handleChange}
+                            placeholder="Message"
+                            className={styles.inputField}
+                        ></textarea>
                         <Button
                             type="submit"
                             text="Ուղարկել"

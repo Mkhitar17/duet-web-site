@@ -20,7 +20,7 @@ import SectionHeadline from "@/components/sectionHeadline";
 
 
 
-export default function AboutUsSection() {
+export default function About() {
 
     const handleClick = () => {
         alert("Button clicked!");

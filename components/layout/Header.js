@@ -2,7 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 import styles from "./layout.module.css";
 import Image from "next/image";
-import DuetLogo from "@/public/duet.svg";
+import DuetLogo from "@/public/logo.svg";
 // import ArmFlag from "@/public/armFlag.svg";
 // import RussianFlag from "@/public/russianFlag.svg.webp";
 // import AmericanFlag from "@/public/americanFlag.webp";
@@ -24,24 +24,26 @@ export default function Header() {
 
   const handleFlagSelect = (flag) => {
     setSelectedFlag(flag);
-    setIsDropdownOpen(false); 
+    setIsDropdownOpen(false);
   };
 
   const availableFlags = Object.keys(flags).filter((key) => key !== selectedFlag);
   return (
-    <header className={styles.header}>
-      <div className={styles.headerSize}>
-        <Image
-          src={DuetLogo}
-          width={0}
-          height={0}
-          className={styles.DuetLogo}
-          alt="Duet Logo"
-        />
+    <header className={styles.Header}>
+      <div className={styles.HeaderContent}>
+        <Link href="/" >
+          <Image
+            src={DuetLogo}
+            width={0}
+            height={0}
+            className={styles.DuetLogo}
+            alt="Duet Logo"
+          />
+        </Link>
         <nav className={styles.nav}>
-          <Link href="/" className={styles.link}>Մեր մասին</Link>
-          <Link href="/about" className={styles.link}>Արտադրանք</Link>
-          <Link href="/contact" className={styles.link}>Հումք</Link>
+          <Link href="/about" className={styles.link}>Մեր մասին</Link>
+          <Link href="/production" className={styles.link}>Արտադրանք</Link>
+          <Link href="/material" className={styles.link}>Հումք</Link>
           <Link href="/contact" className={styles.link}>Կապ մեզ հետ</Link>
 
           <div className={styles.flagSelector}>

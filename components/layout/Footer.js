@@ -51,6 +51,7 @@ export default function Footer() {
                 width={0}
                 height={0}
                 className={styles.footerImageIcons}
+                alt="tel"
               />
 
               <p className={styles.footerTextStyle}>098 604406</p>
@@ -63,6 +64,7 @@ export default function Footer() {
                 width={0}
                 height={0}
                 className={styles.footerImageIcons}
+                alt="Mail"
               />
               <p className={styles.footerTextStyle}>duet.coffee@gmail.com</p>
             </div>
@@ -72,6 +74,7 @@ export default function Footer() {
                 width={0}
                 height={0}
                 className={styles.footerImageIcons}
+                alt="location"
               />
               <p className={styles.footerTextStyle}>Հաղթանակ թաղամաս, 1 <br/> <span className={styles.footerSpan}> փողոց 48 շինություն</span></p>
             </div>
@@ -84,20 +87,26 @@ export default function Footer() {
           <a href="#">
             <Image
             src={footerFB}
+            alt="facebook"
             />
           </a>
           <a href="#">
             <Image
             src={footerInst}
+            alt="instagram"
             />
           </a>
           <a href="#">
             <Image
-            src={footerWhatsup}/>
+            src={footerWhatsup}
+            alt="whatsapp"
+            />
+            
           </a>
           <a href="#">
             <Image
             src={footerTg}
+            alt="telegram"
             />
           </a>
           </div>

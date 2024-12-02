@@ -126,3 +126,9 @@
 .fullWidth {
   width: 100%;
 }
+
+
+.inputField::placeholder,
+.form textarea::placeholder {
+  color: #1d1d1d; 
+}

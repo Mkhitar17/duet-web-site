@@ -1,0 +1,82 @@
+.Container {
+    padding: 114px 63px 50px 71px;
+}
+
+.ContentContainer {
+    margin-top: 50px;
+}
+
+.InfoSectionsCopntainer {
+    display: flex;
+    flex-direction: column;
+    gap: 77px;
+
+}
+
+.SectionContainer {
+    display: flex;
+    gap: 45px;
+    justify-content: center;
+}
+
+.TextContainer {
+    display: flex;
+    align-items: center;
+    min-width: 625px;
+    gap: 53px;
+}
+
+.TextContainer span {
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: -0.23px;
+    font-weight: 400;
+    color: var(--text-color-white);
+}
+
+.TextContainer2{
+    display: flex;
+    align-items: flex-start;
+    min-width: 625px;
+    gap: 53px;
+}
+
+.TextContainer2 span {
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: -0.23px;
+    font-weight: 400;
+    color: var(--text-color-white);
+}
+
+.ImagesContent {
+    display: flex;
+    flex-direction: column;
+    gap: 51px;
+}
+
+.SmallImagesContainer {
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+}
+
+
+.SmallImage {
+    background-size: cover;
+}
+
+.ImageContainer {
+    display: flex;
+    height: 288px;
+    min-width: 636px;
+    border-radius: 8px;
+
+}
+
+.Image {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    border-radius: 8px;
+}
