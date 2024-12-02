@@ -12,7 +12,6 @@ export default function ProducTionSection() {
     const imagesArray = [sevDuet, dexc, kapuyt, kat, limon, kat, kat, kat, kat, kat, kat];
     const gridRef = useRef(null);
 
-    // Состояние для управления анимацией
     const [hoveredIndex, setHoveredIndex] = useState(null);
 
     return (
