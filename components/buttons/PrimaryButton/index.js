@@ -7,7 +7,7 @@ export default function Button({
   onClick,
   type = "button",
   disabled = false,
-  customStyles = {}, // For inline styling if needed
+  customStyles = {}, 
 }) {
   return (
     <button
@@ -22,16 +22,14 @@ export default function Button({
   );
 }
 
-// Define PropTypes for type-checking
 Button.propTypes = {
-  text: PropTypes.string.isRequired, // Button text
-  onClick: PropTypes.func, // Click handler function
-  type: PropTypes.oneOf(["button", "submit", "reset"]), // Button type
-  disabled: PropTypes.bool, // Disable button
-  customStyles: PropTypes.object, // Inline styles for extra customization
+  text: PropTypes.string.isRequired, 
+  onClick: PropTypes.func, 
+  type: PropTypes.oneOf(["button", "submit", "reset"]),
+  disabled: PropTypes.bool, 
+  customStyles: PropTypes.object, 
 };
 
-// Default Props
 Button.defaultProps = {
   onClick: () => {},
   type: "button",

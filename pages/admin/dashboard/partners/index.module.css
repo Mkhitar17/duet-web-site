@@ -1,0 +1,152 @@
+.Container {
+    padding-top: 200px;
+    max-width: 1200px;
+    margin: 0 auto;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 50px;
+}
+
+.Container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.PartnersContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+
+.PartnerItem {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.PartnerItem img {
+    border-radius: 10px;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.EditActionButtonsContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+}
+.EditButton,
+.DeleteButton {
+    /* position: absolute;
+    top: 5px;
+    right: 5px; */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+.FileInput {
+    margin-top: 10px;
+    display: block;
+    font-size: 14px;
+}
+
+
+.image {
+    background-size: contain;
+    height: 100%;
+    width: 100%;
+}
+
+
+/* .ImageItem {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+} */
+
+
+.ImageItem {
+    width: 200px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.RasterImage {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.SVGContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* .SVGContainer {
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+} */
+
+.PreviewImage{
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+}
+
+
+.SVGContainer img {
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+}
+
+
+
+
+
+.FileInputHidden {
+    display: none;
+}
+
+.CustomFileButton {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.CustomFileButton:hover {
+    background-color: #0056b3;
+}

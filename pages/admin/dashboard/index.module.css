@@ -1,0 +1,27 @@
+.Container{
+    padding-top: 114px;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    flex-grow: 1;
+}
+
+.Container h1 {
+    color: var(--text-color-white);
+}
+
+.Container ul li {
+    font-size: 24px;
+    line-height: normal;
+    color: var(--text-color-white);
+}
+
+.Container ul {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

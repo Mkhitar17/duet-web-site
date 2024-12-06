@@ -1,0 +1,111 @@
+.Container {
+    padding: 114px 63px 50px 71px;
+}
+
+.ContentContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.ProductionTabsContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.ProductItem{
+    position: relative;
+}
+.DeleteButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.EditButton{
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+
+.ProductsWrapper {
+    display: block;
+    width: fit-content;
+}
+
+.ProductsContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
+    gap: 69px 122px;
+    padding-top: 37px;
+    margin: 0 auto;
+    justify-content: center;
+    align-content: start;
+}
+
+.Tabs {
+    display: flex;
+    gap: 16px;
+}
+
+.tab {
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: text-decoration-color 0.3s ease;
+}
+
+.tab span {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: -0.23px;
+    text-align: center;
+    color: var(--text-color-white);
+}
+
+.tab:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--text-color-white);
+}
+
+.activeTab {
+    text-decoration: underline;
+    text-decoration-color: var(--text-color-white);
+}
+
+
+
+
+.FileInputHidden {
+    display: none; 
+}
+
+.CustomFileButton {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.CustomFileButton:hover {
+    background-color: #0056b3;
+}

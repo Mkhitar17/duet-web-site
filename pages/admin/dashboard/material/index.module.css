@@ -1,0 +1,145 @@
+.Container {
+    padding: 114px 63px 50px 71px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.ContentContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 75px;
+}
+
+.ProductionTabsContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.ProductsWrapper {
+    display: block;
+    width: fit-content;
+}
+
+.ProductsContainer {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, max-content));
+    gap: 69px 122px;
+    padding-top: 104px;
+    margin: 0 auto;
+    justify-content: center;
+    align-content: start;
+}
+
+.ProductItem{
+min-width: 300px;
+height: max-content;
+/* min-height: 400px; */
+}
+
+.SectionContainer {
+    display: flex;
+    gap: 205px;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.TextContainer {
+    display: flex;
+    flex-direction: column;
+   justify-content: center;
+    min-width: 625px;
+    gap: 53px;
+}
+
+.TextContainer span {
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: -0.23px;
+    font-weight: 400;
+    color: var(--text-color-white);
+}
+
+.ImageContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: max-content;
+    width: max-content;
+    max-width: 600px;
+    border-radius: 8px;
+}
+
+.Image {
+    height: 100%;
+    width: 100%;
+    flex-grow: 1;
+    background-size: cover;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.TextArea {
+    width: 100%;
+    max-height: 360px; 
+    min-height: 250px; 
+    resize: none; 
+    overflow: scroll;
+    font-size: 16px; 
+    padding: 10px; 
+    box-sizing: border-box; 
+    border: 1px solid #ccc;
+    border-radius: 4px; 
+}
+
+
+.EditButton,
+.DeleteButton{
+    color: var(--text-color-white);
+    cursor: pointer;
+}
+
+.EditActionButtons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.MainButtons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+
+
+
+
+
+.FileInputHidden {
+    display: none;
+}
+
+.CustomFileButton {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.CustomFileButton:hover {
+    background-color: #0056b3;
+}

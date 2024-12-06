@@ -1,0 +1,46 @@
+.Container {
+    width: 100%;
+    padding: 20px;
+    padding: 154px 63px 50px 71px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+.BannerSection{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.FileInputHidden {
+    display: none; 
+}
+
+
+.CustomFileButton {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.CustomFileButton:hover {
+    background-color: #0056b3;
+}
+
+
+.BannerImage{
+    height: 400px;
+    width: 800px;
+    background-size: cover;
+    object-fit: cover;
+}
