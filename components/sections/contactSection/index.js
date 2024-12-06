@@ -51,11 +51,20 @@ export default function ContactSection() {
                                 <span >098 604406</span>
                             </div>
                             <div className={styles.SocialIcons}>
-                                <Image src={fb} width={24} height={24} alt="Facebook" />
-                                <Image src={insta} width={24} height={24} alt="Instagram" />
+                                <a href="https://www.facebook.com/dueticecoffee?locale=ru_RU"
+                                    target="_blank">
+                                    <Image src={fb} width={24} height={24} alt="Facebook" />
+                                </a>
+
+                                <a href="https://www.instagram.com/duet_company/profilecard/?igsh=ancxeGx1Ymg0ZjJy"
+                                    target="_blank">
+                                    <Image src={insta} width={24} height={24} alt="Instagram" />
+
+                                </a>
                             </div>
                         </div>
                         <div className={styles.EmailContainer}>
+
                             <Image src={mail} width={24} height={24} alt="Mail" />
                             <span >duet.coffee@gmail.com</span>
                         </div>
@@ -83,7 +92,7 @@ export default function ContactSection() {
                     <form onSubmit={handleSubmit} className={styles.form}>
                         <div className={styles.inputRow}>
                             <input
-                                name="firstName" 
+                                name="firstName"
                                 value={formData.firstName}
                                 onChange={handleChange}
                                 type="text"
@@ -91,7 +100,7 @@ export default function ContactSection() {
                                 className={styles.inputField}
                             />
                             <input
-                                name="lastName" 
+                                name="lastName"
                                 value={formData.lastName}
                                 onChange={handleChange}
                                 type="text"
@@ -100,7 +109,7 @@ export default function ContactSection() {
                             />
                         </div>
                         <input
-                            name="email" 
+                            name="email"
                             value={formData.email}
                             onChange={handleChange}
                             type="email"
@@ -108,7 +117,7 @@ export default function ContactSection() {
                             className={`${styles.inputField} ${styles.fullWidth}`}
                         />
                         <textarea
-                            name="message" 
+                            name="message"
                             value={formData.message}
                             onChange={handleChange}
                             placeholder="Message"

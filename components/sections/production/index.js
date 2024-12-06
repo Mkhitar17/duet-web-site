@@ -21,8 +21,8 @@ export default function ProducTionSection() {
                 gridRef={gridRef}
                 scrollAmount={300}
                 customStyles={{
-                    paddingRight: "15px",
-                    paddingLeft: "15px",
+                    paddingRight: "71px",
+                    paddingLeft: "71px",
                 }}
             />
             <div className={styles.ProductsSlider} ref={gridRef}>
@@ -31,6 +31,7 @@ export default function ProducTionSection() {
                         key={index}
                         onMouseEnter={() => setHoveredIndex(index)} 
                         onMouseLeave={() => setHoveredIndex(null)} 
+                        className={styles.productItemContainer}
                     >
                         <ProducItem image={image} className={styles.testImg} />
                         <div

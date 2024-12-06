@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { signIn } from '@/redux/slices/authSlice';
+import styles from "./index.module.css"
 
 const AdminSignIn = () => {
   const [username, setUsername] = useState('');
@@ -25,25 +26,27 @@ const AdminSignIn = () => {
   };
 
   return (
-    <div
+    <div className={styles.adminContainer}
       style={{
         maxWidth: '400px',
-        margin: '50px auto',
-        padding: '200px 0 0 0',
+        margin: '140px auto',
+        // padding: '200px 0 0 0',
         border: '1px solid #ccc',
         borderRadius: '10px',
         boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
       }}
     >
-      <h1>Admin Sign-In</h1>
+      <h1 className={styles.adminTitle}>Admin Sign-In</h1>
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <form onSubmit={handleSubmit}>
         {/* Username Input */}
-        <div style={{ marginBottom: '15px' }}>
-          <label htmlFor="username" style={{ display: 'block', marginBottom: '5px' }}>
+        <div style={{ marginBottom: '15px' }} className={styles.adminDiv}>
+          <label className={styles.AdminSignInTitle} htmlFor="username" style={{ display: 'block', marginBottom: '5px' }}>
             Username
           </label>
           <input
+            className={styles.adminInput}
+
             type="text"
             id="username"
             value={username}
@@ -61,10 +64,11 @@ const AdminSignIn = () => {
 
         {/* Password Input */}
         <div style={{ marginBottom: '15px' }}>
-          <label htmlFor="password" style={{ display: 'block', marginBottom: '5px' }}>
+          <label className={styles.AdminSignInTitle} htmlFor="password" style={{ display: 'block', marginBottom: '5px' }}>
             Password
           </label>
           <input
+            className={styles.adminInput}
             type="password"
             id="password"
             value={password}
@@ -82,6 +86,7 @@ const AdminSignIn = () => {
 
         {/* Submit Button */}
         <button
+        className={styles.buttonAdmin}
           type="submit"
           style={{
             width: '100%',

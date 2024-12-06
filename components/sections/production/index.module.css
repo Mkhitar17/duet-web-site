@@ -43,8 +43,13 @@
     display: none;
 }
 
+.productItemContainer {
+    position: relative;
+    left: 0;
+}
+
 .testKlor {
-    width: 18%;
+    width: 100%;
     border-radius: 100%;
     height: 200px;
     position: absolute;
@@ -63,12 +68,11 @@
     background: radial-gradient(circle, #a11c1c 0%, #601111 100%);
     filter: blur(4px);
     border: none;
-    width: 22%;
+    width: 401px;
     height: 400px;
     position: absolute;
     top: 30px;
-    margin-left: -40px;
-
+    left: -40px;
 }
 
 .hoverContent {

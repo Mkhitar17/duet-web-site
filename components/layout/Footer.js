@@ -85,13 +85,15 @@ export default function Footer() {
         <div className={styles.footerFollowCont}>
           <h1 className={styles.footerFollowMe}>Հետևեք մեզ</h1>
           <div className={styles.footerFollowIcons}>
-          <a href="#">
+          <a href="https://www.facebook.com/dueticecoffee?locale=ru_RU"
+          target="_blank">
             <Image
             src={footerFB}
             alt="facebook"
             />
           </a>
-          <a href="#">
+          <a href="https://www.instagram.com/duet_company/profilecard/?igsh=ancxeGx1Ymg0ZjJy" 
+          target="_blank">
             <Image
             src={footerInst}
             alt="instagram"
