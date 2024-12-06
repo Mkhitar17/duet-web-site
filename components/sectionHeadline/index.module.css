@@ -19,15 +19,119 @@
     color: var(--text-color-white);
     font-weight: 400;
     font-size: 40px;
+    opacity: 0;
+    transform: translateX(-100px);
+    animation: appearFromLeft 0.8s ease-out forwards;
 }
+
+@keyframes appearFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 
 
 .NavigationIcons {
     width: 5.5%;
     display: flex;
     gap: 11px;
+    opacity: 0;
+    transform: translateX(100px);
+    animation: appearFromRight 0.8s ease-out forwards;
+}
+
+@keyframes appearFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .NavigationIcons img {
     cursor: pointer;
+}
+
+@media (max-width:1440px){
+    .Container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: auto;
+        gap: 0px;
+    }
+    
+    
+    .Container span {
+        font-family: 'Arm Hmk Bebas Neue', sans-serif;
+        color: var(--text-color-white);
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 48px;
+        letter-spacing: -0.42px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .sectionHeadline_Container__knylM{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .Title {
+        font-family: 'Arm Hmk Bebas Neue', sans-serif;
+        color: var(--text-color-white);
+        font-weight: 400;
+        font-size: 30px;
+        opacity: 0;
+        padding-left: 0;
+        padding-right: 0;
+        transform: translateX(-100px);
+        animation: appearFromLeft 0.8s ease-out forwards;
+    }
+    
+    @keyframes appearFromLeft {
+        0% {
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    
+    
+    .NavigationIcons {
+        width: 30.5%;
+        display: flex;
+        gap: 11px;
+        opacity: 0;
+        transform: translateX(100px);
+        animation: appearFromRight 0.8s ease-out forwards;
+    }
+    
+    @keyframes appearFromRight {
+        0% {
+            opacity: 0;
+            transform: translateX(100px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    .NavigationIcons img {
+        cursor: pointer;
+    }
 }

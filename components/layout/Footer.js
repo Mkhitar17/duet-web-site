@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./layout.module.css";
+
 import Image from "next/image";
 import footerImage from "@/public/duet.svg"
 import footerTel from "@/public/contact.svg"
@@ -116,7 +117,7 @@ export default function Footer() {
       </div>
 
 
-      <p>© {new Date().getFullYear()} By ArmCoding - © 2024 All Rights Reserved.</p>
+      <p className={styles.footerArmCoding}>© {new Date().getFullYear()} By ArmCoding - © 2024 All Rights Reserved.</p>
     </footer>
   );
 }

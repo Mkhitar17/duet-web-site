@@ -18,7 +18,23 @@
   flex-direction: column;
   justify-content: center;
   gap: 63px;
+  opacity: 0;
+  transform: translateX(-100px);
+  animation: appearFromLeft 0.8s ease-out forwards;
 }
+
+@keyframes appearFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 
 .ContactItems {
   display: flex;
@@ -78,7 +94,24 @@
   width: 80%;
   border-radius: 10px;
   margin: 0 auto;
+  opacity: 0;
+  transform: translateX(100px);
+  animation: appearFromRight 0.8s ease-out forwards;
 }
+
+@keyframes appearFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
 
 .inputField {
   height: 67px;
@@ -130,5 +163,177 @@
 
 .inputField::placeholder,
 .form textarea::placeholder {
-  color: #1d1d1d; 
+  color: #1d1d1d;
+}
+
+@media (max-width:1440px) {
+  .Container {
+    width: auto;
+    height: auto;
+  }
+
+  .ContactContentContainer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 139px;
+    padding: 34px 50px 0 17px;
+  }
+
+  .ContactInfoContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 63px;
+    opacity: 0;
+    transform: translateX(-100px);
+    animation: appearFromLeft 0.8s ease-out forwards;
+  }
+
+  @keyframes appearFromLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+
+  .ContactItems {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15.49px;
+    border: 1px solid red;
+  }
+
+  .SocialContacts {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+  }
+
+  .PhoneNumberContainer {}
+
+  .SocialIcons {
+    display: flex;
+    gap: 9px;
+  }
+
+  .EmailContainer {}
+
+  .LocationContainer {}
+
+  .PhoneNumberContainer,
+  .EmailContainer,
+  .LocationContainer {
+    display: flex;
+    align-items: center;
+    gap: 7.75px;
+  }
+
+  .PhoneNumberContainer span,
+  .EmailContainer span,
+  .LocationContainer span {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: var(--text-color-white);
+
+  }
+
+  .LocationContainer span {
+    font-family: 'Bokonique', sans-serif !important;
+  }
+
+  .MapContainer {
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .formContainer {
+    width: 96%;
+    border-radius: 10px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateX(100px);
+    animation: appearFromRight 0.8s ease-out forwards;
+  }
+
+  @keyframes appearFromRight {
+    0% {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+
+
+  .inputField {
+    height: 67px;
+    background: #EEEEEE;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 17px;
+    line-height: 25.6px;
+    color: #1d1d1d;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    border: 1px solid red;
+  }
+
+  .form textarea {
+    height: 190px;
+    resize: none;
+    background: #EEEEEE;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 17px;
+    line-height: 25.6px;
+    color: #1d1d1d;
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    row-gap: 37px;
+  }
+
+  .inputRow {
+    display: flex;
+    gap: 20px;
+
+  }
+
+
+  .fullWidth {
+    width: 100%;
+  }
+
+
+  .inputField::placeholder,
+  .form textarea::placeholder {
+    color: #1d1d1d;
+  }
 }

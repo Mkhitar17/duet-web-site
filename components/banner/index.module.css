@@ -4,14 +4,16 @@
     height: 732px;
     width: 100%;
 }
-.Overlay{
+
+.Overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(28, 28, 28, 0.5); /* Semi-transparent black */
-    z-index: 1; 
+    background-color: rgba(28, 28, 28, 0.5);
+    /* Semi-transparent black */
+    z-index: 1;
 }
 
 .BannerImage {
@@ -31,15 +33,11 @@
     display: flex;
     flex-direction: column;
     gap: 53px;
-    /* height: 120px;
-    width: 100px; */
     width: 374px;
 
-    /* background: red; */
 }
 
 .BannerTextContainer span:nth-child(1) {
-    /* font-size: 88px; */
     font-family: 'Arm Hmk Bebas Neue', sans-serif;
     font-size: 88px;
     line-height: 105.6px;
@@ -47,7 +45,21 @@
     font-weight: 400;
     text-transform: uppercase;
     color: var(--text-color-white);
+    animation: slideInFromLeft 1.5s ease-out;
 }
+
+@keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 
 .BannerTextContainer span:nth-child(2) {
     font-size: 18px;
@@ -56,8 +68,21 @@
     font-weight: 400;
     max-width: 100%;
     color: var(--text-color-white);
-
+    animation: slideInFromRight 1.5s ease-out;
 }
+
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 
 
 
@@ -65,4 +90,106 @@
     height: 56px;
     background: red;
 
+}
+
+@media(max-width:1440px){
+    .Container {
+        position: relative;
+        z-index: 1;
+        height: 732px;
+        width: 100%;
+    }
+    
+    .Overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(28, 28, 28, 0.5);
+        /* Semi-transparent black */
+        z-index: 1;
+    }
+    
+    .BannerImage {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .BannerTextContainer {
+        position: absolute;
+        z-index: 10;
+        top: 50%;
+        /* Position the top edge at 50% of the parent */
+        left: 50%;
+        /* Position the left edge at 50% of the parent */
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 53px;
+        width: 80%;
+
+    
+    }
+    
+    .BannerTextContainer span:nth-child(1) {
+        font-family: 'Arm Hmk Bebas Neue', sans-serif;
+        font-size: 65px;
+        line-height: 72px;
+        letter-spacing: -0.42px;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: var(--text-color-white);
+        animation: slideInFromLeft 1.5s ease-out;
+    }
+    
+    @keyframes slideInFromLeft {
+        0% {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+    
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    
+    .BannerTextContainer span:nth-child(2) {
+        font-size: 17px;
+        line-height: 20px;
+        letter-spacing: -0.23px;
+        font-weight: 400;
+        max-width: 100%;
+        width: 272px;
+        
+        color: var(--text-color-white);
+        animation: slideInFromRight 1.5s ease-out;
+    }
+    
+    @keyframes slideInFromRight {
+        0% {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+    
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    
+    
+    
+    .bannerBotton {
+        width: 272px;
+        height: 56px;
+        background: red;
+    
+    }
 }

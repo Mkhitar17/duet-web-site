@@ -19,7 +19,7 @@ export default function SectionHeadline({ title, gridRef, scrollAmount, customSt
     return (
         <div className={styles.Container} style={customStyles}>
             <span className={styles.Title}>{title}</span>
-            {showIcons && ( // Conditionally render icons
+            {showIcons && ( 
                 <div className={styles.NavigationIcons}>
                     <Image
                         onClick={scrollLeft}

@@ -15,8 +15,23 @@
     display: flex;
     flex-direction: column;
     gap: 53px;
-
+    opacity: 0;
+    transform: translateX(-100px);
+    animation: appearFromLeft 0.8s ease-out forwards;
 }
+
+@keyframes appearFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 
 .TextContainer span {
 
@@ -30,10 +45,106 @@
 .ImageContainer {
     width: 636px;
     height: 360px;
+    opacity: 0;
+    transform: translateX(100px);
+    animation: appearFromRight 0.8s ease-out forwards;
 }
+
+@keyframes appearFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 
 .AboutImage {
     object-fit: cover;
 
 }
 
+@media (max-width:1440px) {
+    .Container {
+        padding: 0 63px 100px 71px;
+
+    }
+
+    .ContentContainer {
+        width: 90%;
+        display: flex;
+        /* justify-content: center; */
+        flex-direction: column;
+        gap: 30px;
+
+    }
+
+    .TextContainer {
+        max-width: 464px;
+        display: flex;
+        border: 1px solid red;
+        width: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 53px;
+        opacity: 0;
+        transform: translateX(-100px);
+        animation: appearFromLeft 0.8s ease-out forwards;
+    }
+
+    @keyframes appearFromLeft {
+        0% {
+            opacity: 0;
+            transform: translateX(-100px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+
+    .TextContainer span {
+        width: 360px;
+        font-size: 18px;
+        line-height: 20px;
+        letter-spacing: -0.23px;
+        font-weight: 400;
+        color: var(--text-color-white);
+    }
+
+    .ImageContainer {
+        width: 361px;
+        height: 204px;
+        opacity: 0;
+        transform: translateX(100px);
+        margin-left: 40px;
+        animation: appearFromRight 0.8s ease-out forwards;
+    }
+
+    @keyframes appearFromRight {
+        0% {
+            opacity: 0;
+            transform: translateX(100px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+
+    .AboutImage {
+        width: 360px;
+        max-width: 1440px;
+        border-radius: 4px;
+        object-fit: cover;
+
+    }
+}

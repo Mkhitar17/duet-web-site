@@ -1,15 +1,14 @@
-.Container{
+.Container {
     display: flex;
     align-items: flex-end;
     justify-content: center;
     height: 100%;
 }
 
-.ProductImageContainer{
+.ProductImageContainer {
     width: 329px;
 }
 
-.ProductImage:hover{
-    /* height: 400px; */
-/* background-color: red; */
+.ProductImage:hover {
+    height: 500px;
 }
