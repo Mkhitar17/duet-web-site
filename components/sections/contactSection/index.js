@@ -1,4 +1,6 @@
-import { useState, useRef } from "react";
+
+
+import { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import Image from "next/image";
 import tel from "@/public/contact.svg";
@@ -8,15 +10,17 @@ import mail from "@/public/mail.svg";
 import location from "@/public/location.svg";
 import SectionHeadline from "@/components/sectionHeadline";
 import Button from "@/components/buttons/PrimaryButton";
+import emailjs from "emailjs-com";
 
 export default function ContactSection() {
-
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
         email: "",
         message: "",
     });
+
+    const [isSending, setIsSending] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -26,11 +30,53 @@ export default function ContactSection() {
         }));
     };
 
+
+    useEffect(() => {
+        console.log(formData)
+    }, [formData])
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Form submitted: ", formData);
-        alert("Form Submitted Successfully!");
+
+        if (!formData.firstName || !formData.lastName || !formData.email || !formData.message) {
+            alert("Please fill in all fields!");
+            return;
+        }
+
+        setIsSending(true);
+
+        const templateParams = {
+            from_name: formData.firstName,
+            to_name: "Duet",
+            from_email: formData.email, 
+            message: formData.message,
+        };
+
+        emailjs
+            .send(
+                "service_8ivgtvt", 
+                "template_7d9osdu", 
+                templateParams,
+                "lPz7KtDq8TRTKVEja" 
+            )
+            .then(
+                () => {
+                    alert("Your message has been sent successfully!");
+                    setFormData({
+                        firstName: "",
+                        lastName: "",
+                        email: "",
+                        message: "",
+                    });
+                },
+                (error) => {
+                    console.error("Failed to send message:", error);
+                    alert("Failed to send your message. Please try again.");
+                }
+            )
+            .finally(() => setIsSending(false));
     };
+
     return (
         <div className={styles.Container}>
             <SectionHeadline
@@ -40,7 +86,6 @@ export default function ContactSection() {
                     justifyContent: "flex-start",
                     paddingLeft: "71px",
                 }}
-
             />
             <div className={styles.ContactContentContainer}>
                 <div className={styles.ContactInfoContainer}>
@@ -48,7 +93,7 @@ export default function ContactSection() {
                         <div className={styles.SocialContacts}>
                             <div className={styles.PhoneNumberContainer}>
                                 <Image src={tel} width={24} height={24} alt="Phone" />
-                                <span >098 604406</span>
+                                <span>098 604406</span>
                             </div>
                             <div className={styles.SocialIcons}>
                                 <a href="https://www.facebook.com/dueticecoffee?locale=ru_RU"
@@ -66,15 +111,13 @@ export default function ContactSection() {
                         <div className={styles.EmailContainer}>
 
                             <Image src={mail} width={24} height={24} alt="Mail" />
-                            <span >duet.coffee@gmail.com</span>
+                            <span>duet.coffee@gmail.com</span>
                         </div>
                         <div className={styles.LocationContainer}>
                             <Image src={location} width={24} height={24} alt="Location" />
-                            <span > Հաղթանակ թաղամաս, 1 փողոց 48 շինություն</span>
+                            <span> Հաղթանակ թաղամաս, 1 փողոց 48 շինություն</span>
                         </div>
-
                     </div>
-
                     <div className={styles.MapContainer}>
                         <iframe
                             src="https://yandex.ru/map-widget/v1/?ll=44.421818%2C40.196547&z=15&l=map&pt=44.421818,40.196547,pm2rdm"
@@ -84,10 +127,8 @@ export default function ContactSection() {
                             allowFullScreen
                             loading="lazy"
                         ></iframe>
-
                     </div>
                 </div>
-
                 <div className={styles.formContainer}>
                     <form onSubmit={handleSubmit} className={styles.form}>
                         <div className={styles.inputRow}>
@@ -125,8 +166,9 @@ export default function ContactSection() {
                         ></textarea>
                         <Button
                             type="submit"
-                            text="Ուղարկել"
+                            text={isSending ? "Sending..." : "Ուղարկել"}
                             customStyles={{ maxWidth: "255px" }}
+                            disabled={isSending}
                         />
                     </form>
                 </div>

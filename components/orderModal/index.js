@@ -6,9 +6,9 @@ import CloseIcon from "@/public/icons/close-red.svg";
 import tel from "@/public/icons/tel-black.svg";
 import mail from "@/public/icons/email-black.svg";
 import location from "@/public/icons/location-black.svg";
+import emailjs from "emailjs-com";
 
 export default function OrderModal({ onClose }) {
-
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
@@ -17,6 +17,8 @@ export default function OrderModal({ onClose }) {
         message: "",
     });
 
+    const [isSending, setIsSending] = useState(false);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({
@@ -24,16 +26,56 @@ export default function OrderModal({ onClose }) {
             [name]: value,
         }));
     };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Form submitted: ", formData);
-        alert("Form Submitted Successfully!");
+
+        if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.message) {
+            alert("Please fill in all fields!");
+            return;
+        }
+
+        setIsSending(true);
+
+        const templateParams = {
+            from_name: `${formData.firstName} ${formData.lastName}`,
+            from_email: formData.email,
+            phone: formData.phone,
+            message: formData.message,
+            to_name: "Duet",
+        };
+
+        emailjs
+            .send(
+                "service_8ivgtvt",
+                "template_cgxox34",
+                templateParams,
+                "lPz7KtDq8TRTKVEja"
+            )
+            .then(
+                () => {
+                    alert("Your order request has been sent successfully!");
+                    setFormData({
+                        firstName: "",
+                        lastName: "",
+                        email: "",
+                        phone: "",
+                        message: "",
+                    });
+                    onClose();
+                },
+                (error) => {
+                    console.error("Failed to send message:", error);
+                    alert("Failed to send your order request. Please try again.");
+                }
+            )
+            .finally(() => setIsSending(false));
     };
+
 
     return (
         <div className={styles.modalOverlay}>
             <div className={styles.modalContent}>
-
                 <div className={styles.ModalHeadline}>
                     <div className={styles.HeadlineText}>
                         <span>Պատվիրել Հումք</span>
@@ -45,7 +87,7 @@ export default function OrderModal({ onClose }) {
                             width={0}
                             height={0}
                             className={styles.Image}
-                            alt="image"
+                            alt="Close"
                         />
                     </div>
                 </div>
@@ -53,17 +95,16 @@ export default function OrderModal({ onClose }) {
                 <div className={styles.ContactItems}>
                     <div className={styles.PhoneNumberContainer}>
                         <Image src={tel} width={20} height={20} alt="Phone" />
-                        <span >098 604406</span>
+                        <span>098 604406</span>
                     </div>
                     <div className={styles.EmailContainer}>
                         <Image src={mail} width={20} height={20} alt="Mail" />
-                        <span >duet.coffee@gmail.com</span>
+                        <span>duet.coffee@gmail.com</span>
                     </div>
                     <div className={styles.LocationContainer}>
                         <Image src={location} width={20} height={20} alt="Location" />
-                        <span > Հաղթանակ թաղամաս, 1 փողոց 48 շինություն</span>
+                        <span>Հաղթանակ թաղամաս, 1 փողոց 48 շինություն</span>
                     </div>
-
                 </div>
 
                 <div className={styles.formContainer}>
@@ -111,13 +152,14 @@ export default function OrderModal({ onClose }) {
                         ></textarea>
                         <Button
                             type="submit"
-                            text="Ուղարկել"
+                            text={isSending ? "Ուղարկվում է..." : "Ուղարկել"}
                             customStyles={{ maxWidth: "100%" }}
+                            disabled={isSending}
                         />
                     </form>
                 </div>
-
             </div>
         </div>
     );
 }
+

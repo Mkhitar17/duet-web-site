@@ -9,7 +9,20 @@ import sevDuet from "@/public/products/sevduet.png";
 import SectionHeadline from "@/components/sectionHeadline";
 
 export default function ProducTionSection() {
-    const imagesArray = [sevDuet, dexc, kapuyt, kat, limon, kat, kat, kat, kat, kat, kat];
+    // const imagesArray = [sevDuet, dexc, kapuyt, kat, limon, kat, kat, kat, kat, kat, kat];
+    const imagesArray = [
+        "https://i.imgur.com/D1mwBlM.png",
+        "https://i.imgur.com/pkLpCwl.png",
+        "https://i.imgur.com/kxF5fq3.png",
+        "https://i.imgur.com/wfjyMnX.png",
+        "https://i.imgur.com/DZXG0FV.png",
+        "https://i.imgur.com/pkLpCwl.png",
+        "https://i.imgur.com/8DOu99a.png",
+        "https://i.imgur.com/TVJY3Yf.png",
+        "https://i.imgur.com/h3rqtzD.png",
+    ];
+
+
     const gridRef = useRef(null);
 
     const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -27,24 +40,7 @@ export default function ProducTionSection() {
             />
             <div className={styles.ProductsSlider} ref={gridRef}>
                 {imagesArray.map((image, index) => (
-                    <div
-                        key={index}
-                        onMouseEnter={() => setHoveredIndex(index)} 
-                        onMouseLeave={() => setHoveredIndex(null)} 
-                        className={styles.productItemContainer}
-                    >
-                        <ProducItem image={image} className={styles.testImg} />
-                        <div
-                            className={`${styles.testKlor} ${hoveredIndex === index ? styles.animateKlor : ""
-                                }`}
-                        ></div>
-                        {hoveredIndex === index && (
-                            <div className={styles.hoverContent}>
-                                <p className={styles.testText}>200մլ</p>
-                                <button className={styles.buttonTest}>Տեսնել ավելին</button>
-                            </div>
-                        )}
-                    </div>
+                    <ProducItem key={index} image={image} />
                 ))}
             </div>
         </div>

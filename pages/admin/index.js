@@ -1,36 +1,34 @@
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import withAuth from '@/hoc/withAuth';
-import axios from 'axios';
-import adminWrapper from "@/components/wrappers/adminWrapper";
 
-const AdminDashboard = () => {
-  const [admin, setAdmin] = useState(null);
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+import { checkAuthentication } from "@/redux/slices/authSlice";
+
+const AdminIndex = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state) => state.auth);
 
-//   useEffect(() => {
-//     const fetchAdmin = async () => {
-//       try {
-//         const { data } = await axios.get('/api/handlers/admin/verify', { withCredentials: true });
-//         setAdmin(data.admin);
-//       } catch (err) {
-//         router.push('/admin/signin'); // Redirect to sign-in on failure
-//       }
-//     };
+  useEffect(() => {
+    dispatch(checkAuthentication())
+      .unwrap()
+      .then((admin) => {
+        if (admin) {
+          router.replace("/admin/dashboard"); 
+        } else {
+          router.replace("/admin/signin"); 
+        }
+      })
+      .catch(() => {
+        router.replace("/admin/signin"); 
+      });
+  }, [dispatch, router]);
 
-//     fetchAdmin();
-//   }, [router]);
-
-  if (!admin) {
-    return <p>Loading...</p>;
+  if (loading) {
+    return <div>Loading...</div>; 
   }
 
-  return (
-    <div>
-      <h1>Welcome, {admin.username}</h1>
-      <p>This is your dashboard.</p>
-    </div>
-  );
+  return null;
 };
 
-export default adminWrapper(AdminDashboard);
+export default AdminIndex;
