@@ -34,8 +34,7 @@ export default function ProducTionSection() {
                 gridRef={gridRef}
                 scrollAmount={300}
                 customStyles={{
-                    paddingRight: "71px",
-                    paddingLeft: "71px",
+                    
                 }}
             />
             <div className={styles.ProductsSlider} ref={gridRef}>

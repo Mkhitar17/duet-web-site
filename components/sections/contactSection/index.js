@@ -83,8 +83,6 @@ export default function ContactSection() {
                 title="կապ մեզ հետ"
                 showIcons={false}
                 customStyles={{
-                    justifyContent: "flex-start",
-                    paddingLeft: "71px",
                 }}
             />
             <div className={styles.ContactContentContainer}>

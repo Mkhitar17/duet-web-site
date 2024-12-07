@@ -22,6 +22,7 @@
     opacity: 0;
     transform: translateX(-100px);
     animation: appearFromLeft 0.8s ease-out forwards;
+    padding-left: 75px;
 }
 
 @keyframes appearFromLeft {
@@ -38,7 +39,7 @@
 
 
 .NavigationIcons {
-    width: 5.5%;
+    width: 9%;
     display: flex;
     gap: 11px;
     opacity: 0;
@@ -78,13 +79,9 @@
         font-size: 40px;
         line-height: 48px;
         letter-spacing: -0.42px;
-        padding-left: 0;
-        padding-right: 0;
+        padding-left: 20px;
     }
-    .sectionHeadline_Container__knylM{
-        padding-left: 0;
-        padding-right: 0;
-    }
+  
     
     .Title {
         font-family: 'Arm Hmk Bebas Neue', sans-serif;
@@ -92,10 +89,9 @@
         font-weight: 400;
         font-size: 30px;
         opacity: 0;
-        padding-left: 0;
-        padding-right: 0;
         transform: translateX(-100px);
         animation: appearFromLeft 0.8s ease-out forwards;
+      
     }
     
     @keyframes appearFromLeft {

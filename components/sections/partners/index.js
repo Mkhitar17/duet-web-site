@@ -15,8 +15,8 @@ export default function PartnersSection() {
                 gridRef={gridRef}
                 scrollAmount={300} 
                 customStyles={{
-                    paddingRight: "77px",
-                    paddingLeft: "64px",
+                    // paddingRight: "77px",
+                    // paddingLeft: "64px",
                 }}
             />
             <div className={styles.PartnersGrid} ref={gridRef}>

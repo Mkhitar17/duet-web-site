@@ -37,7 +37,7 @@ const AdminSignIn = () => {
       }}
     >
       <h1 className={styles.adminTitle}>Admin Sign-In</h1>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p style={{ color: 'red', paddingTop:'15px' }}>{error}</p>}
       <form onSubmit={handleSubmit}>
         {/* Username Input */}
         <div style={{ marginBottom: '15px' }} className={styles.adminDiv}>

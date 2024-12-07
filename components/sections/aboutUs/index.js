@@ -29,14 +29,12 @@ export default function About() {
 
     return (
         <div className={styles.Container}>
-            <SectionHeadline
+            {/* <SectionHeadline
                 title="Մեր մասին"
                 showIcons={false}
-                customStyles={{
-                    justifyContent: "flex-start",
-                }}
 
-            />
+            /> */}
+            <h1 className={styles.aboutTitle}>Մեր մասին</h1>
             <div className={styles.ContentContainer}>
                 <div className={styles.TextContainer}>
                     <span>

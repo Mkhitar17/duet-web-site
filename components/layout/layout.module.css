@@ -103,9 +103,9 @@
 
 /* mobile header */
 @media (max-width:1440px) {
-  /* .nav {
+  .nav {
     display: none;
-  } */
+  }
 }
 
 
