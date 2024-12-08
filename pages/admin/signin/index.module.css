@@ -5,15 +5,41 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    backdrop-filter: blur(10px); /* Размытие фона */
+    /* background-color: ; */
+    z-index: 999;
+    background: linear-gradient(135deg , rgba(0, 0, 0, 0.241), rgba(255, 0, 0, 0.241), rgba(255, 255, 255, 0.241) );
+    background-size: 300% 300%;
+    animation: gradientAnimtion 8s ease infinite;
+    /* position: relative; */
+    box-shadow: 0 4px 30px black;
+}
+
+@keyframes gradientAnimtion {
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+
+    }
+    100%{
+        background-position: 0% 50%;
+
+    }
+    
 }
 
 .adminDiv {
     width: 300px;
     margin-top: 30px;
+    background: none;
+   
 }
 
 .adminTitle {
     color: white;
+    text-shadow: 6px 8px 10px black;
 }
 
 .AdminSignInTitle {

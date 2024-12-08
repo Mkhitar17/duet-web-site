@@ -58,6 +58,8 @@ const AdminSignIn = () => {
               borderRadius: '5px',
               border: '1px solid #ccc',
               boxSizing: 'border-box',
+              boxShadow: "2px 4px 6px 1px black "
+
             }}
           />
         </div>
@@ -80,6 +82,8 @@ const AdminSignIn = () => {
               borderRadius: '5px',
               border: '1px solid #ccc',
               boxSizing: 'border-box',
+              boxShadow: "2px 4px 6px 1px black "
+
             }}
           />
         </div>
@@ -91,11 +95,12 @@ const AdminSignIn = () => {
           style={{
             width: '100%',
             padding: '10px',
-            backgroundColor: loading ? '#cccccc' : '#007BFF',
+            backgroundColor: loading ? '#cccccc' : 'red',
             color: '#fff',
             border: 'none',
             borderRadius: '5px',
             cursor: loading ? 'not-allowed' : 'pointer',
+            boxShadow: "2px 4px 6px 1px black "
           }}
           disabled={loading}
         >
