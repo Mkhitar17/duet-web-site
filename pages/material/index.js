@@ -5,16 +5,12 @@ import Image from "next/image";
 import ProducItem from "@/components/productItem";
 import ProducItemMobile from "@/components/producItemMobile";
 import SectionHeadline from "@/components/sectionHeadline";
-import limon from "@/public/products/limon-shish.png";
-import materialImage from "@/public/materialImage.png";
 import Button from "@/components/buttons/PrimaryButton";
 import OrderModal from "@/components/orderModal"
 
 
 export default function Material() {
 
-    const [activeTab, setActiveTab] = useState(0);
-    const activeItems = [limon, limon, limon, limon, limon];
     const materialData = useSelector((state) => state.publicData.data?.pageData?.material);
 
     const materialItems = useMemo(() => {
