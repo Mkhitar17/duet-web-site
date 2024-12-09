@@ -13,6 +13,7 @@ import Button from "@/components/buttons/PrimaryButton";
 import emailjs from "emailjs-com";
 
 export default function ContactSection() {
+    const [paddingLeft, setPaddingLeft] = useState("71px");
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
@@ -77,13 +78,29 @@ export default function ContactSection() {
             .finally(() => setIsSending(false));
     };
 
+    useEffect(() => {
+        const updatePadding = () => {
+          if (window.innerWidth < 1440) {
+            setPaddingLeft("16px");
+          } else {
+            setPaddingLeft("71px");
+          }
+        };
+    
+        updatePadding();
+    
+        window.addEventListener("resize", updatePadding);
+    
+        return () => window.removeEventListener("resize", updatePadding);
+      }, []);
+
     return (
         <div className={styles.Container}>
             <SectionHeadline
                 title="կապ մեզ հետ"
                 showIcons={false}
-                customStyles={{
-                }}
+                customStyles={{paddingLeft }}
+                
             />
             <div className={styles.ContactContentContainer}>
                 <div className={styles.ContactInfoContainer}>
@@ -120,7 +137,7 @@ export default function ContactSection() {
                         <iframe
                             src="https://yandex.ru/map-widget/v1/?ll=44.421818%2C40.196547&z=15&l=map&pt=44.421818,40.196547,pm2rdm"
                             width="100%"
-                            height="240"
+                            height="100%"
                             style={{ border: "none", borderRadius: "10px" }}
                             allowFullScreen
                             loading="lazy"

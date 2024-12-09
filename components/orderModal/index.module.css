@@ -130,3 +130,25 @@
 .form textarea::placeholder {
     color: #1d1d1d;
 }
+
+@media (max-width:1440px) {
+    .modalContent {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        width: 100%;
+        background: white;
+        padding: 20px 20px 50px 20px;
+        border-radius: 8px;
+        text-align: center;
+        overflow: auto;
+        max-height: calc(100vh - 170px);
+        scrollbar-width: none;
+        margin: 0 12px;
+    }
+
+    .modalContent::-webkit-scrollbar {
+        width: 0px;
+        display: none;
+    }
+}

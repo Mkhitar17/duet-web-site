@@ -18,6 +18,11 @@
     gap: 45px;
     justify-content: center;
 }
+.SectionContainer2 {
+    display: flex;
+    gap: 45px;
+    justify-content: center;
+}
 
 .TextContainer {
     display: flex;
@@ -34,7 +39,7 @@
     color: var(--text-color-white);
 }
 
-.TextContainer2{
+.TextContainer2 {
     display: flex;
     align-items: flex-start;
     min-width: 625px;
@@ -62,9 +67,6 @@
 }
 
 
-.SmallImage {
-    background-size: cover;
-}
 
 .ImageContainer {
     display: flex;
@@ -78,5 +80,114 @@
     height: 100%;
     width: 100%;
     background-size: cover;
+    object-fit: cover;
     border-radius: 8px;
+}
+
+.smallImageContainer {
+    height: 130px;
+    aspect-ratio: 1/1;
+}
+
+.SmallImage {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    object-fit: cover;
+}
+
+
+
+
+
+@media (max-width:1440px) {
+    .Container {
+        padding: 99px 16px 50px 16px;
+    }
+
+    .ContentContainer {
+        margin-top: 23px;
+    }
+    
+
+    .InfoSectionsCopntainer {
+        gap: 43px;
+    }
+
+    .SectionContainer {
+        padding-top: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 59px;
+        justify-content: center;
+    }
+
+    .SectionContainer2 {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 51px;
+        justify-content: center;
+    }
+
+    .TextContainer {
+        display: flex;
+        align-items: center;
+        min-width: 100%;
+        gap: 53px;
+    }
+
+    .TextContainer2 {
+        display: flex;
+        align-items: flex-start;
+        min-width: 100%;
+        gap: 53px;
+    }
+
+
+    .ImageContainer {
+        display: flex;
+        height: 204px;
+        min-width: 100%;
+        border-radius: 8px;
+
+    }
+
+    .Image {
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+
+    .ImagesContent {
+        display: flex;
+        flex-direction: column;
+        gap: 49px;
+    }
+
+
+    .SmallImagesContainer {
+        width: 100%;
+        justify-content: space-between;
+        display: flex;
+    }
+
+
+
+    .smallImageContainer {
+        height: 73px;
+        aspect-ratio: 1/1;
+    }
+
+    .SmallImage {
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        object-fit: cover;
+    }
+
+
+
 }

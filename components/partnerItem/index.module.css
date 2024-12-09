@@ -1,6 +1,9 @@
 @media (max-width:1440px){
     .ProductImageContainer{
         position: relative;
-        left: -35px;
+    }
+    .PartnerLogo{
+        height: 66px;
+        width:98px;
     }
 }

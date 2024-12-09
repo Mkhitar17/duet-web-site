@@ -1,6 +1,5 @@
 .Container {
     position: relative;
-    max-width: 380px;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -19,7 +18,7 @@
 }
 
 .ProductImage {
-    width: auto;   
+    width: 100%;   
     height: auto;        
     max-width: none;    
     max-height: none; 
@@ -100,6 +99,23 @@
     font-weight: 400;
 }
 
+
+.CircleBackground {
+    display: none;
+}
+
+
+.ShowCircle {
+    display: none;
+
+}
+
+.HoverContent {
+    display: none;
+
+}
+
+
 @keyframes slideUp {
     from {
         bottom: -40px;
@@ -117,82 +133,3 @@
     }
   }
 
-@media (max-width:1440px) {
-
-    .Container {
-        position: relative;
-        max-width: 173px;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: flex-end;
-    }
-    
-    .ProductImageContainer {
-        background: none;
-        max-height: 205px;
-        width: 173px;
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-start;
-        overflow: visible;
-    }
-    
-    .ProductImage {
-        width: auto;   
-        height: auto;        
-        max-width: none;    
-        max-height: none; 
-        transform: scale(1); 
-        transition: transform 0.3s ease;
-    }
-    
-    .DefaultCircle {
-        position: absolute;
-        bottom: 0; 
-        left: 50%;
-        width: 100%; 
-        height: 100px;
-        transform: translateX(-50%);
-        border: 1px dashed #ffffff;
-        border-radius: 50%;
-        opacity: 1;
-        transition: opacity 0.3s ease;
-        pointer-events: none; 
-    }
-    
-    .CircleBackground {
-        display: none;
-    }
-    
-    
-    .ShowCircle {
-        display: none;
-    }
-    
-    .HoverContent {
-        display: none;
-    }
-    
-    .HoverText {
-        color:var(--text-color-white);
-        font-size: 18px;
-        line-height: 20px;
-        letter-spacing: -0.23px;
-        font-weight: 400;
-    }
-    
-    .HoverButton {
-        padding: 10px 20px;
-        border: 1px solid #FFFFFF;
-        color:var(--text-color-white);
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        font-size: 14px;
-        line-height: 20px;
-        letter-spacing: -0.23px;
-        font-weight: 400;
-    }
-}

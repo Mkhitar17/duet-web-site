@@ -61,6 +61,11 @@ body {
   flex-direction: column;
 }
 
+.noScroll {
+  height: 100vh;
+  overflow: hidden;
+}
+
 main {
   flex: 1;
 }

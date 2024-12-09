@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import styles from "./index.module.css";
 import Image from "next/image";
 import ProducItem from "@/components/producItem";
+import ProducItemMobile from "@/components/producItemMobile";
 import SectionHeadline from "@/components/sectionHeadline";
 import limon from "@/public/products/limon-shish.png";
 import materialImage from "@/public/materialImage.png";
@@ -18,11 +19,11 @@ export default function Material() {
 
 
     const handleClick = () => {
-        setIsModalOpen(true); 
+        setIsModalOpen(true);
     };
 
     const closeModal = () => {
-        setIsModalOpen(false); 
+        setIsModalOpen(false);
     };
 
     return (
@@ -66,6 +67,13 @@ export default function Material() {
                     {activeItems.map((image, index) => (
                         <div key={index} >
                             <ProducItem image={image} />
+                        </div>
+                    ))}
+                </div>
+                <div className={styles.ProductsContainerMobile}>
+                    {activeItems.map((image, index) => (
+                        <div key={index} >
+                            <ProducItemMobile image={image} />
                         </div>
                     ))}
                 </div>

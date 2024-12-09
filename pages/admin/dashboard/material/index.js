@@ -326,9 +326,9 @@ const AdminMaterialsSection = () => {
         setUpdatedData((prev) => {
             const materialItems = [...(prev.materialItems || [])];
             if (index !== undefined) {
-                materialItems[index] = fileWithPreview; // Replace the specific image
+                materialItems[index] = fileWithPreview; 
             } else {
-                materialItems.push(fileWithPreview); // Add a new image
+                materialItems.push(fileWithPreview); 
             }
             return {
                 ...prev,
@@ -496,13 +496,6 @@ const AdminMaterialsSection = () => {
                             </div>
                         </div>
                     ))}
-                    {/* <div>
-                        <input
-                            type="file"
-                            onChange={(e) => handleMaterialItemChange(e)}
-                            className={styles.FileInput}
-                        />
-                    </div> */}
                 </div>
 
             </div>

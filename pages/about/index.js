@@ -48,7 +48,7 @@ export default function ProducTionSection() {
                         </div>
                     </div>
 
-                    <div className={styles.SectionContainer}>
+                    <div className={styles.SectionContainer2}>
                         <div className={styles.ImagesContent}>
                             <div className={styles.ImageContainer}>
                                 <Image
@@ -61,11 +61,11 @@ export default function ProducTionSection() {
                             </div>
                             <div className={styles.SmallImagesContainer}>
                                 {imagesArray.map((image, index) => (
-                                    <div key={index}>
+                                    <div className={styles.smallImageContainer} key={index}>
                                         <Image
                                             src={image}
-                                            width={130}
-                                            height={130}
+                                            width={10000}
+                                            height={1000}
                                             className={styles.SmallImage}
                                             alt="image"
                                         />

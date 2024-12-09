@@ -22,7 +22,6 @@
     opacity: 0;
     transform: translateX(-100px);
     animation: appearFromLeft 0.8s ease-out forwards;
-    padding-left: 75px;
 }
 
 @keyframes appearFromLeft {
@@ -72,16 +71,6 @@
     }
     
     
-    .Container span {
-        font-family: 'Arm Hmk Bebas Neue', sans-serif;
-        color: var(--text-color-white);
-        font-weight: 400;
-        font-size: 40px;
-        line-height: 48px;
-        letter-spacing: -0.42px;
-        padding-left: 20px;
-    }
-  
     
     .Title {
         font-family: 'Arm Hmk Bebas Neue', sans-serif;
@@ -91,6 +80,7 @@
         opacity: 0;
         transform: translateX(-100px);
         animation: appearFromLeft 0.8s ease-out forwards;
+        padding-left: 0px;
       
     }
     

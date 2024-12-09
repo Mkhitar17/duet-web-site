@@ -1,18 +1,30 @@
 .adminContainer {
     width: auto;
     height: 400px;
+    max-width: 400px;
+    margin: 140px auto;
+    border: 1px solid #ccc;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(10px); /* Размытие фона */
-    /* background-color: ; */
+    border-radius: 10px;
     z-index: 999;
     background: linear-gradient(135deg , rgba(0, 0, 0, 0.241), rgba(255, 0, 0, 0.241), rgba(255, 255, 255, 0.241) );
     background-size: 300% 300%;
     animation: gradientAnimtion 8s ease infinite;
-    /* position: relative; */
     box-shadow: 0 4px 30px black;
+}
+
+.adminInput{
+    width: 100%;
+    padding: 10px;
+    color: var(--text-color-white);
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    box-shadow: 2px 4px 6px 1px black;
 }
 
 @keyframes gradientAnimtion {
@@ -21,13 +33,10 @@
     }
     50%{
         background-position: 100% 50%;
-
     }
     100%{
         background-position: 0% 50%;
-
     }
-    
 }
 
 .adminDiv {
@@ -49,7 +58,6 @@
     font-weight: 600;
     text-align: center;
     padding-top: 10px;
-
 }
 .adminInput{
     margin-top: 15px;

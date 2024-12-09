@@ -26,10 +26,10 @@ export default function Footer() {
         </div>
 
         <div className={styles.footerLinks}>
-          <ul className={styles.ul}>
+          <div className={styles.usefulHeadline}>
             <Link href='/' className={styles.linkTitle}>Օգտակար հղումներ</Link>
-          </ul>
-          <div className={styles.footerLinksSize}>
+          </div>
+          <div className={styles.footerLinksContainer}>
             <Link href="/" className={styles.links}>Մեր մասին</Link>
             <Link href="/about" className={styles.links}>Արտադրանք</Link>
             <Link href="/contact" className={styles.links}>Հումք</Link>
@@ -82,7 +82,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className={styles.footerFollowCont}>
+        <div className={styles.footerFollowContent}>
           <h1 className={styles.footerFollowMe}>Հետևեք մեզ</h1>
           <div className={styles.footerFollowIcons}>
           <a href="https://www.facebook.com/dueticecoffee?locale=ru_RU"

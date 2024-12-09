@@ -26,20 +26,11 @@ const AdminSignIn = () => {
   };
 
   return (
-    <div className={styles.adminContainer}
-      style={{
-        maxWidth: '400px',
-        margin: '140px auto',
-        // padding: '200px 0 0 0',
-        border: '1px solid #ccc',
-        borderRadius: '10px',
-        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
-      }}
-    >
+    <div className={styles.adminContainer}>
+    
       <h1 className={styles.adminTitle}>Admin Sign-In</h1>
       {error && <p style={{ color: 'red', paddingTop:'15px' }}>{error}</p>}
       <form onSubmit={handleSubmit}>
-        {/* Username Input */}
         <div style={{ marginBottom: '15px' }} className={styles.adminDiv}>
           <label className={styles.AdminSignInTitle} htmlFor="username" style={{ display: 'block', marginBottom: '5px' }}>
             Username
@@ -52,19 +43,10 @@ const AdminSignIn = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
-            style={{
-              width: '100%',
-              padding: '8px',
-              borderRadius: '5px',
-              border: '1px solid #ccc',
-              boxSizing: 'border-box',
-              boxShadow: "2px 4px 6px 1px black "
-
-            }}
+            
           />
         </div>
 
-        {/* Password Input */}
         <div style={{ marginBottom: '15px' }}>
           <label className={styles.AdminSignInTitle} htmlFor="password" style={{ display: 'block', marginBottom: '5px' }}>
             Password
@@ -76,31 +58,15 @@ const AdminSignIn = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            style={{
-              width: '100%',
-              padding: '8px',
-              borderRadius: '5px',
-              border: '1px solid #ccc',
-              boxSizing: 'border-box',
-              boxShadow: "2px 4px 6px 1px black "
-
-            }}
           />
         </div>
 
-        {/* Submit Button */}
         <button
-        className={styles.buttonAdmin}
+        className={styles.adminInput}
           type="submit"
           style={{
-            width: '100%',
-            padding: '10px',
             backgroundColor: loading ? '#cccccc' : 'red',
-            color: '#fff',
-            border: 'none',
-            borderRadius: '5px',
             cursor: loading ? 'not-allowed' : 'pointer',
-            boxShadow: "2px 4px 6px 1px black "
           }}
           disabled={loading}
         >

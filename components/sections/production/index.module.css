@@ -1,9 +1,7 @@
 .Container {
     width: 100%;
     padding-top: 36px;
-
 }
-
 
 .ProductsSlider {
     display: flex;
@@ -31,15 +29,10 @@
     }
 }
 
-
-
 .ProductsSlider::-webkit-scrollbar {
     width: 0px;
     display: none;
 }
-
-
-
 
 
 @media (max-width:1440px) {
@@ -52,13 +45,14 @@
     .ProductsSlider {
         display: flex;
         width: 96%;
-        height: 600px;
+        height: 100%;
         overflow-x: auto;
-        gap: 11px;
+        overflow-y: hidden;
+        gap: 37px;
         scrollbar-width: none;
         position: relative;
-        padding-bottom: 100px;
-        margin: 0 auto;
+        padding-bottom: 10px;
+        padding: 32px 16px 40px 16px;
         opacity: 0;
         transform: translateY(100px);
         animation: appearFromBottom 0.8s ease-out forwards;

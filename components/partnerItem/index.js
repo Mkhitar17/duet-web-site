@@ -12,7 +12,7 @@ export default function ProducItem({ logo }) {
           alt="bannerimage"
           width={0} 
           height={0} 
-          className={styles.ProductImage}
+          className={styles.PartnerLogo}
         />
       </div>
     </div>

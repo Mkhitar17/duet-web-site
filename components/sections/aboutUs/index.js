@@ -1,15 +1,8 @@
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import styles from "./index.module.css";
 import Image from "next/image";
-import ProducItem from "@/components/producItem";
-
-// import dexc from "@/public/products/dexc.png";
-// import kapuyt from "@/public/products/kapuyt.png";
-// import kat from "@/public/products/kat.png";
-// import limon from "@/public/products/limon-shish.png";
 import aboutImage from "@/public/aboutUs/aboutImage.png";
-import prev from '@/public/prev.svg'
-import next from '@/public/NextIcon.svg'
 
 import Button from "@/components/buttons/PrimaryButton";
 
@@ -29,12 +22,11 @@ export default function About() {
 
     return (
         <div className={styles.Container}>
-            {/* <SectionHeadline
+            <SectionHeadline
                 title="Մեր մասին"
                 showIcons={false}
 
-            /> */}
-            <h1 className={styles.aboutTitle}>Մեր մասին</h1>
+            />
             <div className={styles.ContentContainer}>
                 <div className={styles.TextContainer}>
                     <span>
@@ -53,7 +45,6 @@ export default function About() {
                 </div>
 
                 <div className={styles.ImageContainer}>
-
                     <Image
                         src={aboutImage}
                         width={0}
@@ -62,9 +53,7 @@ export default function About() {
 
                     />
                 </div>
-
             </div>
-
         </div>
     );
 }

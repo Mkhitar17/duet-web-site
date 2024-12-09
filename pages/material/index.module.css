@@ -1,5 +1,5 @@
 .Container {
-    padding: 114px 63px 50px 71px;
+    padding: 114px 63px 100px 71px;
 }
 
 .ContentContainer {
@@ -68,4 +68,73 @@
     width: 100%;
     background-size: cover;
     border-radius: 8px;
+}
+
+.ProductsContainerMobile{
+    display: none;
+}
+
+@media (max-width:1440px) {
+
+    .Container {
+        padding: 99px 16px 50px 16px;
+    }
+
+    .ContentContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .SectionContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 47px;
+        justify-content: center;
+        align-items: center;
+        padding-top: 40px;
+    }
+
+    .TextContainer {
+        display: flex;
+        flex-direction: column;
+       justify-content: center;
+        min-width: 0;
+        max-width: 100%;
+        gap: 32px;
+    }
+
+    .ImageContainer {
+        display: flex;
+        height: 204px;
+        min-width: 0;
+        border-radius: 8px;
+        max-width: 100%;
+    }
+    
+    .Image {
+        max-height: 204px;
+        width: 100%;
+        background-size: cover;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .ProductsContainer {
+        display: none;
+    }
+
+    .ProductsContainerMobile {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 70px;
+        padding-top: 42px;
+        padding-bottom: 80px;
+        justify-content: center;
+        align-items: center;
+    }
+
 }

@@ -1,3 +1,9 @@
-.Container{
+.Container {
     padding: 175px 0 150px 0;
+}
+
+@media (max-width:1440px) {
+    .Container {
+        padding: 132px 0 52px 0;
+    }
 }
