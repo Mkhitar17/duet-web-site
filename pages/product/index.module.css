@@ -1,0 +1,161 @@
+    .Container {
+        display: flex;
+        justify-content: space-between;
+        padding: 182px 69px 71px 137px;
+    }
+
+    .ImageContainer {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        height: 100%;
+        z-index: 10;
+    }
+
+    .productImage {
+        position: relative;
+        z-index: 10;
+    }
+
+    .DefaultCircle {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 100%;
+        height: 200px;
+        transform: translateX(-50%);
+        border: 1px dashed #ffffff;
+        border-radius: 50%;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+
+    .TextContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 51px;
+        width: 625px;
+        padding-top: 16px;
+    }
+
+    .HeadlineContainer {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding-right: 104px;
+    }
+
+
+    .DescriptionContainer {}
+
+    .DescriptionContainer span {
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 20px;
+        letter-spacing: -0.23px;
+        color: var(--text-color-white);
+    }
+
+
+    .HeadlineContainer span:nth-child(1) {
+        font-family: 'Arm Hmk Bebas Neue', sans-serif;
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 48px;
+        letter-spacing: -0.42px;
+        color: var(--text-color-white);
+
+    }
+
+    .HeadlineContainer span:nth-child(2) {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 24px;
+        letter-spacing: -0.42px;
+        color: var(--text-color-white);
+    }
+
+
+    @media (max-width:1440px) {
+        .Container {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 48px;
+            padding: 110px 16px 71px 16px;
+        }
+
+        .ImageContainer {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            height: 100%;
+            z-index: 10;
+        }
+
+        .productImage {
+            position: relative;
+            z-index: 10;
+        }
+
+        .DefaultCircle {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 100%;
+            height: 200px;
+            transform: translateX(-50%);
+            border: 1px dashed #ffffff;
+            border-radius: 50%;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .TextContainer {
+            display: flex;
+            flex-direction: column;
+            gap: 39px;
+            width: 100%;
+            padding-top: 0;
+        }
+
+        .HeadlineContainer {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding-right: 0;
+        }
+
+        .DescriptionContainer {}
+
+        .DescriptionContainer span {
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 20px;
+            letter-spacing: -0.23px;
+            color: var(--text-color-white);
+        }
+
+        .HeadlineContainer span:nth-child(1) {
+            font-family: 'Arm Hmk Bebas Neue', sans-serif;
+            font-weight: 400;
+            font-size: 40px;
+            line-height: 48px;
+            letter-spacing: -0.42px;
+            color: var(--text-color-white);
+
+        }
+
+        .HeadlineContainer span:nth-child(2) {
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 24px;
+            letter-spacing: -0.42px;
+            color: var(--text-color-white);
+
+        }
+    }

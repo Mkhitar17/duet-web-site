@@ -94,6 +94,7 @@
     width: 100%;
     background-size: cover;
     object-fit: cover;
+    border-radius: 8px;
 }
 
 

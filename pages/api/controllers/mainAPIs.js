@@ -31,19 +31,51 @@ export const updatePageData = async (updates) => {
         if (!existingDocument) {
             throw new Error("No PageData document found in the collection.");
         }
-        console.log(updates,"$$$$####$#$#$#$#$#$#$#$34")
-
-        
         const updatedPageData = await PageData.findOneAndUpdate(
             { }, // Use the found document's _id
             { $set: { pageData: updates } }, // Update fields
             { new: true } // Return the updated document and create it if it doesn't exist
         );
 
-        console.log(updatedPageData,"################")
         return updatedPageData;
     } catch (error) {
         console.error("Error updating page data:", error);
         throw new Error("Failed to update page data.");
     }
 }
+
+
+
+/**
+ * Fetch a product by ID from the production categories.
+ * @param {string} id - The ID of the product to fetch.
+ * @returns {object|null} - The product if found, or null if not found.
+ */
+export const getProductById = async (id) => {
+    try {
+      // Find the specific item by id in any of the production categories
+      const document = await PageData.findOne({
+        $or: [
+          { "pageData.production.coffee._id": id },
+          { "pageData.production.tea._id": id },
+          { "pageData.production.milkCoffee._id": id },
+        ],
+      });
+  
+      if (!document) {
+        return null;
+      }
+  
+      // Search for the item in each category
+      const { coffee, tea, milkCoffee } = document.pageData.production;
+      const item =
+        coffee.find((item) => item._id.toString() === id) ||
+        tea.find((item) => item._id.toString() === id) ||
+        milkCoffee.find((item) => item._id.toString() === id);
+  
+      return item || null;
+    } catch (error) {
+      console.error("Error fetching product by ID:", error);
+      throw new Error("Failed to fetch product");
+    }
+  };

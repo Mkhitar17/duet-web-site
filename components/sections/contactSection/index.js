@@ -1,6 +1,7 @@
 
 
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import styles from "./index.module.css";
 import Image from "next/image";
 import tel from "@/public/contact.svg";
@@ -14,6 +15,8 @@ import emailjs from "emailjs-com";
 
 export default function ContactSection() {
     const [paddingLeft, setPaddingLeft] = useState("71px");
+    const contactData = useSelector((state) => state.publicData.data?.pageData?.contact);
+
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
@@ -108,7 +111,7 @@ export default function ContactSection() {
                         <div className={styles.SocialContacts}>
                             <div className={styles.PhoneNumberContainer}>
                                 <Image src={tel} width={24} height={24} alt="Phone" />
-                                <span>098 604406</span>
+                                <span>{contactData?.phone || "No phone number available"}</span>
                             </div>
                             <div className={styles.SocialIcons}>
                                 <a href="https://www.facebook.com/dueticecoffee?locale=ru_RU"
@@ -126,11 +129,11 @@ export default function ContactSection() {
                         <div className={styles.EmailContainer}>
 
                             <Image src={mail} width={24} height={24} alt="Mail" />
-                            <span>duet.coffee@gmail.com</span>
+                            <span>{contactData?.email || "No email available"}</span>
                         </div>
                         <div className={styles.LocationContainer}>
                             <Image src={location} width={24} height={24} alt="Location" />
-                            <span> Հաղթանակ թաղամաս, 1 փողոց 48 շինություն</span>
+                            <span>{contactData?.address || "No address available"}</span>
                         </div>
                     </div>
                     <div className={styles.MapContainer}>

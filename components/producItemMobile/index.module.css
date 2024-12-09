@@ -26,9 +26,6 @@
     transition: transform 0.3s ease;
 }
 
-.HoveredImage {
-    transform: scale(1.12);
-}
 
 .DefaultCircle {
     position: absolute;
@@ -44,76 +41,6 @@
     pointer-events: none; 
 }
 
-.Container:hover .DefaultCircle {
-    opacity: 0;
-}
-
-.CircleBackground {
-    position: absolute;
-    top: 0;
-    width: 321px;
-    height: 321px;
-    background: linear-gradient(180deg, rgba(204, 9, 9, 0.5) 0%, rgba(102, 5, 5, 0.5) 100%);
-    filter: blur(2px);
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    transform: scale(0.5);
-}
-
-
-.ShowCircle {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.HoverContent {
-    position: absolute;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    top: 109%;
-    gap: 38px;
-    animation: slideUp 0.3s ease forwards;
-}
-
-.HoverText {
-    color:var(--text-color-white);
-    font-size: 18px;
-    line-height: 20px;
-    letter-spacing: -0.23px;
-    font-weight: 400;
-}
-
-.HoverButton {
-    padding: 10px 20px;
-    border: 1px solid #FFFFFF;
-    color:var(--text-color-white);
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: -0.23px;
-    font-weight: 400;
-}
-
-
-.CircleBackground {
-    display: none;
-}
-
-
-.ShowCircle {
-    display: none;
-
-}
-
-.HoverContent {
-    display: none;
-
-}
 
 
 @keyframes slideUp {

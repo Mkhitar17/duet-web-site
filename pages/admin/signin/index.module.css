@@ -8,7 +8,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(10px); /* Размытие фона */
+    backdrop-filter: blur(10px);
     border-radius: 10px;
     z-index: 999;
     background: linear-gradient(135deg , rgba(0, 0, 0, 0.241), rgba(255, 0, 0, 0.241), rgba(255, 255, 255, 0.241) );
@@ -20,7 +20,8 @@
 .adminInput{
     width: 100%;
     padding: 10px;
-    color: var(--text-color-white);
+    color: black;
+    font-size: 20px;
     border: none;
     border-radius: 5px;
     box-sizing: border-box;

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import styles from "./index.module.css";
 import Image from "next/image";
 import Button from "@/components/buttons/PrimaryButton";
@@ -9,6 +10,7 @@ import location from "@/public/icons/location-black.svg";
 import emailjs from "emailjs-com";
 
 export default function OrderModal({ onClose }) {
+    const contactData = useSelector((state) => state.publicData.data?.pageData?.contact);
     const [formData, setFormData] = useState({
         firstName: "",
         lastName: "",
@@ -95,15 +97,15 @@ export default function OrderModal({ onClose }) {
                 <div className={styles.ContactItems}>
                     <div className={styles.PhoneNumberContainer}>
                         <Image src={tel} width={20} height={20} alt="Phone" />
-                        <span>098 604406</span>
+                        <span>{contactData?.phone || "No phone number available"}</span>
                     </div>
                     <div className={styles.EmailContainer}>
                         <Image src={mail} width={20} height={20} alt="Mail" />
-                        <span>duet.coffee@gmail.com</span>
+                        <span>{contactData?.email || "No email available"}</span>
                     </div>
                     <div className={styles.LocationContainer}>
                         <Image src={location} width={20} height={20} alt="Location" />
-                        <span>Հաղթանակ թաղամաս, 1 փողոց 48 շինություն</span>
+                        <span>{contactData?.address || "No address available"}</span>
                     </div>
                 </div>
 

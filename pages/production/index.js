@@ -1,57 +1,52 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useMemo } from "react";
+import { useSelector } from "react-redux";
 import styles from "./index.module.css";
-import Image from "next/image";
-import ProducItem from "@/components/producItem";
+import ProductItem from "@/components/productItem";
 import ProducItemMobile from "@/components/producItemMobile";
-import dexc from "@/public/products/dexc.png";
-import kat from "@/public/products/kat.png";
-import limon from "@/public/products/limon-shish.png";
-import sevDuet from "@/public/products/sevduet.png";
-
-
 
 export default function ProducTionSection() {
 
     const [activeTab, setActiveTab] = useState(0);
+    const productionData = useSelector((state) => state.publicData.data?.pageData?.production);
+    const tabData = useMemo(() => {
+        if (!productionData) return [];
 
-    const tabData = [
-        {
-            name: "Սուրճ",
-            items: [
-                "https://i.imgur.com/D1mwBlM.png",
-                "https://i.imgur.com/pkLpCwl.png",
-                "https://i.imgur.com/kxF5fq3.png",
-                "https://i.imgur.com/wfjyMnX.png",
-                "https://i.imgur.com/wfjyMnX.png",
-                "https://i.imgur.com/wfjyMnX.png"
-            ],
-        },
-        {
-            name: "Թեյ",
-            items: [
-                "https://i.imgur.com/h3rqtzD.png",
-                "https://i.imgur.com/h3rqtzD.png",
-                "https://i.imgur.com/h3rqtzD.png",
-                "https://i.imgur.com/h3rqtzD.png",
-                "https://i.imgur.com/TVJY3Yf.png",
-                "https://i.imgur.com/TVJY3Yf.png"
-            ],
-        },
-        {
-            name: "Կաթնային սուրճ",
-            items: [
-                "https://i.imgur.com/DZXG0FV.png",
-                "https://i.imgur.com/kxF5fq3.png",
-                "https://i.imgur.com/pkLpCwl.png",
-                "https://i.imgur.com/DZXG0FV.png",
-                "https://i.imgur.com/8DOu99a.png",
-                "https://i.imgur.com/h3rqtzD.png"
-            ],
-        },
-    ];
+        return [
+            {
+                name: "Սուրճ",
+                items: productionData.coffee
+                    ? productionData.coffee.map((item) => ({
+                        image: item.image,
+                        id: item._id,
+                        size: item.size,
+                    }))
+                    : [],
+            },
+            {
+                name: "Թեյ",
+                items: productionData.tea
+                    ? productionData.tea.map((item) => ({
+                        image: item.image,
+                        id: item._id,
+                        size: item.size,
+                    }))
+                    : [],
+            },
+            {
+                name: "Կաթնային սուրճ",
+                items: productionData.milkCoffee
+                    ? productionData.milkCoffee.map((item) => ({
+                        image: item.image,
+                        id: item._id,
+                        size: item.size,
+                    }))
+                    : [],
+            },
+        ];
+    }, [productionData]);
 
 
-    const activeItems = tabData[activeTab].items;
+    const activeItems = tabData?.[activeTab]?.items || [];
     return (
         <div className={styles.Container}>
             <div className={styles.ContentContainer}>
@@ -70,17 +65,17 @@ export default function ProducTionSection() {
                     </div>
                 </div>
                 <div className={styles.ProductsContainer}>
-                    {activeItems.map((image, index) => (
-                        <div key={index} >
-                            <ProducItem image={image} />
+                    {activeItems.map((product, index) => (
+                        <div key={index}>
+                            <ProductItem image={product.image} id={product.id} size={product.size} product={true} />
                         </div>
                     ))}
                 </div>
 
                 <div className={styles.ProductsContainerMobile}>
-                    {activeItems.map((image, index) => (
+                    {activeItems.map((product, index) => (
                         <div key={index} >
-                            <ProducItemMobile image={image} />
+                            <ProducItemMobile image={product.image} id={product.id} size={product.size} product={true} />
                         </div>
                     ))}
                 </div>

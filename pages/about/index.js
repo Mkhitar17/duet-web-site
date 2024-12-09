@@ -1,18 +1,17 @@
-import { useState, useRef } from "react";
+import { useSelector } from "react-redux";
 import styles from "./index.module.css";
 import SectionHeadline from "@/components/sectionHeadline";
-import aboutImage from "@/public/aboutUs/aboutImage.png";
 
-import image1 from "@/public/aboutUs/image1.png";
-import image2 from "@/public/aboutUs/image2.png";
-import image3 from "@/public/aboutUs/image3.png";
-import image4 from "@/public/aboutUs/image4.png";
 import Image from "next/image";
 
 
 
 export default function ProducTionSection() {
-    const imagesArray = [image1, image2, image3, image4]
+    const pageData = useSelector((state) => state.publicData.data);
+
+    const section1 = pageData?.pageData.about?.section1;
+    const section2 = pageData?.pageData.about?.section2;
+    const smallImages = pageData?.pageData.about?.section2?.smallImages || [];
 
     return (
         <div className={styles.Container}>
@@ -24,74 +23,56 @@ export default function ProducTionSection() {
                 <div className={styles.InfoSectionsCopntainer}>
                     <div className={styles.SectionContainer}>
                         <div className={styles.TextContainer}>
-                            <span>
-                                «DUET COMPANY»-ն հիմնադրվել է 2007 թվականին:
-                                Ընկերությունը զբաղվում է սառը սուրճի, սառը թեյի
-                                արտադրությամբ եւ իրացմամբ: «DUET» ապրանքանիշի հիմնադիրը
-                                մի քանի տարի ուսումնասիրել է շուկայի պահանջները, նախասիրությունները
-                                և մշակել է զարգացման բանաձև, որը տվել է սպասվելիք արդյունք:
-                                «DUET»-ի արտադրանքը շուրջ տասնմեկ տարի է,
-                                ինչ գոյություն ունի սառը սուրճի, սառը թեյի
-                                արտադրության շուկայում և չունի իր նմանատիպը:
-                            </span>
-
+                            <span>{section1?.text || "Տվյալները հասանելի չեն"}</span>
                         </div>
 
                         <div className={styles.ImageContainer}>
-                            <Image
-                                src={aboutImage}
-                                width={0}
-                                height={0}
-                                className={styles.Image}
-                                alt="image"
-                            />
+                            {section1?.image && (
+                                <Image
+                                    src={section1.image}
+                                    width={1000}
+                                    height={1000}
+                                    className={styles.Image}
+                                    alt="Section 1 Image"
+                                />
+                            )}
                         </div>
                     </div>
 
                     <div className={styles.SectionContainer2}>
                         <div className={styles.ImagesContent}>
                             <div className={styles.ImageContainer}>
-                                <Image
-                                    src={aboutImage}
-                                    width={0}
-                                    height={0}
-                                    className={styles.Image}
-                                    alt="image"
-                                />
+                                {section2?.image && (
+                                    <Image
+                                        src={section2.image}
+                                        width={1000}
+                                        height={1000}
+                                        className={styles.Image}
+                                        alt="Section 2 Image"
+                                    />
+                                )}
                             </div>
                             <div className={styles.SmallImagesContainer}>
-                                {imagesArray.map((image, index) => (
-                                    <div className={styles.smallImageContainer} key={index}>
-                                        <Image
-                                            src={image}
-                                            width={10000}
-                                            height={1000}
-                                            className={styles.SmallImage}
-                                            alt="image"
-                                        />
-
-                                    </div>
-                                ))}
+                                {smallImages.length > 0 ? (
+                                    smallImages.map((image, index) => (
+                                        <div className={styles.smallImageContainer} key={index}>
+                                            <Image
+                                                src={image}
+                                                width={200}
+                                                height={200}
+                                                className={styles.SmallImage}
+                                                alt={`Small Image ${index + 1}`}
+                                            />
+                                        </div>
+                                    ))
+                                ) : (
+                                    <span>Տվյալները հասանելի չեն</span>
+                                )}
 
                             </div>
                         </div>
                         <div className={styles.TextContainer2}>
-                            <span>
-                                Արտադրության մեջ օգտագործվող բոլոր բաղադրամասերը հավատարմագրված են ISO
-                                18001 ստանդարտի համաձայն և անցել են փորձաքննություն սննդի անվտանգության կողմից,
-                                իսկ ձեռնարկության որակի վերահսկողության բաժինն ապահովում է
-                                արտադրանքի բարձր և կայուն որակը:
-                                Մեր արտադրանքը անցել է ֆիզիկաքիմիական, մանրէաբանական և այլ փորձաքննություններ,
-                                որի հիման վրա տրվել է համապատասխանության հայտարարագիր
-                                (գրանցման համարը ՄՄ AM № 009/S.B-0028-2016):
-                                «DUET»-ի արտադրանքը իրացվում է Հայաստանի Հանրապետության բոլոր
-                                մարզերում՝ ցանցային, մեծածախ և մանրածախ սննդի առևտրով զբաղվող 2000 և
-                                ավելի կետերում: Արտադրության մեջ օգտագործվող բոլոր բաղադրամասերը հավատարմագրված են
-                                ISO 18001 ստանդարտի համաձայն և անցել են փորձաքննություն սննդի անվտանգության կողմից,
-                                իսկ ձեռնարկության որակի վերահսկողության բաժինն ապահովում է արտադրանքի
-                                բարձր և կայուն որակը:
-                                ննդի առևտրով զբաղվող 2000 և ավելի կետերում:
-                            </span>
+                            <span>{section2?.text || "Տվյալները հասանելի չեն"}</span>
                         </div>
                     </div>
                 </div>

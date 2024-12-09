@@ -1,9 +1,52 @@
-@media (max-width:1440px){
-    .ProductImageContainer{
+.SVGContainer {
+    width: 163px;
+    height: 110px;
+    /* height: auto; */
+    background-size: cover;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.PartnerLogo {
+    height: 100%;
+    width: 100%;
+}
+
+.SVGContainer svg {
+    width: 100%;
+    height: 100%;
+}
+
+.ImageContainer {
+    height: 110px;
+    width: 163px;
+    object-fit: cover;
+    background-size: cover;
+}
+
+
+@media (max-width:1440px) {
+    .ProductImageContainer {
         position: relative;
     }
-    .PartnerLogo{
+
+    .PartnerLogo {
         height: 66px;
-        width:98px;
+        width: 98px;
     }
+
+    .SVGContainer {
+        height: 66px;
+        width: 98px;
+    }
+
+    .ImageContainer {
+        height: 66px;
+        width: 98px;
+        object-fit: cover;
+        background-size: cover;
+    }
+    
 }

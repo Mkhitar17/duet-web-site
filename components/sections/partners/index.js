@@ -1,4 +1,5 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useMemo } from "react";
+import { useSelector } from "react-redux";
 import SectionHeadline from "@/components/sectionHeadline";
 import PartnerItem from "@/components/partnerItem";
 import styles from "./index.module.css";
@@ -8,6 +9,14 @@ export default function PartnersSection() {
     const gridRef = useRef(null);
     const array = new Array(17).fill(DuetLogo);
     const [paddingLeft, setPaddingLeft] = useState("71px");
+    const partners = useSelector((state) => state.publicData.data?.pageData?.partners || []);
+
+    const partnersArray = useMemo(() => {
+        return partners.map((partner, index) => ({
+            id: index,
+            logo: partner,
+        }));
+    }, [partners]);
 
     useEffect(() => {
         const updatePadding = () => {
@@ -35,8 +44,8 @@ export default function PartnersSection() {
                 customStyles={{ paddingLeft }}
             />
             <div className={styles.PartnersGrid} ref={gridRef}>
-                {array.map((logo, index) => (
-                    <PartnerItem key={index} logo={logo} />
+                {partnersArray.map((partner) => (
+                    <PartnerItem key={partner.id} logo={partner.logo} />
                 ))}
             </div>
         </div>

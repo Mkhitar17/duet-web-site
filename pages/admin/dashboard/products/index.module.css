@@ -48,7 +48,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
-    gap: 69px 122px;
+    gap: 200px 122px;
     padding-top: 37px;
     margin: 0 auto;
     justify-content: center;
@@ -108,4 +108,28 @@
 
 .CustomFileButton:hover {
     background-color: #0056b3;
+}
+
+.ProductDetails span{
+    color: var(--text-color-white);
+    font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 30px;
+
+}
+
+.ProductDetails strong{
+    color: red !important;
+    font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 30px;
+
+}
+
+
+.ProductDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
 }
