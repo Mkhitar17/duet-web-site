@@ -4,46 +4,68 @@ import styles from "./index.module.css";
 import ProductItem from "@/components/productItem";
 import ProducItemMobile from "@/components/producItemMobile";
 
+const LOCALIZED_TABS = {
+    arm: [
+      { name: "Սուրճ" },
+      { name: "Թեյ" },
+      { name: "Կաթնային սուրճ" },
+    ],
+    ru: [
+      { name: "Кофе" },
+      { name: "Чай" },
+      { name: "Кофе с молоком" },
+    ],
+    en: [
+      { name: "Coffee" },
+      { name: "Tea" },
+      { name: "Milk Coffee" },
+    ],
+  };
+
 export default function ProducTionSection() {
 
     const [activeTab, setActiveTab] = useState(0);
     const productionData = useSelector((state) => state.publicData.data?.pageData?.production);
-    const tabData = useMemo(() => {
-        if (!productionData) return [];
+    const locale = useSelector((state) => state.language.locale);
 
-        return [
-            {
-                name: "Սուրճ",
-                items: productionData.coffee
-                    ? productionData.coffee.map((item) => ({
-                        image: item.image,
-                        id: item._id,
-                        size: item.size,
-                    }))
-                    : [],
-            },
-            {
-                name: "Թեյ",
-                items: productionData.tea
-                    ? productionData.tea.map((item) => ({
-                        image: item.image,
-                        id: item._id,
-                        size: item.size,
-                    }))
-                    : [],
-            },
-            {
-                name: "Կաթնային սուրճ",
-                items: productionData.milkCoffee
-                    ? productionData.milkCoffee.map((item) => ({
-                        image: item.image,
-                        id: item._id,
-                        size: item.size,
-                    }))
-                    : [],
-            },
-        ];
-    }, [productionData]);
+   const tabData = useMemo(() => {
+    const localizedTabs = LOCALIZED_TABS[locale] || LOCALIZED_TABS.arm;
+
+    if (!productionData) return [];
+
+    return [
+      {
+        name: localizedTabs[0].name,
+        items: productionData.coffee
+          ? productionData.coffee.map((item) => ({
+              image: item.image,
+              id: item._id,
+              size: item.size,
+            }))
+          : [],
+      },
+      {
+        name: localizedTabs[1].name,
+        items: productionData.tea
+          ? productionData.tea.map((item) => ({
+              image: item.image,
+              id: item._id,
+              size: item.size,
+            }))
+          : [],
+      },
+      {
+        name: localizedTabs[2].name,
+        items: productionData.milkCoffee
+          ? productionData.milkCoffee.map((item) => ({
+              image: item.image,
+              id: item._id,
+              size: item.size,
+            }))
+          : [],
+      },
+    ];
+  }, [productionData, locale]);
 
 
     const activeItems = tabData?.[activeTab]?.items || [];
@@ -67,7 +89,7 @@ export default function ProducTionSection() {
                 <div className={styles.ProductsContainer}>
                     {activeItems.map((product, index) => (
                         <div key={index}>
-                            <ProductItem image={product.image} id={product.id} size={product.size} product={true} />
+                            <ProductItem locale={locale} image={product.image} id={product.id} size={product.size} product={true} />
                         </div>
                     ))}
                 </div>

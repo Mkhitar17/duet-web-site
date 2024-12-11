@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit';
 import publicDataReducer from './slices/publicDataSlice';
-import adminReducer from './slices//adminSlice';
-import authReducer from './slices//authSlice';
+import adminReducer from './slices/adminSlice';
+import authReducer from './slices/authSlice';
+import languageReducer from "./slices/languageSlice";
 
 export const store = configureStore({
   reducer: {
-    publicData: publicDataReducer, // Add your slice reducers here
+    publicData: publicDataReducer, 
     admin:adminReducer,
-    auth: authReducer
+    auth: authReducer,
+    language: languageReducer
   },
 });

@@ -59,12 +59,9 @@
 }
 
 .flagContainer {
-  position: absolute;
-  top: 100%;
-  left: 0;
   background: white;
   border: 1px solid #ccc;
-  z-index: 10;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
 }
@@ -85,7 +82,6 @@
 
 
 
-/* footer styles */
 .footer {
   color: var(--text-color-white);
   text-align: center;
@@ -142,7 +138,6 @@
   padding-top: 0px;
   font-size: 15px;
   font-weight: 400;
-  /* padding-top: 20px; */
 }
 
 .footerLinksContainer {
@@ -234,7 +229,7 @@
 
 /* mobile footer */
 
-@media (max-width:1440px) {
+@media (max-width:900px) {
 
   .footer {
     color: var(--text-color-white);
@@ -244,7 +239,6 @@
     bottom: 0;
     width: 100%;
     height: auto;
-
   }
 
 
@@ -357,12 +351,10 @@
     height: auto;
   }
 
-
   .footerFollowMe {
     font-size: 18px;
     font-weight: 700;
   }
-
 
   .footerFollowIcons {
     display: flex;
@@ -404,7 +396,6 @@
     display: flex;
     align-items: center;
     background: transparent;
-    /* background: aquamarine; */
     z-index: 111;
     animation: fadeIn 1s ease-in-out;
   }

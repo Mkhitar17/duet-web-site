@@ -1,7 +1,7 @@
 .Container {
     width: 100%;
     padding: 20px;
-    padding: 154px 63px 50px 71px;
+    padding: 184px 63px 50px 71px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,14 +9,14 @@
     gap: 100px;
 }
 
-.BannerSection{
+.BannerSection {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
 .FileInputHidden {
-    display: none; 
+    display: none;
 }
 
 
@@ -38,9 +38,86 @@
 }
 
 
-.BannerImage{
-    height: 400px;
+.BannerImage {
     width: 800px;
+    height: auto;
+    aspect-ratio: 16 / 9;
     background-size: cover;
     object-fit: cover;
+}
+
+.Texts {
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+}
+
+.TextArea1 {
+    height: 150px;
+    width: 400px;
+    resize: none;
+    overflow: scroll;
+    font-size: 20px;
+}
+
+.TextArea2 {
+    height: 300px;
+    width: 500px;
+    resize: none;
+    overflow: scroll;
+    font-size: 18px;
+}
+
+.TextsSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.TextsSection h4 {
+    color: var(--text-color-white);
+}
+
+.TextItemsContainer {
+    display: flex;
+    gap: 25px;
+}
+
+.ImagesPreview {
+    display: flex;
+    justify-content: center;
+}
+
+.ImagesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px;
+}
+
+.ButtonsContainer {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+
+.DeleteButton {
+    position: absolute;
+    padding: 10px;
+    border-radius: 8px;
+    background: red;
+    top: 0;
+    cursor: pointer;
+}
+
+.DeleteButton span {
+    font-size: 20px;
+    color: var(--text-color-white);
+}
+
+.ImageContainer {
+    position: relative;
 }

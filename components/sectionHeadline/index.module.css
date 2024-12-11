@@ -61,7 +61,7 @@
     cursor: pointer;
 }
 
-@media (max-width:1440px){
+@media (max-width:900px){
     .Container {
         display: flex;
         justify-content: space-between;

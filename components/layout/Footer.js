@@ -1,6 +1,9 @@
 import Link from "next/link";
 import styles from "./layout.module.css";
 
+import { useSelector } from "react-redux";
+import { useMemo } from "react";
+
 import Image from "next/image";
 import footerImage from "@/public/duet.svg"
 import footerTel from "@/public/contact.svg"
@@ -13,8 +16,38 @@ import footerTg from "@/public/tg.svg"
 
 
 
+const LOCALIZED_TEXTS = {
+  arm: {
+    usefulLinks: "Օգտակար հղումներ",
+    about: "Մեր մասին",
+    production: "Արտադրանք",
+    material: "Հումք",
+    contact: "Կապ մեզ հետ",
+    followUs: "Հետևեք մեզ",
+  },
+  ru: {
+    usefulLinks: "Полезные ссылки",
+    about: "О нас",
+    production: "Продукция",
+    material: "Сырье",
+    contact: "Свяжитесь с нами",
+    followUs: "Следите за нами",
+  },
+  en: {
+    usefulLinks: "Useful Links",
+    about: "About Us",
+    production: "Production",
+    material: "Material",
+    contact: "Contact Us",
+    followUs: "Follow Us",
+  },
+};
+
 
 export default function Footer() {
+  const locale = useSelector((state) => state.language.locale);
+  const localizedTexts = useMemo(() => LOCALIZED_TEXTS[locale] || LOCALIZED_TEXTS.arm, [locale]);
+
   return (
     <footer className={styles.footer}>
       <div className={styles.footerSize}>
@@ -27,20 +60,22 @@ export default function Footer() {
 
         <div className={styles.footerLinks}>
           <div className={styles.usefulHeadline}>
-            <Link href='/' className={styles.linkTitle}>Օգտակար հղումներ</Link>
+            <Link href='/' className={styles.linkTitle}>
+            {localizedTexts.usefulLinks}
+            </Link>
           </div>
           <div className={styles.footerLinksContainer}>
-            <Link href="/" className={styles.links}>Մեր մասին</Link>
-            <Link href="/about" className={styles.links}>Արտադրանք</Link>
-            <Link href="/contact" className={styles.links}>Հումք</Link>
-            <Link href="/contact" className={styles.links}>Կապ մեզ հետ</Link>
+            <Link href="/" className={styles.links}>{localizedTexts.about}</Link>
+            <Link href="/about" className={styles.links}>{localizedTexts.production}</Link>
+            <Link href="/contact" className={styles.links}>{localizedTexts.material}</Link>
+            <Link href="/contact" className={styles.links}>{localizedTexts.contact}</Link>
           </div>
 
         </div>
 
         <div className={styles.footerContactUs}>
           <h1 className={styles.footerContactUsTitle}>
-            Կապ մեզ հետ
+          {localizedTexts.contact}
           </h1>
 
 
@@ -83,7 +118,7 @@ export default function Footer() {
         </div>
 
         <div className={styles.footerFollowContent}>
-          <h1 className={styles.footerFollowMe}>Հետևեք մեզ</h1>
+          <h1 className={styles.footerFollowMe}>{localizedTexts.followUs}</h1>
           <div className={styles.footerFollowIcons}>
           <a href="https://www.facebook.com/dueticecoffee?locale=ru_RU"
           target="_blank">

@@ -2,7 +2,7 @@
     padding: 175px 0 150px 0;
 }
 
-@media (max-width:1440px) {
+@media (max-width:900px) {
     .Container {
         padding: 132px 0 52px 0;
     }

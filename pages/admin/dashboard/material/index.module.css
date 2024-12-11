@@ -1,5 +1,5 @@
 .Container {
-    padding: 114px 63px 50px 71px;
+    padding: 174px 63px 50px 71px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,7 +11,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 75px;
+    margin-top: 100px;
 }
 
 .ProductionTabsContainer {
@@ -47,7 +47,7 @@ height: max-content;
     display: flex;
     gap: 205px;
     justify-content: center;
-    align-items: flex-end;
+    align-items: flex-start;
 }
 
 .TextContainer {
@@ -55,7 +55,7 @@ height: max-content;
     flex-direction: column;
    justify-content: center;
     min-width: 625px;
-    gap: 53px;
+    gap: 50px;
 }
 
 .TextContainer span {
@@ -99,9 +99,11 @@ height: max-content;
 }
 
 
-.EditButton,
-.DeleteButton{
-    color: var(--text-color-white);
+.DeleteButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
     cursor: pointer;
 }
 
@@ -142,4 +144,45 @@ height: max-content;
 
 .CustomFileButton:hover {
     background-color: #0056b3;
+}
+
+.ButtonsContainer{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-end;
+}
+
+.ProductItem{
+    position: relative;
+}
+
+.ProductDetails span{
+    color: var(--text-color-white);
+    font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 30px;
+}
+
+.ProductDetails strong{
+    color: red !important;
+    font-size: 20px;
+    letter-spacing: 1px;
+    line-height: 30px;
+}
+
+.ProductDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.EditButton{
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color-white);
 }

@@ -5,11 +5,19 @@ import PartnerItem from "@/components/partnerItem";
 import styles from "./index.module.css";
 import DuetLogo from "@/public/duetLogo.svg";
 
+
+const LOCALIZED_TITLES = {
+    arm: "Գործընկերներ",
+    ru: "Партнеры",
+    en: "Partners",
+  };
+  
 export default function PartnersSection() {
     const gridRef = useRef(null);
     const array = new Array(17).fill(DuetLogo);
     const [paddingLeft, setPaddingLeft] = useState("71px");
     const partners = useSelector((state) => state.publicData.data?.pageData?.partners || []);
+    const locale = useSelector((state) => state.language.locale);
 
     const partnersArray = useMemo(() => {
         return partners.map((partner, index) => ({
@@ -17,6 +25,8 @@ export default function PartnersSection() {
             logo: partner,
         }));
     }, [partners]);
+
+    const title = useMemo(() => LOCALIZED_TITLES[locale] || LOCALIZED_TITLES.arm, [locale]);
 
     useEffect(() => {
         const updatePadding = () => {
@@ -38,7 +48,7 @@ export default function PartnersSection() {
     return (
         <div className={styles.Container}>
             <SectionHeadline
-                title="Գործընկերներ"
+                title={title}
                 gridRef={gridRef}
                 scrollAmount={300}
                 customStyles={{ paddingLeft }}

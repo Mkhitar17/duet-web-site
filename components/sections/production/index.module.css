@@ -5,7 +5,7 @@
 
 .ProductsSlider {
     display: flex;
-    width: 96%;
+    width: 100%;
     height: 600px;
     overflow-x: auto;
     gap: 71px;
@@ -35,7 +35,7 @@
 }
 
 
-@media (max-width:1440px) {
+@media (max-width:900px) {
 
     .Container {
         width: auto;

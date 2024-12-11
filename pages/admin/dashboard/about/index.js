@@ -14,17 +14,19 @@ const AdminAboutSection = () => {
     const { pageData } = useSelector((state) => state.admin);
     const [updatedData, setUpdatedData] = useState(pageData?.about || {});
 
-
     useEffect(() => {
         setUpdatedData(pageData?.about || {});
     }, [pageData]);
 
-    const handleTextChange = (e, section) => {
+    const handleTextChange = (e, section, language) => {
         setUpdatedData((prev) => ({
             ...prev,
             [section]: {
                 ...prev[section],
-                text: e.target.value,
+                texts: {
+                    ...prev[section]?.texts,
+                    [language]: e.target.value,
+                },
             },
         }));
     };
@@ -146,19 +148,29 @@ const AdminAboutSection = () => {
 
     return (
         <div className={styles.Container}>
-            <div className={styles.Section}>
-                <textarea
-                    value={updatedData.section1?.text || ""}
-                    onChange={(e) => handleTextChange(e, "section1")}
-                    className={styles.TextArea}
-                    placeholder="Enter text for Section 1"
-                />
+            {/* Section 1 */}
+            <div className={styles.Section1}>
+                <div className={styles.textsContainer}>
+                    {["arm", "ru", "en"].map((lang) => (
+                        <div key={`section1-${lang}`} className={styles.TextAreaWrapper}>
+                            <h3 className={styles.LanguageLabel}>
+                                {lang === "arm" ? "Armenian" : lang === "ru" ? "Russian" : "English"}
+                            </h3>
+                            <textarea
+                                value={updatedData.section1?.texts?.[lang] || ""}
+                                onChange={(e) => handleTextChange(e, "section1", lang)}
+                                className={styles.TextArea}
+                                placeholder={`Enter ${lang.toUpperCase()} text for Section 1`}
+                            />
+                        </div>
+                    ))}
+                </div>
                 <div className={styles.sectionImageContainer}>
                     <div className={styles.FileInputWrapper}>
                         <input
                             type="file"
                             id={`file-upload-1`}
-                            onChange={(e) => handleMainImageChange(e, section)}
+                            onChange={(e) => handleMainImageChange(e, "section1")}
                             className={styles.FileInputHidden}
                         />
                         <label htmlFor={`file-upload-1`} className={styles.CustomFileButton}>
@@ -177,7 +189,7 @@ const AdminAboutSection = () => {
                                 alt="Section 1 Image"
                                 className={styles.Image}
                                 width={600}
-                                height={1}
+                                height={300}
                             />
                         )
                     ) : (
@@ -186,7 +198,23 @@ const AdminAboutSection = () => {
                 </div>
             </div>
 
-            <div className={styles.Section}>
+            {/* Section 2 */}
+            <div className={styles.Section2}>
+                <div className={styles.textsContainer}>
+                    {["arm", "ru", "en"].map((lang) => (
+                        <div key={`section2-${lang}`} className={styles.TextAreaWrapper}>
+                            <h3 className={styles.LanguageLabel}>
+                                {lang === "arm" ? "Armenian" : lang === "ru" ? "Russian" : "English"}
+                            </h3>
+                            <textarea
+                                value={updatedData.section2?.texts?.[lang] || ""}
+                                onChange={(e) => handleTextChange(e, "section2", lang)}
+                                className={styles.TextArea}
+                                placeholder={`Enter ${lang.toUpperCase()} text for Section 2`}
+                            />
+                        </div>
+                    ))}
+                </div>
                 <div className={styles.sectionContentContainer}>
                     <div className={styles.FileInputWrapper}>
                         <input
@@ -199,7 +227,6 @@ const AdminAboutSection = () => {
                             Choose Image
                         </label>
                     </div>
-
                     {updatedData.section2?.image ? (
                         typeof updatedData.section2.image === "string" && updatedData.section2.image.startsWith("<svg") ? (
                             <div
@@ -212,7 +239,7 @@ const AdminAboutSection = () => {
                                 alt="Section 2 Image"
                                 className={styles.Image}
                                 width={600}
-                                height={0}
+                                height={300}
                             />
                         )
                     ) : (
@@ -236,19 +263,19 @@ const AdminAboutSection = () => {
                                         height={130}
                                     />
                                 )}
-
                                 <div className={styles.DeleteButton} onClick={() => handleDeleteSmallImage(index)}>
                                     <Image
                                         src={CloseIcon}
-                                        width={0}
-                                        height={0}
+                                        width={24}
+                                        height={24}
                                         className={styles.Image}
-                                        alt="image"
+                                        alt="Delete"
                                     />
                                 </div>
                             </div>
                         ))}
                     </div>
+
                     {updatedData.section2?.smallImages?.length < 4 && (
                         <div className={styles.FileInputWrapper}>
                             <input
@@ -263,14 +290,8 @@ const AdminAboutSection = () => {
                         </div>
                     )}
                 </div>
-                <textarea
-                    value={updatedData.section2?.text || ""}
-                    onChange={(e) => handleTextChange(e, "section2")}
-                    className={styles.TextArea}
-                    placeholder="Enter text for Section 2"
-                />
-
             </div>
+
             <Button
                 type="button"
                 text="Save Changes"
@@ -279,7 +300,9 @@ const AdminAboutSection = () => {
             />
         </div>
 
+
     );
 };
 
 export default adminWrapper(AdminAboutSection);
+

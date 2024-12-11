@@ -1,0 +1,91 @@
+.swiperContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.embla {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.emblaContainer {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    will-change: transform;
+}
+
+.emblaSlide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: center;
+    overflow: hidden;
+}
+
+.emblaSlideWrapper {
+    position: relative;
+    height: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.image {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
+
+.dots {
+    display: flex;
+    position: absolute;
+    z-index: 1000;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: grey;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.dotActive {
+    width: 10px;
+    height: 10px;
+    background-color: black !important;
+    border-radius: 50%;
+}
+
+.singleImageContainer {
+    touch-action: none;
+    pointer-events: none;
+}
+
+.singleImageContainer img {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.progressBarContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    direction: rtl; 
+}
+
+.progressBar {
+    height: 100%;
+    background-color: rgba(217, 217, 217, 0.5);
+    transition: width linear;
+}

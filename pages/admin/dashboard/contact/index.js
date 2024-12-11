@@ -10,17 +10,10 @@ const AdminContactSection = () => {
     const { pageData } = useSelector((state) => state.admin); // Access Redux state
     const [updatedData, setUpdatedData] = useState(pageData?.contact || {}); // Local state for contact section
 
-    // Initialize local state when `pageData` changes
     useEffect(() => {
         setUpdatedData(pageData?.contact || {});
     }, [pageData]);
 
-    useEffect(() => {
-        console.log(updatedData, "updatedData")
-    }, [updatedData]);
-
-
-    // Handle input changes
     const handleInputChange = (e, field) => {
         const { value } = e.target;
         setUpdatedData((prev) => ({
@@ -29,10 +22,20 @@ const AdminContactSection = () => {
         }));
     };
 
-    // Handle save changes
+
+    const handleAddressChange = (e, lang) => {
+        const { value } = e.target;
+        setUpdatedData((prev) => ({
+            ...prev,
+            address: {
+                ...prev.address,
+                [lang]: value,
+            },
+        }));
+    };
+
     const handleSaveChanges = async () => {
         try {
-            // Dispatch updated contact data to Redux and backend
             await dispatch(savePageData({ contact: updatedData }));
             alert("Contact information saved successfully!");
         } catch (error) {
@@ -71,17 +74,23 @@ const AdminContactSection = () => {
                 </div>
 
                 <div className={styles.Section}>
-                    <label htmlFor="address" className={styles.Label}>Address</label>
-                    <input
-                        id="address"
-                        type="text"
-                        value={updatedData.address || ""}
-                        onChange={(e) => handleInputChange(e, "address")}
-                        className={styles.Input}
-                        placeholder="Enter address"
-                    />
+                    <label className={styles.Label}>Address</label>
+                    <div className={styles.adressInputs}>
+                        {["arm", "ru", "en"].map((lang) => (
+                            <div className={styles.AdressItemContainer}>
+                                <span>{lang}</span>
+                                <input
+                                    key={`address-${lang}`}
+                                    type="text"
+                                    value={updatedData.address?.[lang] || ""}
+                                    onChange={(e) => handleAddressChange(e, lang)}
+                                    className={styles.Input}
+                                    placeholder={`Enter ${lang.toUpperCase()} address`}
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
-
             </div>
 
             <Button

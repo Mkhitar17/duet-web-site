@@ -4,9 +4,27 @@ import styles from "./index.module.css";
 import ProductItem from "@/components/productItem";
 import SectionHeadline from "@/components/sectionHeadline";
 
+
+const LOCALIZED_TEXT = {
+  arm: {
+    title: "Արտադրանք",
+    noProducts: "Ապրանքներ չկան",
+  },
+  ru: {
+    title: "Продукция",
+    noProducts: "Товары отсутствуют",
+  },
+  en: {
+    title: "Products",
+    noProducts: "No products available",
+  },
+};
+
+
 export default function ProducTionSection() {
   const gridRef = useRef(null);
   const productionData = useSelector((state) => state.publicData.data?.pageData?.production);
+  const locale = useSelector((state) => state.language.locale);
   const [paddingLeft, setPaddingLeft] = useState("71px");
 
   const productsArray = useMemo(() => {
@@ -50,7 +68,7 @@ export default function ProducTionSection() {
   return (
     <div className={styles.Container}>
       <SectionHeadline
-        title="Արտադրանք"
+        title={LOCALIZED_TEXT[locale]?.title || LOCALIZED_TEXT.arm.title}
         gridRef={gridRef}
         scrollAmount={300}
         customStyles={{ paddingLeft }}
@@ -58,7 +76,7 @@ export default function ProducTionSection() {
 
       />
       <div className={styles.ProductsSlider} ref={gridRef}>
-         {productsArray.length > 0 ? (
+        {productsArray.length > 0 ? (
           productsArray.map((product, index) => (
             <ProductItem
               key={index}
@@ -66,10 +84,13 @@ export default function ProducTionSection() {
               id={product.id}
               size={product.size}
               product={true}
+              locale={locale}
             />
           ))
         ) : (
-          <div className={styles.NoData}>No products available</div>
+          <div className={styles.NoData}>
+            {LOCALIZED_TEXT[locale]?.noProducts || LOCALIZED_TEXT.arm.noProducts}
+          </div>
         )}
       </div>
     </div>

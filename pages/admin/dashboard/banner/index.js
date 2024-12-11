@@ -11,50 +11,73 @@ import Button from "@/components/buttons/PrimaryButton";
 const AdminBannerSection = () => {
     const dispatch = useDispatch();
     const { pageData } = useSelector((state) => state.admin);
-    const [updatedBanner, setUpdatedBanner] = useState(pageData?.banner || {});
+    const [updatedBanner, setUpdatedBanner] = useState(pageData?.banner || { images: [], texts: {} });
+
 
     useEffect(() => {
-        setUpdatedBanner(pageData?.banner || {});
+        setUpdatedBanner(pageData?.banner || { images: [], texts: {} });
     }, [pageData]);
 
-    const handleBannerChange = (e) => {
-        const file = e.target.files[0];
-        if (!file) return alert("Please select an image!");
+    const handleBannerImagesChange = (e) => {
+        const files = Array.from(e.target.files);
+        if (files.length === 0) return alert("Please select images!");
 
-        const fileWithPreview = {
+        const filesWithPreviews = files.map((file) => ({
             file,
             preview: URL.createObjectURL(file),
-        };
+        }));
 
-        setUpdatedBanner(fileWithPreview);
+        setUpdatedBanner((prev) => ({
+            ...prev,
+            images: [...(prev.images || []), ...filesWithPreviews],
+        }));
+    };
+
+    const handleTextChange = (e, language, field) => {
+        setUpdatedBanner((prev) => ({
+            ...prev,
+            texts: {
+                ...prev.texts,
+                [language]: {
+                    ...prev.texts[language],
+                    [field]: e.target.value,
+                },
+            },
+        }));
+    };
+
+    const handleDeleteImage = (index) => {
+        setUpdatedBanner((prev) => ({
+            ...prev,
+            images: prev.images.filter((_, i) => i !== index),
+        }));
     };
 
     const handleSaveChanges = async () => {
         try {
-            let finalBanner = updatedBanner;
+            const finalBanner = { ...updatedBanner };
 
-            if (updatedBanner.file) {
-                if (updatedBanner.file.type === "image/svg+xml") {
-                    const svgData = await new Promise((resolve, reject) => {
-                        const reader = new FileReader();
-                        reader.onload = () => resolve(reader.result);
-                        reader.onerror = reject;
-                        reader.readAsText(updatedBanner.file);
-                    });
-                    finalBanner = svgData;
-                } else {
-                    const compressedFile = await imageCompression(updatedBanner.file, {
-                        maxSizeMB: 1,
-                        maxWidthOrHeight: 1920,
-                        useWebWorker: true,
-                    });
+            if (updatedBanner.images) {
+                const uploadedImages = await Promise.all(
+                    updatedBanner.images.map(async (item) => {
+                        if (item.file) {
+                            const compressedFile = await imageCompression(item.file, {
+                                maxSizeMB: 1,
+                                maxWidthOrHeight: 1920,
+                                useWebWorker: true,
+                            });
 
-                    const formData = new FormData();
-                    formData.append("image", compressedFile);
+                            const formData = new FormData();
+                            formData.append("image", compressedFile);
 
-                    const response = await axios.post("/api/handlers/admin/uploadToImgur", formData);
-                    finalBanner = response.data.url;
-                }
+                            const response = await axios.post("/api/handlers/admin/uploadToImgur", formData);
+                            return response.data.url;
+                        }
+                        return item;
+                    })
+                );
+
+                finalBanner.images = uploadedImages;
             }
 
             await dispatch(savePageData({ banner: finalBanner }));
@@ -66,44 +89,68 @@ const AdminBannerSection = () => {
     };
 
     return (
+
         <div className={styles.Container}>
-            <div className={styles.BannerSection}>
+            <div className={styles.ButtonsContainer}>
                 <div className={styles.FileInputWrapper}>
                     <input
                         type="file"
-                        id={`file-upload`}
-                        onChange={handleBannerChange}
+                        multiple
+                        onChange={handleBannerImagesChange}
                         className={styles.FileInputHidden}
+                        id="file-upload"
                     />
-                    <label htmlFor={`file-upload`} className={styles.CustomFileButton}>
-                        Choose Image
+                    <label htmlFor="file-upload" className={styles.CustomFileButton}>
+                        Add Image
                     </label>
                 </div>
-                {updatedBanner.preview || updatedBanner ? (
-                    typeof updatedBanner === "string" && updatedBanner.startsWith("<svg") ? (
-                        <div
-                            className={styles.SVGContainer}
-                            dangerouslySetInnerHTML={{ __html: updatedBanner }}
-                        />
-                    ) : (
-                        <Image
-                            src={updatedBanner.preview || updatedBanner}
-                            alt="Banner"
-                            className={styles.BannerImage}
-                            width={800}
-                            height={400}
-                        />
-                    )
-                ) : (
-                    <span>No banner image selected</span>
-                )}
+                <Button type="button" text="Save Changes" onClick={handleSaveChanges} customStyles={{ width: "200px" }} />
             </div>
-            <Button
-                type="button"
-                text="Save Changes"
-                onClick={handleSaveChanges}
-                customStyles={{ width: "200px" }}
-            />
+            <div className={styles.BannerSection}>
+
+
+                <div className={styles.ImagesPreview}>
+                    <div className={styles.ImagesContainer}>
+                        {updatedBanner.images?.map((item, index) => (
+                            <div key={index} className={styles.ImageContainer}>
+                                <Image
+                                    src={item.preview || item}
+                                    alt={`Banner Image ${index}`}
+                                    className={styles.BannerImage}
+                                    width={800}
+                                    height={1000}
+                                />
+                                <div className={styles.DeleteButton} onClick={() => handleDeleteImage(index)}>
+                                    <span>Delete Image</span>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <div className={styles.Texts}>
+                    {["arm", "ru", "en"].map((lang) => (
+                        <div key={lang} className={styles.TextsSection}>
+                            <h4>{lang.toUpperCase()}</h4>
+                            <div className={styles.TextItemsContainer}>
+                                <textarea
+                                    value={updatedBanner.texts?.[lang]?.primaryText || ""}
+                                    onChange={(e) => handleTextChange(e, lang, "primaryText")}
+                                    className={styles.TextArea1}
+                                    placeholder={`Enter primary text (${lang})`}
+                                />
+                                <textarea
+                                    value={updatedBanner.texts?.[lang]?.secondaryText || ""}
+                                    onChange={(e) => handleTextChange(e, lang, "secondaryText")}
+                                    className={styles.TextArea2}
+                                    placeholder={`Enter secondary text (${lang})`}
+                                />
+                            </div>
+                        </div>
+                    ))}
+
+                </div>
+            </div>
+
         </div>
     );
 };

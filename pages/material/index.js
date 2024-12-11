@@ -2,20 +2,39 @@ import { useState, useRef, useMemo } from "react";
 import { useSelector } from "react-redux";
 import styles from "./index.module.css";
 import Image from "next/image";
-import ProducItem from "@/components/productItem";
+import ProductItem from "@/components/productItem";
 import ProducItemMobile from "@/components/producItemMobile";
 import SectionHeadline from "@/components/sectionHeadline";
 import Button from "@/components/buttons/PrimaryButton";
 import OrderModal from "@/components/orderModal"
 
 
+const LOCALIZED_TEXT = {
+    arm: {
+      title: "Հումք",
+      buttonText: "Պատվիրել հիմա",
+      noData: "Տվյալները հասանելի չեն",
+    },
+    ru: {
+      title: "Сырье",
+      buttonText: "Заказать сейчас",
+      noData: "Данные недоступны",
+    },
+    en: {
+      title: "Material",
+      buttonText: "Order Now",
+      noData: "Data not available",
+    },
+  };
+
 export default function Material() {
 
     const materialData = useSelector((state) => state.publicData.data?.pageData?.material);
+    const locale = useSelector((state) => state.language.locale);
+    const materialItems = useMemo(() => materialData?.materialItems || [], [materialData]);
 
-    const materialItems = useMemo(() => {
-        return materialData?.materialItems || [];
-    }, [materialData]);
+
+    const localizedText = useMemo(() => LOCALIZED_TEXT[locale] || LOCALIZED_TEXT.arm, [locale]);
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -32,14 +51,14 @@ export default function Material() {
         <div className={styles.Container}>
             <div className={styles.ContentContainer}>
                 <SectionHeadline
-                    title="Հումք"
+                    title={localizedText.title}
                     showIcons={false}
                 />
                 <div className={styles.SectionContainer}>
                     <div className={styles.TextContainer}>
-                        <span>{materialData?.text || "Տվյալները հասանելի չեն"}</span>
+                    <span>{materialData?.texts?.[locale] || localizedText.noData}</span>
                         <Button
-                            text="Պատվիրել հիմա"
+                            text={localizedText.buttonText}
                             onClick={handleClick}
                             customStyles={{ maxWidth: "255px" }}
                         />
@@ -58,16 +77,18 @@ export default function Material() {
                     </div>
                 </div>
                 <div className={styles.ProductsContainer}>
-                    {materialItems.map((image, index) => (
+                    {materialItems.map((item, index) => (
                         <div key={index}>
-                            <ProducItem image={image} product={false} />
+                            {/* <ProductItem locale={locale} image={item.image} product={true} /> */}
+                            <ProductItem  locale={locale} image={item.image} id={item._id} size={item.size} product={true} />
+                           
                         </div>
                     ))}
                 </div>
                 <div className={styles.ProductsContainerMobile}>
-                    {materialItems.map((image, index) => (
+                    {materialItems.map((item, index) => (
                         <div key={index}>
-                            <ProducItemMobile image={image} product={false}/>
+                            <ProducItemMobile image={item.image} product={false}/>
                         </div>
                     ))}
                 </div>

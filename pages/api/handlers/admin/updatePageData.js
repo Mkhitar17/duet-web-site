@@ -7,7 +7,6 @@ export default async function handler(req, res) {
   if (req.method === "PUT") {
     try {
       const updates = req.body;
-      console.log(updates,"updates")
       const updatedPageData = await updatePageData(updates);
       res.status(200).json(updatedPageData);
     } catch (error) {

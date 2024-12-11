@@ -7,6 +7,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 120px;
 
 }
 .aboutTitle{
@@ -21,13 +22,20 @@
 }
 
 .TextContainer {
-    max-width: 464px;
     display: flex;
     flex-direction: column;
     gap: 53px;
     opacity: 0;
     transform: translateX(-100px);
     animation: appearFromLeft 0.8s ease-out forwards;
+}
+
+.TextContainer span {
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: -0.23px;
+    font-weight: 400;
+    color: var(--text-color-white);
 }
 
 @keyframes appearFromLeft {
@@ -43,13 +51,6 @@
 }
 
 
-.TextContainer span {
-    font-size: 18px;
-    line-height: 20px;
-    letter-spacing: -0.23px;
-    font-weight: 400;
-    color: var(--text-color-white);
-}
 
 .ImageContainer {
     width: 636px;
@@ -71,20 +72,17 @@
     }
 }
 
-
 .AboutImage {
     background-size: cover;
     object-fit: cover;
     border-radius: 8px;
     height: 360px;
     width: 636px;
-
 }
 
-@media (max-width:1440px) {
+@media (max-width:900px) {
     .Container {
         padding: 0 16px 35px 16px;
-
     }
 
     .ContentContainer {
@@ -167,7 +165,6 @@
             transform: translateX(0);
         }
     }
-
 
     .AboutImage {
         width: 100%;

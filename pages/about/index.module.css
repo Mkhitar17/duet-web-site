@@ -1,9 +1,12 @@
 .Container {
     padding: 114px 63px 50px 71px;
+    display: flex;
+    justify-content: center;
 }
 
 .ContentContainer {
     margin-top: 50px;
+    max-width: 1300px;
 }
 
 .InfoSectionsCopntainer {
@@ -101,7 +104,7 @@
 
 
 
-@media (max-width:1440px) {
+@media (max-width:900px) {
     .Container {
         padding: 99px 16px 50px 16px;
     }

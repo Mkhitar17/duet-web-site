@@ -45,3 +45,21 @@
     color: var(--text-color-white);
     min-width: 180px;
 }
+
+.adressInputs{
+    display: flex;
+    flex-direction: column;
+    gap: 20px ;
+    width: 100%;
+}
+
+.AdressItemContainer{
+    display: flex;
+    align-items: center;
+}
+
+.AdressItemContainer span{
+    color: var(--text-color-white);
+    min-width: 50px;
+    text-transform: uppercase;
+}

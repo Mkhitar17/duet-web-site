@@ -4,12 +4,28 @@ import styles from "./index.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ProductItem({ image, id, size, product }) {
+
+const LOCALIZED_TEXT = {
+    arm: {
+      seeMore: "Տեսնել ավելին",
+      sizeUnit: "մլ",
+    },
+    ru: {
+      seeMore: "Подробнее",
+      sizeUnit: "мл",
+    },
+    en: {
+      seeMore: "See More",
+      sizeUnit: "ml",
+    },
+  };
+
+
+export default function ProductItem({ image, id, size, product, locale }) {
     const [isHovered, setIsHovered] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const isSVG = typeof image === "string" && image.startsWith("<svg");
     const router = useRouter();
-
 
 
     useEffect(() => {
@@ -59,10 +75,10 @@ export default function ProductItem({ image, id, size, product }) {
             {isHovered && product && (
                 <div className={styles.HoverContent}>
                     <span className={styles.HoverText}>
-                        {size.match(/\d+/) ? `${size.match(/\d+/)[0]}մլ` : ""}
+                    {size.match(/\d+/) ? `${size.match(/\d+/)[0]}${LOCALIZED_TEXT[locale]?.sizeUnit || LOCALIZED_TEXT.arm.sizeUnit}` : ""}
                     </span>
                     <Link href={`/product/${id}`} className={styles.HoverButton}>
-                        Տեսնել ավելին
+                    {LOCALIZED_TEXT[locale]?.seeMore || LOCALIZED_TEXT.arm.seeMore}
                     </Link>
                 </div>
             )}

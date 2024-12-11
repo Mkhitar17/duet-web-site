@@ -12,7 +12,6 @@
     width: 100%;
     height: 100%;
     background-color: rgba(28, 28, 28, 0.5);
-    /* Semi-transparent black */
     z-index: 1;
 }
 
@@ -26,15 +25,12 @@
     position: absolute;
     z-index: 10;
     top: 50%;
-    /* Position the top edge at 50% of the parent */
     left: 50%;
-    /* Position the left edge at 50% of the parent */
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
     gap: 53px;
     width: 374px;
-
 }
 
 .BannerTextContainer span:nth-child(1) {
@@ -46,6 +42,7 @@
     text-transform: uppercase;
     color: var(--text-color-white);
     animation: slideInFromLeft 1.5s ease-out;
+    text-align: center;
 }
 
 @keyframes slideInFromLeft {
@@ -84,15 +81,13 @@
 }
 
 
-
-
 .bannerBotton {
     height: 56px;
     background: red;
 
 }
 
-@media(max-width:1440px){
+@media(max-width:900px){
     .Container {
         position: relative;
         z-index: 1;
@@ -107,8 +102,8 @@
         width: 100%;
         height: 100%;
         background-color: rgba(28, 28, 28, 0.5);
-        /* Semi-transparent black */
-        z-index: 1;
+        pointer-events: none;
+        z-index: 10;
     }
     
     .BannerImage {
@@ -119,20 +114,17 @@
     
     .BannerTextContainer {
         position: absolute;
-        z-index: 10;
+        z-index: 9;
         top: 50%;
-        /* Position the top edge at 50% of the parent */
         left: 50%;
-        /* Position the left edge at 50% of the parent */
         transform: translate(-50%, -50%);
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        pointer-events: none;
         gap: 53px;
         width: 80%;
-
-    
     }
     
     .BannerTextContainer span:nth-child(1) {
@@ -158,7 +150,6 @@
         }
     }
     
-    
     .BannerTextContainer span:nth-child(2) {
         font-size: 17px;
         line-height: 20px;
@@ -182,9 +173,6 @@
             transform: translateX(0);
         }
     }
-    
-    
-    
     
     .bannerBotton {
         width: 272px;

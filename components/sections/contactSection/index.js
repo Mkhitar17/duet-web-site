@@ -1,6 +1,6 @@
 
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useSelector } from "react-redux";
 import styles from "./index.module.css";
 import Image from "next/image";
@@ -13,9 +13,36 @@ import SectionHeadline from "@/components/sectionHeadline";
 import Button from "@/components/buttons/PrimaryButton";
 import emailjs from "emailjs-com";
 
+const LOCALIZED_TEXTS = {
+    arm: {
+      title: "Կապ մեզ հետ",
+      noEmail: "Էլ․ փոստի տվյալներ չկան",
+      noAddress: "Հասցեի տվյալներ չկան",
+      sendButton: "Ուղարկել",
+      sendingButton: "Ուղարկվում է...",
+    },
+    ru: {
+      title: "Свяжитесь с нами",
+      noEmail: "Нет доступного адреса электронной почты",
+      noAddress: "Нет доступного адреса",
+      sendButton: "Отправить",
+      sendingButton: "Отправка...",
+    },
+    en: {
+      title: "Contact Us",
+      noEmail: "No email available",
+      noAddress: "No address available",
+      sendButton: "Send",
+      sendingButton: "Sending...",
+    },
+  };
+
+
 export default function ContactSection() {
     const [paddingLeft, setPaddingLeft] = useState("71px");
     const contactData = useSelector((state) => state.publicData.data?.pageData?.contact);
+    const locale = useSelector((state) => state.language.locale);
+    const [isSending, setIsSending] = useState(false);
 
     const [formData, setFormData] = useState({
         firstName: "",
@@ -23,8 +50,9 @@ export default function ContactSection() {
         email: "",
         message: "",
     });
+    
+    const localizedTexts = useMemo(() => LOCALIZED_TEXTS[locale] || LOCALIZED_TEXTS.arm, [locale]);
 
-    const [isSending, setIsSending] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -100,7 +128,7 @@ export default function ContactSection() {
     return (
         <div className={styles.Container}>
             <SectionHeadline
-                title="կապ մեզ հետ"
+                title={localizedTexts.title}
                 showIcons={false}
                 customStyles={{paddingLeft }}
                 
@@ -111,7 +139,7 @@ export default function ContactSection() {
                         <div className={styles.SocialContacts}>
                             <div className={styles.PhoneNumberContainer}>
                                 <Image src={tel} width={24} height={24} alt="Phone" />
-                                <span>{contactData?.phone || "No phone number available"}</span>
+                                <span>{contactData?.phone || localizedTexts.noEmail}</span>
                             </div>
                             <div className={styles.SocialIcons}>
                                 <a href="https://www.facebook.com/dueticecoffee?locale=ru_RU"
@@ -129,11 +157,11 @@ export default function ContactSection() {
                         <div className={styles.EmailContainer}>
 
                             <Image src={mail} width={24} height={24} alt="Mail" />
-                            <span>{contactData?.email || "No email available"}</span>
+                            <span>{contactData?.email ||  localizedTexts.noEmail}</span>
                         </div>
                         <div className={styles.LocationContainer}>
                             <Image src={location} width={24} height={24} alt="Location" />
-                            <span>{contactData?.address || "No address available"}</span>
+                            <span>{contactData?.address?.[locale] || localizedTexts.noAddress}</span>
                         </div>
                     </div>
                     <div className={styles.MapContainer}>
@@ -184,7 +212,7 @@ export default function ContactSection() {
                         ></textarea>
                         <Button
                             type="submit"
-                            text={isSending ? "Sending..." : "Ուղարկել"}
+                            text={isSending ? localizedTexts.sendingButton : localizedTexts.sendButton}
                             customStyles={{ maxWidth: "255px" }}
                             disabled={isSending}
                         />

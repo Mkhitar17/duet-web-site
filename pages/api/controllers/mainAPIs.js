@@ -59,6 +59,7 @@ export const getProductById = async (id) => {
           { "pageData.production.coffee._id": id },
           { "pageData.production.tea._id": id },
           { "pageData.production.milkCoffee._id": id },
+          { "pageData.material.materialItems._id": id },
         ],
       });
   
@@ -68,10 +69,12 @@ export const getProductById = async (id) => {
   
       // Search for the item in each category
       const { coffee, tea, milkCoffee } = document.pageData.production;
+      const { materialItems } = document.pageData.material || {};
       const item =
         coffee.find((item) => item._id.toString() === id) ||
         tea.find((item) => item._id.toString() === id) ||
-        milkCoffee.find((item) => item._id.toString() === id);
+        milkCoffee.find((item) => item._id.toString() === id)||
+        (materialItems && materialItems.find((item) => item._id.toString() === id));
   
       return item || null;
     } catch (error) {

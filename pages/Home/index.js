@@ -11,12 +11,12 @@ import ContactSection from '@/components/sections/contactSection'
 
 export default function HomePage() {
   return (
-     <div className={styles.HomeContainer}>
-        <Banner/>
-        <Production/>
-        <AboutUs/>
-        <Partners/>
-        <ContactSection/>
-     </div>
+    <div className={styles.HomeContainer}>
+      <Banner />
+      <Production />
+      <AboutUs />
+      <Partners />
+      <ContactSection />
+    </div>
   )
 }

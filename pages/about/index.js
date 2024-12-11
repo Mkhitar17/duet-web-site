@@ -1,29 +1,45 @@
 import { useSelector } from "react-redux";
+import { useMemo } from "react";
 import styles from "./index.module.css";
 import SectionHeadline from "@/components/sectionHeadline";
 
 import Image from "next/image";
 
-
+const LOCALIZED_TEXTS = {
+    arm: {
+        title: "Մեր մասին",
+        noData: "Տվյալները հասանելի չեն",
+    },
+    ru: {
+        title: "О нас",
+        noData: "Данные недоступны",
+    },
+    en: {
+        title: "About Us",
+        noData: "Data is unavailable",
+    },
+};
 
 export default function ProducTionSection() {
     const pageData = useSelector((state) => state.publicData.data);
+    const locale = useSelector((state) => state.language.locale);
 
     const section1 = pageData?.pageData.about?.section1;
     const section2 = pageData?.pageData.about?.section2;
     const smallImages = pageData?.pageData.about?.section2?.smallImages || [];
 
+    const localizedTexts = useMemo(() => LOCALIZED_TEXTS[locale] || LOCALIZED_TEXTS.arm, [locale]);
     return (
         <div className={styles.Container}>
             <div className={styles.ContentContainer}>
                 <SectionHeadline
-                    title="Մեր մասին"
+                    title={ localizedTexts.title}
                     showIcons={false}
                 />
                 <div className={styles.InfoSectionsCopntainer}>
                     <div className={styles.SectionContainer}>
                         <div className={styles.TextContainer}>
-                            <span>{section1?.text || "Տվյալները հասանելի չեն"}</span>
+                            <span>{section1?.texts?.[locale] || localizedTexts.noData}</span>
                         </div>
 
                         <div className={styles.ImageContainer}>
@@ -66,13 +82,13 @@ export default function ProducTionSection() {
                                         </div>
                                     ))
                                 ) : (
-                                    <span>Տվյալները հասանելի չեն</span>
+                                    <span>{localizedTexts.noData}</span>
                                 )}
 
                             </div>
                         </div>
                         <div className={styles.TextContainer2}>
-                            <span>{section2?.text || "Տվյալները հասանելի չեն"}</span>
+                        <span>{section2?.texts?.[locale] || localizedTexts.noData}</span>
                         </div>
                     </div>
                 </div>

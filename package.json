@@ -17,6 +17,8 @@
     "browser-image-compression": "^2.0.2",
     "cookie": "^1.0.2",
     "emailjs-com": "^3.2.0",
+    "embla-carousel": "^8.5.1",
+    "embla-carousel-react": "^8.5.1",
     "eslint": "9.15.0",
     "eslint-config-next": "15.0.3",
     "formidable": "^3.5.2",

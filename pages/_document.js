@@ -4,11 +4,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-      {/* <link
-          href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
-          rel="stylesheet"
-        /> */}
-
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </Head>
       <body>
         <Main />

@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect, useRef } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import Image from "next/image";
@@ -62,14 +62,13 @@ const AdminProductionSection = () => {
                     items.map(async (item) => {
                         if (item.file) {
                             if (item.file.type === "image/svg+xml") {
-                                // Handle SVG file directly
                                 const svgData = await new Promise((resolve, reject) => {
                                     const reader = new FileReader();
                                     reader.onload = () => resolve(reader.result);
                                     reader.onerror = reject;
                                     reader.readAsText(item.file);
                                 });
-                                return { image: svgData, size: item.size, description: item.description };
+                                return { ...item, image: svgData };
                             } else {
                                 const compressedFile = await imageCompression(item.file, {
                                     maxSizeMB: 1,
@@ -81,7 +80,7 @@ const AdminProductionSection = () => {
                                 formData.append("image", compressedFile);
 
                                 const response = await axios.post("/api/handlers/admin/uploadToImgur", formData);
-                                return { image: response.data.url, size: item.size, description: item.description };
+                                return { ...item, image: response.data.url };
                             }
                         }
                         return item;
@@ -99,10 +98,12 @@ const AdminProductionSection = () => {
         }
     };
 
+
     const openModal = (index = null) => {
         setEditingIndex(index);
-        setCurrentItem(index !== null ? activeItems[index] : null);
         setIsModalOpen(true);
+        setCurrentItem(index !== null ? activeItems[index] : { image: "", size: "", name: { arm: "", ru: "", en: "" }, description: { arm: "", ru: "", en: "" } });
+
     };
 
     const handleSaveProduct = (newProduct) => {
@@ -124,6 +125,14 @@ const AdminProductionSection = () => {
     return (
         <div className={styles.Container}>
             <div className={styles.ContentContainer}>
+                <div className={styles.ButtonsConatiner}>
+                    <div className={styles.UploadContainer}>
+                        <Button text="Add Product" onClick={() => openModal()} customStyles={{ width: "200px", background: "blue" }} />
+                    </div>
+                    <div className={styles.SaveContainer}>
+                        <Button type="button" text="Save Changes" onClick={handleSaveChanges} customStyles={{ width: "255px" }} />
+                    </div>
+                </div>
                 <div className={styles.ProductionTabsContainer}>
                     <div className={styles.Tabs}>
                         {tabs.map((tab, index) => (
@@ -149,8 +158,10 @@ const AdminProductionSection = () => {
                                 <Image src={item.image} alt={`Product ${index}`} width={250} height={250} />
                             )}
                             <div className={styles.ProductDetails}>
-                                <span> <strong>Size:</strong> {item.size}</span>
-                                <span><strong>Description:</strong> {item.description}</span>
+                                <span><strong>Size:</strong> {item.size}</span>
+                                <span><strong>Description (ARM):</strong> {item.description.arm}</span>
+                                <span><strong>Description (RU):</strong> {item.description.ru}</span>
+                                <span><strong>Description (EN):</strong> {item.description.en}</span>
                             </div>
                             <div className={styles.EditButton} onClick={() => openModal(index)}>
                                 Edit
@@ -161,18 +172,13 @@ const AdminProductionSection = () => {
                         </div>
                     ))}
                 </div>
-                <div className={styles.UploadContainer}>
-                    <Button text="Add Product" onClick={() => openModal()} customStyles={{ width: "200px", background: "blue" }} />
-                </div>
-                <div className={styles.SaveContainer}>
-                    <Button type="button" text="Save Changes" onClick={handleSaveChanges} customStyles={{ width: "255px" }} />
-                </div>
             </div>
             <ProductModal
                 isOpen={isModalOpen}
                 onClose={() => setIsModalOpen(false)}
                 onSave={handleSaveProduct}
                 initialData={currentItem}
+                editingIndex={editingIndex}
             />
         </div>
     );
