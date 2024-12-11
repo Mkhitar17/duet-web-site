@@ -15,27 +15,27 @@ import emailjs from "emailjs-com";
 
 const LOCALIZED_TEXTS = {
     arm: {
-      title: "Կապ մեզ հետ",
-      noEmail: "Էլ․ փոստի տվյալներ չկան",
-      noAddress: "Հասցեի տվյալներ չկան",
-      sendButton: "Ուղարկել",
-      sendingButton: "Ուղարկվում է...",
+        title: "Կապ մեզ հետ",
+        noEmail: "Էլ․ փոստի տվյալներ չկան",
+        noAddress: "Հասցեի տվյալներ չկան",
+        sendButton: "Ուղարկել",
+        sendingButton: "Ուղարկվում է...",
     },
     ru: {
-      title: "Свяжитесь с нами",
-      noEmail: "Нет доступного адреса электронной почты",
-      noAddress: "Нет доступного адреса",
-      sendButton: "Отправить",
-      sendingButton: "Отправка...",
+        title: "Свяжитесь с нами",
+        noEmail: "Нет доступного адреса электронной почты",
+        noAddress: "Нет доступного адреса",
+        sendButton: "Отправить",
+        sendingButton: "Отправка...",
     },
     en: {
-      title: "Contact Us",
-      noEmail: "No email available",
-      noAddress: "No address available",
-      sendButton: "Send",
-      sendingButton: "Sending...",
+        title: "Contact Us",
+        noEmail: "No email available",
+        noAddress: "No address available",
+        sendButton: "Send",
+        sendingButton: "Sending...",
     },
-  };
+};
 
 
 export default function ContactSection() {
@@ -50,7 +50,7 @@ export default function ContactSection() {
         email: "",
         message: "",
     });
-    
+
     const localizedTexts = useMemo(() => LOCALIZED_TEXTS[locale] || LOCALIZED_TEXTS.arm, [locale]);
 
 
@@ -80,16 +80,16 @@ export default function ContactSection() {
         const templateParams = {
             from_name: formData.firstName,
             to_name: "Duet",
-            from_email: formData.email, 
+            from_email: formData.email,
             message: formData.message,
         };
 
         emailjs
             .send(
-                "service_8ivgtvt", 
-                "template_7d9osdu", 
+                "service_yadbtlo",
+                "template_x21xy3q",
                 templateParams,
-                "lPz7KtDq8TRTKVEja" 
+                "IHJZieZ-tv6VVHPLU"
             )
             .then(
                 () => {
@@ -111,27 +111,27 @@ export default function ContactSection() {
 
     useEffect(() => {
         const updatePadding = () => {
-          if (window.innerWidth < 1440) {
-            setPaddingLeft("16px");
-          } else {
-            setPaddingLeft("71px");
-          }
+            if (window.innerWidth < 1440) {
+                setPaddingLeft("16px");
+            } else {
+                setPaddingLeft("71px");
+            }
         };
-    
+
         updatePadding();
-    
+
         window.addEventListener("resize", updatePadding);
-    
+
         return () => window.removeEventListener("resize", updatePadding);
-      }, []);
+    }, []);
 
     return (
         <div className={styles.Container}>
             <SectionHeadline
                 title={localizedTexts.title}
                 showIcons={false}
-                customStyles={{paddingLeft }}
-                
+                customStyles={{ paddingLeft }}
+
             />
             <div className={styles.ContactContentContainer}>
                 <div className={styles.ContactInfoContainer}>
@@ -157,7 +157,7 @@ export default function ContactSection() {
                         <div className={styles.EmailContainer}>
 
                             <Image src={mail} width={24} height={24} alt="Mail" />
-                            <span>{contactData?.email ||  localizedTexts.noEmail}</span>
+                            <span>{contactData?.email || localizedTexts.noEmail}</span>
                         </div>
                         <div className={styles.LocationContainer}>
                             <Image src={location} width={24} height={24} alt="Location" />

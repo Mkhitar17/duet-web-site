@@ -49,10 +49,10 @@ export default function OrderModal({ onClose }) {
 
         emailjs
             .send(
-                "service_8ivgtvt",
-                "template_cgxox34",
+                "service_yadbtlo",
+                "template_l76vfni",
                 templateParams,
-                "lPz7KtDq8TRTKVEja"
+                "IHJZieZ-tv6VVHPLU"
             )
             .then(
                 () => {
