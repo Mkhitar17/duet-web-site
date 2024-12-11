@@ -166,7 +166,7 @@ export default function ContactSection() {
                     </div>
                     <div className={styles.MapContainer}>
                         <iframe
-                            src="https://yandex.ru/map-widget/v1/?ll=44.421818%2C40.196547&z=15&l=map&pt=44.421818,40.196547,pm2rdm"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4250.7444466931365!2d44.41641850195737!3d40.19374414085645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406a97e837c6df5f%3A0x373812c6cb1fba99!2sDuet%20Company!5e0!3m2!1sru!2sam!4v1733831733558!5m2!1sru!2sam"
                             width="100%"
                             height="100%"
                             style={{ border: "none", borderRadius: "10px" }}

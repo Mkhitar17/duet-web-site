@@ -1,8 +1,7 @@
 import { useSelector } from "react-redux";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import styles from "./index.module.css";
 import SectionHeadline from "@/components/sectionHeadline";
-
 import Image from "next/image";
 
 const LOCALIZED_TEXTS = {
@@ -28,20 +27,23 @@ export default function ProducTionSection() {
     const section2 = pageData?.pageData.about?.section2;
     const smallImages = pageData?.pageData.about?.section2?.smallImages || [];
 
+    const [largeImage, setLargeImage] = useState(section2?.image); 
+
     const localizedTexts = useMemo(() => LOCALIZED_TEXTS[locale] || LOCALIZED_TEXTS.arm, [locale]);
+
+    const handleImageClick = (image) => {
+        setLargeImage(image); 
+    };
+
     return (
         <div className={styles.Container}>
             <div className={styles.ContentContainer}>
-                <SectionHeadline
-                    title={ localizedTexts.title}
-                    showIcons={false}
-                />
-                <div className={styles.InfoSectionsCopntainer}>
+                <SectionHeadline title={localizedTexts.title} showIcons={false} />
+                <div className={styles.InfoSectionsContainer}>
                     <div className={styles.SectionContainer}>
                         <div className={styles.TextContainer}>
                             <span>{section1?.texts?.[locale] || localizedTexts.noData}</span>
                         </div>
-
                         <div className={styles.ImageContainer}>
                             {section1?.image && (
                                 <Image
@@ -58,20 +60,24 @@ export default function ProducTionSection() {
                     <div className={styles.SectionContainer2}>
                         <div className={styles.ImagesContent}>
                             <div className={styles.ImageContainer}>
-                                {section2?.image && (
+                                {largeImage && (
                                     <Image
-                                        src={section2.image}
+                                        src={largeImage} 
                                         width={1000}
                                         height={1000}
                                         className={styles.Image}
-                                        alt="Section 2 Image"
+                                        alt="Large Image"
                                     />
                                 )}
                             </div>
                             <div className={styles.SmallImagesContainer}>
                                 {smallImages.length > 0 ? (
                                     smallImages.map((image, index) => (
-                                        <div className={styles.smallImageContainer} key={index}>
+                                        <div
+                                            className={styles.smallImageContainer}
+                                            key={index}
+                                            onClick={() => handleImageClick(image)} 
+                                        >
                                             <Image
                                                 src={image}
                                                 width={200}
@@ -84,11 +90,10 @@ export default function ProducTionSection() {
                                 ) : (
                                     <span>{localizedTexts.noData}</span>
                                 )}
-
                             </div>
                         </div>
                         <div className={styles.TextContainer2}>
-                        <span>{section2?.texts?.[locale] || localizedTexts.noData}</span>
+                            <span>{section2?.texts?.[locale] || localizedTexts.noData}</span>
                         </div>
                     </div>
                 </div>

@@ -56,19 +56,37 @@
   position: relative;
   display: inline-block;
   cursor: pointer;
+
 }
 
 .flagContainer {
-  background: white;
+  background: rgb(49, 28, 28);
   border: 1px solid #ccc;
   z-index: 1000;
   display: flex;
   flex-direction: column;
+  position: absolute;
+  top: 25px;
+  left: -5px;
+  transition: 0.4s ease;
+  animation: flagAnimationOpen 0.5s ease-in-out;
+}
+@keyframes flagAnimationOpen{
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .flagOption {
   padding: 5px;
   cursor: pointer;
+  transition: 0.5s ease ;
 }
 
 .flagOption:hover {
