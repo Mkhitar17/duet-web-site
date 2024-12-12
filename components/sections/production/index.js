@@ -4,7 +4,6 @@ import styles from "./index.module.css";
 import ProductItem from "@/components/productItem";
 import SectionHeadline from "@/components/sectionHeadline";
 
-
 const LOCALIZED_TEXT = {
   arm: {
     title: "Արտադրանք",
@@ -19,7 +18,6 @@ const LOCALIZED_TEXT = {
     noProducts: "No products available",
   },
 };
-
 
 export default function ProducTionSection() {
   const gridRef = useRef(null);
@@ -49,7 +47,6 @@ export default function ProducTionSection() {
     ];
   }, [productionData]);
 
-
   useEffect(() => {
     const updatePadding = () => {
       if (window.innerWidth < 900) {
@@ -64,6 +61,28 @@ export default function ProducTionSection() {
     return () => window.removeEventListener("resize", updatePadding);
   }, []);
 
+  // Анимация при скролле с IntersectionObserver
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.Active); // Добавление класса для анимации
+          } else {
+            entry.target.classList.remove(styles.Active); // Удаление класса при выходе
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const elements = gridRef.current?.querySelectorAll(`.${styles.Animated}`);
+    elements?.forEach((el) => observer.observe(el));
+
+    return () => {
+      elements?.forEach((el) => observer.unobserve(el)); // Очистка наблюдателя при размонтировании
+    };
+  }, []);
 
   return (
     <div className={styles.Container}>
@@ -72,19 +91,18 @@ export default function ProducTionSection() {
         gridRef={gridRef}
         scrollAmount={300}
         customStyles={{ paddingLeft }}
-
-
       />
       <div className={styles.ProductsSlider} ref={gridRef}>
         {productsArray.length > 0 ? (
           productsArray.map((product, index) => (
-            <ProductItem
-              key={index}
-              image={product.image}
-              id={product.id}
-              size={product.size}
-              locale={locale}
-            />
+            <div className={`${styles.Animated} ${styles.ProductItem}`} key={index}>
+              <ProductItem
+                image={product.image}
+                id={product.id}
+                size={product.size}
+                locale={locale}
+              />
+            </div>
           ))
         ) : (
           <div className={styles.NoData}>

@@ -16,6 +16,15 @@
     transform: translateY(100px);
     animation: appearFromBottom 0.8s ease-out forwards;
 }
+.Animated {
+    opacity: 0;
+    
+    transition: opacity 0.7s ease-out;
+  }
+  
+  .Active {
+    opacity: 1;
+  }
 
 @keyframes appearFromBottom {
     0% {
