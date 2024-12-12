@@ -1,6 +1,4 @@
-
-
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useRef } from "react"; // импорт useRef
 import { useSelector } from "react-redux";
 import styles from "./index.module.css";
 import Image from "next/image";
@@ -37,12 +35,12 @@ const LOCALIZED_TEXTS = {
     },
 };
 
-
 export default function ContactSection() {
     const [paddingLeft, setPaddingLeft] = useState("71px");
     const contactData = useSelector((state) => state.publicData.data?.pageData?.contact);
     const locale = useSelector((state) => state.language.locale);
     const [isSending, setIsSending] = useState(false);
+    const containerRef = useRef(null); // добавлен useRef
 
     const [formData, setFormData] = useState({
         firstName: "",
@@ -53,7 +51,6 @@ export default function ContactSection() {
 
     const localizedTexts = useMemo(() => LOCALIZED_TEXTS[locale] || LOCALIZED_TEXTS.arm, [locale]);
 
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({
@@ -62,10 +59,9 @@ export default function ContactSection() {
         }));
     };
 
-
     useEffect(() => {
-        console.log(formData)
-    }, [formData])
+        console.log(formData);
+    }, [formData]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -125,46 +121,66 @@ export default function ContactSection() {
         return () => window.removeEventListener("resize", updatePadding);
     }, []);
 
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    console.log('Is intersecting:', entry.isIntersecting); // Логируем, когда элемент в зоне видимости
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(styles.Active);
+                    } else {
+                        entry.target.classList.remove(styles.Active);
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+
+        if (containerRef.current) {
+            const elements = containerRef.current.querySelectorAll(`.${styles.Animated}`);
+            elements.forEach((el) => observer.observe(el));
+
+            return () => {
+                elements.forEach((el) => observer.unobserve(el));
+            };
+        }
+    }, []); // Этот эффект добавляет обработчик для анимации элементов
+
     return (
         <div className={styles.Container}>
             <SectionHeadline
                 title={localizedTexts.title}
                 showIcons={false}
                 customStyles={{ paddingLeft }}
-
             />
-            <div className={styles.ContactContentContainer}>
-                <div className={styles.ContactInfoContainer}>
+            <div className={styles.ContactContentContainer} ref={containerRef}> 
+                <div className={`${styles.ContactInfoContainer} ${styles.Animated}`}>
                     <div className={styles.ContactItems}>
                         <div className={styles.SocialContacts}>
-                            <div className={styles.PhoneNumberContainer}>
+                            <div className={`${styles.PhoneNumberContaineriner} ${styles.Animated}`}>
                                 <Image src={tel} width={24} height={24} alt="Phone" />
-                                <span>{contactData?.phone || localizedTexts.noEmail}</span>
+                                <span className={styles.SpanTest}>{contactData?.phone || localizedTexts.noEmail}</span>
                             </div>
-                            <div className={styles.SocialIcons}>
-                                <a href="https://www.facebook.com/dueticecoffee?locale=ru_RU"
-                                    target="_blank">
+                            <div className={`${styles.SocialIcons} ${styles.Animated}`}>
+                                <a href="https://www.facebook.com/dueticecoffee?locale=ru_RU" target="_blank">
                                     <Image src={fb} width={24} height={24} alt="Facebook" />
                                 </a>
 
-                                <a href="https://www.instagram.com/duet_company/profilecard/?igsh=ancxeGx1Ymg0ZjJy"
-                                    target="_blank">
+                                <a href="https://www.instagram.com/duet_company/profilecard/?igsh=ancxeGx1Ymg0ZjJy" target="_blank">
                                     <Image src={insta} width={24} height={24} alt="Instagram" />
-
                                 </a>
                             </div>
                         </div>
-                        <div className={styles.EmailContainer}>
-
+                        <div className={`${styles.EmailContainer} ${styles.Animated}`}> 
                             <Image src={mail} width={24} height={24} alt="Mail" />
                             <span>{contactData?.email || localizedTexts.noEmail}</span>
                         </div>
-                        <div className={styles.LocationContainer}>
+                        <div className={`${styles.LocationContainer} ${styles.Animated}`}> 
                             <Image src={location} width={24} height={24} alt="Location" />
                             <span>{contactData?.address?.[locale] || localizedTexts.noAddress}</span>
                         </div>
                     </div>
-                    <div className={styles.MapContainer}>
+                    <div className={`${styles.MapContainer} ${styles.Animated}`}>
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4250.7444466931365!2d44.41641850195737!3d40.19374414085645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406a97e837c6df5f%3A0x373812c6cb1fba99!2sDuet%20Company!5e0!3m2!1sru!2sam!4v1733831733558!5m2!1sru!2sam"
                             width="100%"
@@ -175,7 +191,7 @@ export default function ContactSection() {
                         ></iframe>
                     </div>
                 </div>
-                <div className={styles.formContainer}>
+                <div className={`${styles.formContainer} ${styles.Animated}`}> {/* Добавлен класс Animated */}
                     <form onSubmit={handleSubmit} className={styles.form}>
                         <div className={styles.inputRow}>
                             <input

@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import styles from "./index.module.css";
@@ -28,6 +28,7 @@ export default function About() {
     const pageData = useSelector((state) => state.publicData.data);
     const locale = useSelector((state) => state.language.locale);
     const router = useRouter();
+    const containerRef = useRef(null);
 
     const { title, button, noData } = useMemo(() => LOCALIZED_TEXT[locale] || LOCALIZED_TEXT.arm, [locale]);
 
@@ -35,15 +36,33 @@ export default function About() {
         router.push("/about");
     };
 
-    return (
-        <div className={styles.Container}>
-            <SectionHeadline
-                title={title}
-                showIcons={false}
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(styles.Active);
+                    } else {
+                        entry.target.classList.remove(styles.Active);
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
 
-            />
-            <div className={styles.ContentContainer}>
-                <div className={styles.TextContainer}>
+        const elements = containerRef.current?.querySelectorAll(`.${styles.Animated}`);
+        elements?.forEach((el) => observer.observe(el));
+
+        return () => {
+            elements?.forEach((el) => observer.unobserve(el));
+        };
+    }, []);
+
+    return (
+        <div className={styles.Container} ref={containerRef}>
+            <SectionHeadline title={title} showIcons={false} />
+            <div className={`${styles.ContentContainer} ${styles.Animated}`}>
+                <div className={`${styles.TextContainer} ${styles.Animated}`}>
                     <span>
                         {pageData?.pageData?.about?.section1?.texts?.[locale] || noData}
                     </span>
@@ -53,7 +72,7 @@ export default function About() {
                         customStyles={{ maxWidth: "255px" }}
                     />
                 </div>
-                <div className={styles.ImageContainer}>
+                <div className={`${styles.ImageContainer} ${styles.Animated}`}>
                     {pageData?.pageData?.about?.section1?.image ? (
                         <Image
                             src={pageData.pageData.about.section1.image}

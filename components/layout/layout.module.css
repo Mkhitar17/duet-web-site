@@ -415,6 +415,7 @@
     align-items: center;
     background: transparent;
     z-index: 111;
+    
     animation: fadeIn 1s ease-in-out;
   }
 
@@ -442,11 +443,14 @@
     align-items: center;
     transition: transform 0.5s ease, opacity 0.5s ease;
     z-index: 1000;
+    
   }
   
     .mobileDropdownMenu.open {
     transform: translateY(0); 
     opacity: 1;
+  
+    
   }
 
   .MobileManuContent{
@@ -457,7 +461,9 @@
     align-items: center;
     color: var(--text-color-white);
     width: 100%;
-
+    height: auto;
+    position: relative;
+   
   }
 
   .mobileLink{
@@ -466,7 +472,6 @@
     letter-spacing: -0.23px;
     color: var(--text-color-white);
     padding: 10px;
-
   }
 
   .BurgerMenuContainer {
@@ -496,8 +501,23 @@
     z-index: 1000; 
   }
 
+  
+  .flagContainer {
+    background: none;     
+    border: none;
+    z-index: 1000;
+    height: 32px;
+    position: absolute;
+    top: -5px;
+    left: 38px;
+    transition: 0.4s ease;
+    animation: flagAnimationOpen 0.5s ease-in-out;
+    display: flex;
+    flex-direction: row;
 
-
+    
+  }
+  
 }
 
 

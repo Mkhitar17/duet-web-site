@@ -106,6 +106,7 @@ export default function Header() {
                 src={FLAGS[locale].src}
                 width={30}
                 height={20}
+    
                 alt={FLAGS[locale].alt}
               />
             </div>
