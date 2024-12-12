@@ -29,14 +29,13 @@
     transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 53px;
     width: 374px;
 }
 
 .BannerTextContainer span:nth-child(1) {
-    /* font-family: 'Arm Hmk Bebas Neue', sans-serif; */
     font-family: var( --font-family-secondary);
-
     font-size: 88px;
     line-height: 105.6px;
     letter-spacing: -0.42px;
@@ -65,9 +64,10 @@
     line-height: 20px;
     letter-spacing: -0.23px;
     font-weight: 400;
-    max-width: 100%;
+    max-width: 375px;
     color: var(--text-color-white);
     animation: slideInFromRight 1.5s ease-out;
+
 }
 
 @keyframes slideInFromRight {

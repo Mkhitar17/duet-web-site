@@ -79,7 +79,7 @@ export default function Banner() {
         <Button
           text={buttonText}
           onClick={handleClick}
-          customStyles={{ pointerEvents: 'all' }}
+          customStyles={{ pointerEvents: 'all', width: "370px" }}
         />
       </div>
     </div>
