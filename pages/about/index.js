@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useMemo, useState } from "react";
+import { useMemo, useState,useEffect } from "react";
 import styles from "./index.module.css";
 import SectionHeadline from "@/components/sectionHeadline";
 import Image from "next/image";
@@ -22,18 +22,37 @@ const LOCALIZED_TEXTS = {
 export default function ProducTionSection() {
     const pageData = useSelector((state) => state.publicData.data);
     const locale = useSelector((state) => state.language.locale);
+    const section1 = useMemo(() => pageData?.pageData.about?.section1, [pageData]);
+    const section2 = useMemo(() => pageData?.pageData.about?.section2, [pageData]);
+    const initialLargeImage = useMemo(() => section2?.image || "", [section2]);
+    const initialSmallImages = useMemo(() => section2?.smallImages || [], [section2]);
+    
+    const [largeImage, setLargeImage] = useState(initialLargeImage);
+    const [smallImages, setSmallImages] = useState(initialSmallImages);
 
-    const section1 = pageData?.pageData.about?.section1;
-    const section2 = pageData?.pageData.about?.section2;
-    const smallImages = pageData?.pageData.about?.section2?.smallImages || [];
 
-    const [largeImage, setLargeImage] = useState(section2?.image); 
+    useEffect(() => {
+        if (section2?.image) {
+            setLargeImage(section2.image);
+        }
+        if (section2?.smallImages) {
+            setSmallImages(section2.smallImages);
+        }
+    }, [section2]);
 
     const localizedTexts = useMemo(() => LOCALIZED_TEXTS[locale] || LOCALIZED_TEXTS.arm, [locale]);
 
-    const handleImageClick = (image) => {
-        setLargeImage(image); 
+     const handleImageClick = (clickedImage, index) => {
+        setLargeImage(clickedImage);
+        setSmallImages((prevImages) => {
+            const newImages = [...prevImages];
+            newImages[index] = largeImage;
+            return newImages;
+        });
     };
+
+    const renderedLargeImage = useMemo(() => largeImage, [largeImage, section2]);
+    const renderedSmallImages = useMemo(() => smallImages, [smallImages,section2]);
 
     return (
         <div className={styles.Container}>
@@ -60,9 +79,10 @@ export default function ProducTionSection() {
                     <div className={styles.SectionContainer2}>
                         <div className={styles.ImagesContent}>
                             <div className={styles.ImageContainer}>
-                                {largeImage && (
+                                 {renderedLargeImage && (
                                     <Image
-                                        src={largeImage} 
+                                    key={renderedLargeImage}
+                                        src={renderedLargeImage}
                                         width={1000}
                                         height={1000}
                                         className={styles.Image}
@@ -71,12 +91,12 @@ export default function ProducTionSection() {
                                 )}
                             </div>
                             <div className={styles.SmallImagesContainer}>
-                                {smallImages.length > 0 ? (
-                                    smallImages.map((image, index) => (
+                            {renderedSmallImages.length > 0 ? (
+                                    renderedSmallImages.map((image, index) => (
                                         <div
                                             className={styles.smallImageContainer}
                                             key={index}
-                                            onClick={() => handleImageClick(image)} 
+                                            onClick={() => handleImageClick(image, index)}
                                         >
                                             <Image
                                                 src={image}

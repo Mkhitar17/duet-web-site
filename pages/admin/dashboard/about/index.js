@@ -216,64 +216,66 @@ const AdminAboutSection = () => {
                     ))}
                 </div>
                 <div className={styles.sectionContentContainer}>
-                    <div className={styles.FileInputWrapper}>
-                        <input
-                            type="file"
-                            id={`file-upload-2`}
-                            onChange={(e) => handleMainImageChange(e, "section2")}
-                            className={styles.FileInputHidden}
-                        />
-                        <label htmlFor={`file-upload-2`} className={styles.CustomFileButton}>
-                            Choose Image
-                        </label>
-                    </div>
-                    {updatedData.section2?.image ? (
-                        typeof updatedData.section2.image === "string" && updatedData.section2.image.startsWith("<svg") ? (
-                            <div
-                                className={styles.SVGContainer}
-                                dangerouslySetInnerHTML={{ __html: updatedData.section2.image }}
+                    <div className={styles.ImagesContentWrapper}>
+                        <div className={styles.FileInputWrapper}>
+                            <input
+                                type="file"
+                                id={`file-upload-2`}
+                                onChange={(e) => handleMainImageChange(e, "section2")}
+                                className={styles.FileInputHidden}
                             />
+                            <label htmlFor={`file-upload-2`} className={styles.CustomFileButton}>
+                                Choose Image
+                            </label>
+                        </div>
+                        {updatedData.section2?.image ? (
+                            typeof updatedData.section2.image === "string" && updatedData.section2.image.startsWith("<svg") ? (
+                                <div
+                                    className={styles.SVGContainer}
+                                    dangerouslySetInnerHTML={{ __html: updatedData.section2.image }}
+                                />
+                            ) : (
+                                <Image
+                                    src={updatedData.section2.image.preview || updatedData.section2.image}
+                                    alt="Section 2 Image"
+                                    className={styles.Image}
+                                    width={600}
+                                    height={300}
+                                />
+                            )
                         ) : (
-                            <Image
-                                src={updatedData.section2.image.preview || updatedData.section2.image}
-                                alt="Section 2 Image"
-                                className={styles.Image}
-                                width={600}
-                                height={300}
-                            />
-                        )
-                    ) : (
-                        <span>No image selected for Section 2</span>
-                    )}
+                            <span>No image selected for Section 2</span>
+                        )}
 
-                    <div className={styles.SmallImages}>
-                        {updatedData.section2?.smallImages?.map((item, index) => (
-                            <div key={index} className={styles.SmallImageContainer}>
-                                {typeof item === "string" && item.startsWith("<svg") ? (
-                                    <div
-                                        className={styles.SVGContainer}
-                                        dangerouslySetInnerHTML={{ __html: item }}
-                                    />
-                                ) : (
-                                    <Image
-                                        src={item.preview || item}
-                                        alt={`Small Image ${index}`}
-                                        className={styles.SmallImage}
-                                        width={130}
-                                        height={130}
-                                    />
-                                )}
-                                <div className={styles.DeleteButton} onClick={() => handleDeleteSmallImage(index)}>
-                                    <Image
-                                        src={CloseIcon}
-                                        width={24}
-                                        height={24}
-                                        className={styles.Image}
-                                        alt="Delete"
-                                    />
+                        <div className={styles.SmallImages}>
+                            {updatedData.section2?.smallImages?.map((item, index) => (
+                                <div key={index} className={styles.SmallImageContainer}>
+                                    {typeof item === "string" && item.startsWith("<svg") ? (
+                                        <div
+                                            className={styles.SVGContainer}
+                                            dangerouslySetInnerHTML={{ __html: item }}
+                                        />
+                                    ) : (
+                                        <Image
+                                            src={item.preview || item}
+                                            alt={`Small Image ${index}`}
+                                            className={styles.SmallImage}
+                                            width={130}
+                                            height={130}
+                                        />
+                                    )}
+                                    <div className={styles.DeleteButton} onClick={() => handleDeleteSmallImage(index)}>
+                                        <Image
+                                            src={CloseIcon}
+                                            width={24}
+                                            height={24}
+                                            className={styles.Image}
+                                            alt="Delete"
+                                        />
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
 
                     {updatedData.section2?.smallImages?.length < 4 && (

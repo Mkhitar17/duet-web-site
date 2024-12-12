@@ -16,6 +16,12 @@
 .sectionContentContainer{
     display: flex;
     flex-direction: column;
+    gap: 80px;
+}
+
+.ImagesContentWrapper{
+    display: flex;
+    flex-direction: column;
     gap: 20px;
 }
 
@@ -58,8 +64,8 @@
 }
 
 .Image {
-    max-width: auto;
-    height: auto;
+    max-width: 600px;
+    height: 320px;
     border-radius: 10px;
 }
 
