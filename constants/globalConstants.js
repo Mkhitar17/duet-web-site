@@ -24,3 +24,30 @@ export const FLAGS = {
       { href: "/contact", label: "Contact Us" },
     ],
   };
+
+  export const NAV_ITEMS_ADMIN = {
+    arm: [
+      { href: "/admin/dashboard/banner", label: "Գլխավոր նկար" },
+      { href: "/admin/dashboard/products", label: "Արտադրանք" },
+      { href: "/admin/dashboard/partners", label: "Գործընկերներ" },
+      { href: "/admin/dashboard/about", label: "Մեր մասին" },
+      { href: "/admin/dashboard/material", label: "Հումք" },
+      { href: "/admin/dashboard/contact", label: "Կապ մեզ հետ" },
+    ],
+    ru: [
+      { href: "/admin/dashboard/banner", label: "Главное изображение" },
+      { href: "/admin/dashboard/products", label: "Продукция" },
+      { href: "/admin/dashboard/partners", label: "Партнеры" },
+      { href: "/admin/dashboard/about", label: "О нас" },
+      { href: "/admin/dashboard/material", label: "Сырье" },
+      { href: "/admin/dashboard/contact", label: "Связаться с нами" },
+    ],
+    en: [
+      { href: "/admin/dashboard/banner", label: "Main Banner" },
+      { href: "/admin/dashboard/products", label: "Products" },
+      { href: "/admin/dashboard/partners", label: "Partners" },
+      { href: "/admin/dashboard/about", label: "About Us" },
+      { href: "/admin/dashboard/material", label: "Materials" },
+      { href: "/admin/dashboard/contact", label: "Contact Us" },
+    ],
+  };

@@ -88,7 +88,7 @@
 
 .HoverButton {
     padding: 10px 20px;
-    border: 1px solid #FFFFFF;
+    border: 1px solid var(--text-color-white);
     color:var(--text-color-white);
     border-radius: 8px;
     cursor: pointer;
@@ -203,7 +203,7 @@
     
     .HoverButton {
         padding: 10px 20px;
-        border: 1px solid #FFFFFF;
+        border: 1px solid var(--text-color-white);
         white-space: nowrap;
         color:var(--text-color-white);
         border-radius: 8px;

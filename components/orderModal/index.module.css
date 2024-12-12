@@ -37,7 +37,7 @@
 }
 
 .HeadlineText span {
-    font-family: 'Arm Hmk Bebas Neue', sans-serif;
+    font-family: var( --font-family-secondary);
     color: #cc0909;
     font-weight: 400;
     font-size: 40px;

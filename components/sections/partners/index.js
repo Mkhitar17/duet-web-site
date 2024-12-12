@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import SectionHeadline from "@/components/sectionHeadline";
 import PartnerItem from "@/components/partnerItem";
 import styles from "./index.module.css";
-import DuetLogo from "@/public/duetLogo.svg";
 
 
 const LOCALIZED_TITLES = {
@@ -14,7 +13,6 @@ const LOCALIZED_TITLES = {
   
 export default function PartnersSection() {
     const gridRef = useRef(null);
-    const array = new Array(17).fill(DuetLogo);
     const [paddingLeft, setPaddingLeft] = useState("71px");
     const partners = useSelector((state) => state.publicData.data?.pageData?.partners || []);
     const locale = useSelector((state) => state.language.locale);

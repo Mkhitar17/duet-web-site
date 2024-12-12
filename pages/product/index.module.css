@@ -68,7 +68,8 @@
 
 
     .HeadlineContainer span:nth-child(1) {
-        font-family: 'Arm Hmk Bebas Neue', sans-serif;
+        /* font-family: 'Arm Hmk Bebas Neue', sans-serif; */
+        font-family: var( --font-family-secondary);
         font-weight: 400;
         font-size: 40px;
         line-height: 48px;
@@ -155,7 +156,6 @@
         }
 
         .HeadlineContainer span:nth-child(1) {
-            font-family: 'Arm Hmk Bebas Neue', sans-serif;
             font-weight: 400;
             font-size: 40px;
             line-height: 48px;

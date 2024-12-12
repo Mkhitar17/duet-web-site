@@ -6,7 +6,7 @@
 
 
 .Container span {
-    font-family: 'Arm Hmk Bebas Neue', sans-serif;
+    font-family: var( --font-family-secondary);
     color: var(--text-color-white);
     font-weight: 400;
     font-size: 40px;
@@ -15,7 +15,7 @@
 }
 
 .Title {
-    font-family: 'Arm Hmk Bebas Neue', sans-serif;
+    font-family: var( --font-family-secondary);
     color: var(--text-color-white);
     font-weight: 400;
     font-size: 40px;
@@ -73,7 +73,6 @@
     
     
     .Title {
-        font-family: 'Arm Hmk Bebas Neue', sans-serif;
         color: var(--text-color-white);
         font-weight: 400;
         font-size: 30px;

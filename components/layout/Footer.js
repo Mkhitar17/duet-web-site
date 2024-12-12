@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { useMemo } from "react";
 
 import Image from "next/image";
-import footerImage from "@/public/duet.svg"
+import footerImage from "@/public/logo.svg"
 import footerTel from "@/public/contact.svg"
 import footerMail from "@/public/mail.svg"
 import footerLocation from "@/public/location.svg"

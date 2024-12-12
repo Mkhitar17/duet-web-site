@@ -4,7 +4,17 @@
 :root {
   --background-color: #1C1C1C;
   --button-background-active: #CC0909;
-  --text-color-white: #FFFFFF
+  --text-color-white: #FFFFFF;
+  --font-family-primary:'SF Pro Text' , sans-serif;
+  --font-family-secondary: 'SF Pro', sans-serif;
+}
+
+:root[lang="arm"] {
+  --background-color: #1C1C1C;
+  --button-background-active: #CC0909;
+  --text-color-white: #FFFFFF;
+  --font-family-primary: 'Bokonique', sans-serif;;
+  --font-family-secondary:  'Arm Hmk Bebas Neue', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -41,6 +51,23 @@
   font-style: normal;
 }
 
+
+@font-face {
+  font-family: 'SF Pro';
+  src: url('/fonts/SF-Pro/SF-Pro-Display-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'SF Pro Text';
+  src: url('/fonts/SF-Pro/SF-Pro-Text-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -72,7 +99,7 @@ main {
 body {
   color: black;
   background-color: var(--background-color);
-  font-family: 'Bokonique', sans-serif;
+  font-family: var(--font-family-primary);
   
 
 }

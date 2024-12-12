@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import styles from "./layout.module.css";
 import Image from "next/image";
@@ -7,11 +8,12 @@ import BurgerMenu from "@/public/icons/burger-menu.svg";
 import CloseMenu from "@/public/icons/close-menu.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { setLocale } from "@/redux/slices/languageSlice";
-import { FLAGS, NAV_ITEMS } from "@/constants/globalConstants";
+import { FLAGS, NAV_ITEMS,NAV_ITEMS_ADMIN } from "@/constants/globalConstants";
 
 
 export default function Header() {
   const dispatch = useDispatch();
+  const router = useRouter();
   const locale = useSelector((state) => state.language.locale);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -45,9 +47,13 @@ export default function Header() {
   }, [locale]);
 
   // Use useMemo for navItems
+  // const navItems = useMemo(() => {
+  //   return NAV_ITEMS[locale] || NAV_ITEMS.arm;
+  // }, [locale]);
+
   const navItems = useMemo(() => {
-    return NAV_ITEMS[locale] || NAV_ITEMS.arm;
-  }, [locale]);
+    return router.pathname.includes("admin") ? NAV_ITEMS_ADMIN[locale] : NAV_ITEMS[locale];
+  }, [locale, router.pathname]);
 
   return (
     <header className={styles.Header}>
