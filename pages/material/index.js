@@ -11,21 +11,21 @@ import OrderModal from "@/components/orderModal"
 
 const LOCALIZED_TEXT = {
     arm: {
-      title: "Հումք",
-      buttonText: "Պատվիրել հիմա",
-      noData: "Տվյալները հասանելի չեն",
+        title: "Հումք",
+        buttonText: "Պատվիրել հիմա",
+        noData: "Տվյալները հասանելի չեն",
     },
     ru: {
-      title: "Сырье",
-      buttonText: "Заказать сейчас",
-      noData: "Данные недоступны",
+        title: "Сырье",
+        buttonText: "Заказать сейчас",
+        noData: "Данные недоступны",
     },
     en: {
-      title: "Material",
-      buttonText: "Order Now",
-      noData: "Data not available",
+        title: "Material",
+        buttonText: "Order Now",
+        noData: "Data not available",
     },
-  };
+};
 
 export default function Material() {
 
@@ -56,7 +56,7 @@ export default function Material() {
                 />
                 <div className={styles.SectionContainer}>
                     <div className={styles.TextContainer}>
-                    <span>{materialData?.texts?.[locale] || localizedText.noData}</span>
+                        <span>{materialData?.texts?.[locale] || localizedText.noData}</span>
                         <Button
                             text={localizedText.buttonText}
                             onClick={handleClick}
@@ -79,16 +79,15 @@ export default function Material() {
                 <div className={styles.ProductsContainer}>
                     {materialItems.map((item, index) => (
                         <div key={index}>
-                            {/* <ProductItem locale={locale} image={item.image} product={true} /> */}
-                            <ProductItem  locale={locale} image={item.image} id={item._id} size={item.size} product={true} />
-                           
+                            <ProductItem locale={locale} image={item.image} id={item._id} size={item.size} />
+
                         </div>
                     ))}
                 </div>
                 <div className={styles.ProductsContainerMobile}>
                     {materialItems.map((item, index) => (
-                        <div key={index}>
-                            <ProducItemMobile image={item.image} product={false}/>
+                        <div key={index} className={styles.ProductWrapper} >
+                            <ProducItemMobile locale={locale} image={item.image} id={item._id} size={item.size} />
                         </div>
                     ))}
                 </div>

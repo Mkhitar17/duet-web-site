@@ -29,6 +29,7 @@ export default function Header() {
     setIsMobileMenuOpen((prev) => !prev);
   };
 
+
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.classList.add("noScroll");
@@ -89,7 +90,7 @@ export default function Header() {
       <div className={`${styles.mobileDropdownMenu} ${isMobileMenuOpen ? styles.open : ""}`}>
         <div className={styles.MobileManuContent}>
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className={styles.link}>
+            <Link key={item.href} href={item.href} className={styles.link}  onClick={toggleMobileMenu}>
               {item.label}
             </Link>
           ))}

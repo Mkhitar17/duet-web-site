@@ -23,27 +23,14 @@ const LOCALIZED_TEXT = {
 
 export default function ProductItem({ image, id, size, product, locale }) {
     const [isHovered, setIsHovered] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
     const isSVG = typeof image === "string" && image.startsWith("<svg");
     const router = useRouter();
 
 
-    useEffect(() => {
-        const checkScreenSize = () => {
-            setIsMobile(window.innerWidth < 1440);
-        };
-
-        checkScreenSize();
-        window.addEventListener("resize", checkScreenSize);
-
-        return () => window.removeEventListener("resize", checkScreenSize);
-    }, []);
-
     const handleClick = () => {
-        if (isMobile) {
-            router.push(`/product/${id}`);
-        }
+        setIsHovered(!isHovered)
     };
+
 
     return (
         <div
@@ -54,7 +41,7 @@ export default function ProductItem({ image, id, size, product, locale }) {
         >
             <div className={styles.ProductImageContainer}>
                 <div className={`${styles.CircleBackground} ${isHovered ? styles.ShowCircle : ""}`} />
-                <div className={styles.DefaultCircle} />
+                <div className={`${styles.DefaultCircle} ${isHovered ? styles.HoveredCircle : ""}` }/>
 
                 {isSVG ? (
                     <div
@@ -72,7 +59,7 @@ export default function ProductItem({ image, id, size, product, locale }) {
                 )}
             </div>
 
-            {isHovered && product && (
+            {isHovered && (
                 <div className={styles.HoverContent}>
                     <span className={styles.HoverText}>
                     {size.match(/\d+/) ? `${size.match(/\d+/)[0]}${LOCALIZED_TEXT[locale]?.sizeUnit || LOCALIZED_TEXT.arm.sizeUnit}` : ""}

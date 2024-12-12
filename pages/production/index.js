@@ -88,16 +88,16 @@ export default function ProducTionSection() {
                 </div>
                 <div className={styles.ProductsContainer}>
                     {activeItems.map((product, index) => (
-                        <div key={index}>
-                            <ProductItem locale={locale} image={product.image} id={product.id} size={product.size} product={true} />
+                        <div key={index} >
+                            <ProductItem locale={locale} image={product.image} id={product.id} size={product.size} />
                         </div>
                     ))}
                 </div>
 
                 <div className={styles.ProductsContainerMobile}>
                     {activeItems.map((product, index) => (
-                        <div key={index} >
-                            <ProducItemMobile image={product.image} id={product.id} size={product.size} product={true} />
+                        <div key={index} className={styles.ProductWrapper} >
+                            <ProducItemMobile locale={locale} image={product.image} id={product.id} size={product.size} />
                         </div>
                     ))}
                 </div>

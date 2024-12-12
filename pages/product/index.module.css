@@ -4,7 +4,7 @@
         padding: 182px 69px 71px 137px;
     }
 
-    .ContentContainer{
+    .ContentContainer {
         display: flex;
         gap: 320px;
     }
@@ -17,8 +17,10 @@
         z-index: 9;
     }
 
-    .productImage {
+    .ProductImage {
         position: relative;
+        width: 450px;
+        height: 576px;
         z-index: 10;
     }
 
@@ -86,10 +88,14 @@
 
     @media (max-width:900px) {
         .Container {
-            display: flex;
-            flex-direction: column-reverse;
             gap: 48px;
             padding: 110px 16px 71px 16px;
+        }
+
+        .ContentContainer {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: 50px;
         }
 
         .ImageContainer {
@@ -97,11 +103,14 @@
             display: flex;
             align-items: flex-start;
             height: 100%;
+            width: 100%;
             z-index: 10;
         }
 
-        .productImage {
+        .ProductImage {
             position: relative;
+            width: 100%;
+            height: auto;
             z-index: 10;
         }
 

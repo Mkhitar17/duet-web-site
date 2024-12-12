@@ -111,7 +111,7 @@ export default function ContactSection() {
 
     useEffect(() => {
         const updatePadding = () => {
-            if (window.innerWidth < 1440) {
+            if (window.innerWidth < 900) {
                 setPaddingLeft("16px");
             } else {
                 setPaddingLeft("71px");

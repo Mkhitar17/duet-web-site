@@ -74,6 +74,54 @@
     display: none;
 }
 
+@media (max-width:1570px) {
+
+    .ContentContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 75px;
+    }
+
+    .SectionContainer {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .TextContainer {
+        min-width: 1px;
+    }
+
+    .ImageContainer {
+        display: flex;
+        height: unset;
+        min-width: 300px;
+        width: 100%;
+        aspect-ratio: 16/ 9;
+        border-radius: 8px;
+    }
+
+    .Image {
+        width: 100%;
+        height: unset;
+        aspect-ratio: 16/9;
+        background-size: cover;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+    
+    .TextContainer span {
+        font-size: 18px;
+        line-height: 20px;
+        letter-spacing: -0.23px;
+        font-weight: 400;
+        color: var(--text-color-white);
+    }
+}
+
 @media (max-width:900px) {
 
     .Container {
@@ -108,14 +156,14 @@
 
     .ImageContainer {
         display: flex;
-        height: 204px;
         min-width: 0;
         border-radius: 8px;
-        max-width: 100%;
+        max-width: 500px;
     }
     
     .Image {
-        max-height: 204px;
+        height: unset;
+        aspect-ratio: 16/9;
         width: 100%;
         background-size: cover;
         object-fit: cover;
@@ -135,6 +183,11 @@
         padding-bottom: 80px;
         justify-content: center;
         align-items: center;
+    }
+
+    .ProductWrapper{
+        width: 100%;
+        max-width: 330px;
     }
 
 }

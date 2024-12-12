@@ -45,8 +45,8 @@ const ProductionItemPage = () => {
           <Image
             src={product.image}
             alt={product.name?.[locale] || "Product"}
-            width={450}
-            height={576}
+            width={1000}
+            height={1000}
             className={styles.ProductImage}
           />
         </div>

@@ -169,7 +169,6 @@
     .AboutImage {
         width: 100%;
         height: 200px;
-        max-width: 1440px;
         border-radius: 8px;
         object-fit: cover;
 

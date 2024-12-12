@@ -52,7 +52,7 @@ export default function ProducTionSection() {
 
   useEffect(() => {
     const updatePadding = () => {
-      if (window.innerWidth < 1440) {
+      if (window.innerWidth < 900) {
         setPaddingLeft("16px");
       } else {
         setPaddingLeft("71px");
@@ -83,7 +83,6 @@ export default function ProducTionSection() {
               image={product.image}
               id={product.id}
               size={product.size}
-              product={true}
               locale={locale}
             />
           ))

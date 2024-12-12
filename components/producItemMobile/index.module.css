@@ -1,5 +1,8 @@
-.Container {
+
+
+  .Container {
     position: relative;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -7,10 +10,10 @@
     justify-content: flex-end;
 }
 
+
 .ProductImageContainer {
     background: none;
-    max-height: 427px;
-    width: 329px;
+    width: 100%;
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
@@ -19,20 +22,19 @@
 
 .ProductImage {
     width: 100%;   
-    height: auto;        
+    height: 100%;        
     max-width: none;    
     max-height: none; 
     transform: scale(1); 
     transition: transform 0.3s ease;
 }
 
-
 .DefaultCircle {
     position: absolute;
-    bottom: -20px; 
+    /* bottom: 5%;  */
     left: 50%;
     width: 100%; 
-    height: 220px;
+    height: 100px;
     transform: translateX(-50%);
     border: 1px dashed #ffffff;
     border-radius: 50%;
@@ -41,22 +43,62 @@
     pointer-events: none; 
 }
 
-
-
-@keyframes slideUp {
-    from {
-        bottom: -40px;
-        opacity: 0;
-    }
-    to {
-        bottom: 10px;
-        opacity: 1;
-    }
-}
-
-@media (hover: none) {
-    .Container:hover .DefaultCircle {
-      opacity: 1; 
-    }
+.HoveredCircle {
+    opacity: 0; 
   }
 
+  .HoveredImage {
+    transform: scale(1.12);
+}
+
+
+.CircleBackground {
+    position: absolute;
+    top: -10px;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: linear-gradient(180deg, rgba(204, 9, 9, 0.5) 0%, rgba(102, 5, 5, 0.5) 100%);
+    filter: blur(2px);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: scale(0.5);
+}
+
+.ShowCircle {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.HoverContent {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    bottom: -20px;
+    gap: 38px;
+    animation: slideUp 0.3s ease forwards;
+}
+
+.HoverText {
+    color:var(--text-color-white);
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: -0.23px;
+    font-weight: 400;
+}
+
+.HoverButton {
+    padding: 10px 20px;
+    border: 1px solid #FFFFFF;
+    white-space: nowrap;
+    color:var(--text-color-white);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: -0.23px;
+    font-weight: 400;
+}
