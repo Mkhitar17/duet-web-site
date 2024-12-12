@@ -20,6 +20,10 @@
     padding: 20px 30px 50px 30px;
     border-radius: 8px;
     text-align: center;
+
+    overflow: auto;
+    max-height: calc(100vh - 50px);
+    scrollbar-width: none;
 }
 
 .closeButton {

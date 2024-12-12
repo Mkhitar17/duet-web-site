@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo , useEffect} from "react";
 import { useSelector } from "react-redux";
 import styles from "./index.module.css";
 import Image from "next/image";
@@ -59,6 +59,14 @@ export default function OrderModal({ onClose, locale }) {
     const localizedTexts = useMemo(() => LOCALIZED_TEXTS[locale] || LOCALIZED_TEXTS.arm, [locale]);
 
     const [isSending, setIsSending] = useState(false);
+
+
+
+    useEffect(() => {
+        document.body.classList.add("noScroll");
+
+        return () => document.body.classList.remove("noScroll");
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
