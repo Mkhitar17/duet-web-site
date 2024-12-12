@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useSelector } from "react-redux";
 import styles from "./index.module.css";
 import Image from "next/image";
@@ -9,7 +9,44 @@ import mail from "@/public/icons/email-black.svg";
 import location from "@/public/icons/location-black.svg";
 import emailjs from "emailjs-com";
 
-export default function OrderModal({ onClose }) {
+
+const LOCALIZED_TEXTS = {
+    arm: {
+        title: "Պատվիրել Հումք",
+        noPhone: "Հեռախոսի համար չկա",
+        noEmail: "Էլ․ փոստի տվյալներ չկան",
+        noAddress: "Հասցեի տվյալներ չկան",
+        sendButton: "Ուղարկել",
+        sendingButton: "Ուղարկվում է...",
+        fillAllFields: "Խնդրում ենք լրացնել բոլոր դաշտերը!",
+        successMessage: "Ձեր պատվերը հաջողությամբ ուղարկվել է!",
+        errorMessage: "Չհաջողվեց ուղարկել ձեր պատվերը։ Խնդրում ենք փորձել կրկին:",
+    },
+    ru: {
+        title: "Заказать сырье",
+        noPhone: "Номер телефона недоступен",
+        noEmail: "Электронная почта недоступна",
+        noAddress: "Адрес недоступен",
+        sendButton: "Отправить",
+        sendingButton: "Отправка...",
+        fillAllFields: "Пожалуйста, заполните все поля!",
+        successMessage: "Ваш заказ был успешно отправлен!",
+        errorMessage: "Не удалось отправить ваш заказ. Пожалуйста, попробуйте еще раз.",
+    },
+    en: {
+        title: "Order Materials",
+        noPhone: "No phone number available",
+        noEmail: "No email available",
+        noAddress: "No address available",
+        sendButton: "Send",
+        sendingButton: "Sending...",
+        fillAllFields: "Please fill in all fields!",
+        successMessage: "Your order request has been sent successfully!",
+        errorMessage: "Failed to send your order request. Please try again.",
+    },
+};
+
+export default function OrderModal({ onClose, locale }) {
     const contactData = useSelector((state) => state.publicData.data?.pageData?.contact);
     const [formData, setFormData] = useState({
         firstName: "",
@@ -18,6 +55,8 @@ export default function OrderModal({ onClose }) {
         phone: "",
         message: "",
     });
+
+    const localizedTexts = useMemo(() => LOCALIZED_TEXTS[locale] || LOCALIZED_TEXTS.arm, [locale]);
 
     const [isSending, setIsSending] = useState(false);
 
@@ -33,7 +72,7 @@ export default function OrderModal({ onClose }) {
         e.preventDefault();
 
         if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone || !formData.message) {
-            alert("Please fill in all fields!");
+            alert(alert(localizedTexts.fillAllFields));
             return;
         }
 
@@ -56,7 +95,7 @@ export default function OrderModal({ onClose }) {
             )
             .then(
                 () => {
-                    alert("Your order request has been sent successfully!");
+                    alert(localizedTexts.successMessage);
                     setFormData({
                         firstName: "",
                         lastName: "",
@@ -68,7 +107,7 @@ export default function OrderModal({ onClose }) {
                 },
                 (error) => {
                     console.error("Failed to send message:", error);
-                    alert("Failed to send your order request. Please try again.");
+                    alert(localizedTexts.errorMessage);
                 }
             )
             .finally(() => setIsSending(false));
@@ -80,7 +119,7 @@ export default function OrderModal({ onClose }) {
             <div className={styles.modalContent}>
                 <div className={styles.ModalHeadline}>
                     <div className={styles.HeadlineText}>
-                        <span>Պատվիրել Հումք</span>
+                    <span>{localizedTexts.title}</span>
                     </div>
 
                     <div className={styles.closeButton} onClick={onClose}>
@@ -97,15 +136,15 @@ export default function OrderModal({ onClose }) {
                 <div className={styles.ContactItems}>
                     <div className={styles.PhoneNumberContainer}>
                         <Image src={tel} width={20} height={20} alt="Phone" />
-                        <span>{contactData?.phone || "No phone number available"}</span>
+                        <span>{contactData?.phone || localizedTexts.noPhone}</span>
                     </div>
                     <div className={styles.EmailContainer}>
                         <Image src={mail} width={20} height={20} alt="Mail" />
-                        <span>{contactData?.email || "No email available"}</span>
+                        <span>{contactData?.email || localizedTexts.noEmail}</span>
                     </div>
                     <div className={styles.LocationContainer}>
                         <Image src={location} width={20} height={20} alt="Location" />
-                        <span>{contactData?.address || "No address available"}</span>
+                        <span>{contactData?.address?.[locale] || localizedTexts.noAddress}</span>
                     </div>
                 </div>
 
@@ -154,7 +193,7 @@ export default function OrderModal({ onClose }) {
                         ></textarea>
                         <Button
                             type="submit"
-                            text={isSending ? "Ուղարկվում է..." : "Ուղարկել"}
+                            text={isSending ? localizedTexts.sendingButton : localizedTexts.sendButton}
                             customStyles={{ maxWidth: "100%" }}
                             disabled={isSending}
                         />

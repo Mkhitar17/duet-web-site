@@ -93,7 +93,7 @@ export default function Material() {
                 </div>
             </div>
             {isModalOpen && (
-                <OrderModal onClose={closeModal} />
+                <OrderModal onClose={closeModal} locale={locale} />
             )}
         </div>
     );
