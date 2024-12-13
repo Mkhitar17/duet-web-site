@@ -61,15 +61,15 @@ export default function ProducTionSection() {
     return () => window.removeEventListener("resize", updatePadding);
   }, []);
 
-  // Анимация при скролле с IntersectionObserver
+  // Анимация при скролле
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add(styles.Active); // Добавление класса для анимации
+            entry.target.classList.add(styles.Active);
           } else {
-            entry.target.classList.remove(styles.Active); // Удаление класса при выходе
+            entry.target.classList.remove(styles.Active);
           }
         });
       },
@@ -80,7 +80,7 @@ export default function ProducTionSection() {
     elements?.forEach((el) => observer.observe(el));
 
     return () => {
-      elements?.forEach((el) => observer.unobserve(el)); // Очистка наблюдателя при размонтировании
+      elements?.forEach((el) => observer.unobserve(el));
     };
   }, []);
 

@@ -1,9 +1,9 @@
 .Container {
     width: 100%;
     padding-top: 36px;
-}
-
-.ProductsSlider {
+  }
+  
+  .ProductsSlider {
     display: flex;
     width: 100%;
     height: 600px;
@@ -12,22 +12,26 @@
     scrollbar-width: none;
     position: relative;
     padding: 50px 33px 100px 33px;
-    
-}
-.Animated {
-    transition: opacity 0.7s ease-out;
+  }
+  
+  .ProductsSlider::-webkit-scrollbar {
+    width: 0px;
+    display: none;
+  }
+  
+  .Animated {
+    opacity: 0; /* Невидимое начальное состояние */
+    transform: translateX(220px); /* Смещение вправо */
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
   }
   
   .Active {
-    opacity: 1;
+    opacity: 1; /* Видимое состояние */
+    transform: translateX(0); /* Возвращается в исходное положение */
   }
-
-
-
-.ProductsSlider::-webkit-scrollbar {
-    width: 0px;
-    display: none;
-}
+  
+ 
+  
 
 
 @media (max-width:900px) {
