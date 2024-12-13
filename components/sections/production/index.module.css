@@ -12,7 +12,6 @@
     scrollbar-width: none;
     position: relative;
     padding: 50px 33px 100px 33px;
-
   }
   
   .ProductsSlider::-webkit-scrollbar {
@@ -20,24 +19,7 @@
     display: none;
   }
   
-  .Animated {
-    opacity: 0; 
-    transform: translateX(220px); 
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-  }
   
-  .Active {
-    opacity: 1; /* Видимое состояние */
-    transform: translateX(0); /* Возвращается в исходное положение */
-  }
-  .ProductItem {
-    flex-shrink: 0;
-    width: auto; 
-    height: 400px; 
-    border-radius: 10px;
-    /* overflow: hidden; */
-  }
- 
   
 
 
