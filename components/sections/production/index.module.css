@@ -12,13 +12,10 @@
     scrollbar-width: none;
     position: relative;
     padding: 50px 33px 100px 33px;
-    opacity: 0;
-    transform: translateY(100px);
-    animation: appearFromBottom 0.8s ease-out forwards;
+    
 }
 .Animated {
-    opacity: 0;
-    
+    opacity: 1;
     transition: opacity 0.7s ease-out;
   }
   
@@ -26,17 +23,7 @@
     opacity: 1;
   }
 
-@keyframes appearFromBottom {
-    0% {
-        opacity: 0;
-        transform: translateY(100px);
-    }
 
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
 
 .ProductsSlider::-webkit-scrollbar {
     width: 0px;
