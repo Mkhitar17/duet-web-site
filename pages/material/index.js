@@ -67,6 +67,7 @@ export default function Material() {
                     <div className={styles.ImageContainer}>
                         {materialData?.materialImage && (
                             <Image
+                                loading="lazy"
                                 src={materialData.materialImage}
                                 width={1000}
                                 height={1000}

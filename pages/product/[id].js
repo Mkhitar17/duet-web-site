@@ -43,6 +43,7 @@ const ProductionItemPage = () => {
         <div className={styles.ImageContainer}>
           <div className={styles.DefaultCircle} />
           <Image
+            loading="lazy"
             src={product.image}
             alt={product.name?.[locale] || "Product"}
             width={1000}

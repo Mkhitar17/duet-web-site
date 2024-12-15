@@ -19,9 +19,10 @@ export default function SectionHeadline({ title, gridRef, scrollAmount, customSt
     return (
         <div className={styles.Container} style={customStyles}>
             <span className={styles.Title}>{title}</span>
-            {showIcons && ( 
+            {showIcons && (
                 <div className={styles.NavigationIcons}>
                     <Image
+                        loading="lazy"
                         onClick={scrollLeft}
                         src={prev}
                         alt="Prev"
@@ -29,6 +30,7 @@ export default function SectionHeadline({ title, gridRef, scrollAmount, customSt
                         height={0}
                     />
                     <Image
+                        loading="lazy"
                         onClick={scrollRight}
                         src={next}
                         alt="Next"

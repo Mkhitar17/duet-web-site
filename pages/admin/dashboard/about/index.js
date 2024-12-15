@@ -185,6 +185,7 @@ const AdminAboutSection = () => {
                             />
                         ) : (
                             <Image
+                                loading="lazy"
                                 src={updatedData.section1.image.preview || updatedData.section1.image}
                                 alt="Section 1 Image"
                                 className={styles.Image}
@@ -236,6 +237,7 @@ const AdminAboutSection = () => {
                                 />
                             ) : (
                                 <Image
+                                    loading="lazy"
                                     src={updatedData.section2.image.preview || updatedData.section2.image}
                                     alt="Section 2 Image"
                                     className={styles.Image}
@@ -257,6 +259,7 @@ const AdminAboutSection = () => {
                                         />
                                     ) : (
                                         <Image
+                                            loading="lazy"
                                             src={item.preview || item}
                                             alt={`Small Image ${index}`}
                                             className={styles.SmallImage}
@@ -266,6 +269,7 @@ const AdminAboutSection = () => {
                                     )}
                                     <div className={styles.DeleteButton} onClick={() => handleDeleteSmallImage(index)}>
                                         <Image
+                                            loading="lazy"
                                             src={CloseIcon}
                                             width={24}
                                             height={24}

@@ -76,8 +76,8 @@ const AdminContactSection = () => {
                 <div className={styles.Section}>
                     <label className={styles.Label}>Address</label>
                     <div className={styles.adressInputs}>
-                        {["arm", "ru", "en"].map((lang) => (
-                            <div className={styles.AdressItemContainer}>
+                        {["arm", "ru", "en"].map((lang , index) => (
+                            <div key={index} className={styles.AdressItemContainer}>
                                 <span>{lang}</span>
                                 <input
                                     key={`address-${lang}`}

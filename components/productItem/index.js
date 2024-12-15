@@ -84,6 +84,7 @@ export default function ProductItem({ image, id, size, product, locale }) {
           />
         ) : (
           <Image
+          loading="lazy"
             src={image}
             alt="Product Image"
             width={1000}

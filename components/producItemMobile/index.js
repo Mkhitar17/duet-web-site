@@ -1,25 +1,25 @@
 import styles from "./index.module.css";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react"; 
+import { useState } from "react";
 import { useRouter } from "next/router";
 
 
 
 const LOCALIZED_TEXT = {
     arm: {
-      seeMore: "Տեսնել ավելին",
-      sizeUnit: "մլ",
+        seeMore: "Տեսնել ավելին",
+        sizeUnit: "մլ",
     },
     ru: {
-      seeMore: "Подробнее",
-      sizeUnit: "мл",
+        seeMore: "Подробнее",
+        sizeUnit: "мл",
     },
     en: {
-      seeMore: "See More",
-      sizeUnit: "ml",
+        seeMore: "See More",
+        sizeUnit: "ml",
     },
-  };
+};
 
 
 export default function ProducItemMobile({ image, id, size, locale }) {
@@ -35,12 +35,12 @@ export default function ProducItemMobile({ image, id, size, locale }) {
             className={styles.Container}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            onClick={handleClick} 
+            onClick={handleClick}
         >
             <div className={styles.ProductImageContainer}>
-            <div className={`${styles.CircleBackground} ${isHovered ? styles.ShowCircle : ""}`} />
-            <div className={`${styles.DefaultCircle} ${isHovered ? styles.HoveredCircle : ""}` }/>
-                
+                <div className={`${styles.CircleBackground} ${isHovered ? styles.ShowCircle : ""}`} />
+                <div className={`${styles.DefaultCircle} ${isHovered ? styles.HoveredCircle : ""}`} />
+
                 {isSVG ? (
                     <div
                         className={`${styles.SVGContainer} `}
@@ -48,6 +48,7 @@ export default function ProducItemMobile({ image, id, size, locale }) {
                     />
                 ) : (
                     <Image
+                        loading="lazy"
                         src={image}
                         alt="Product Image"
                         width={1000}
@@ -60,10 +61,10 @@ export default function ProducItemMobile({ image, id, size, locale }) {
             {isHovered && (
                 <div className={styles.HoverContent}>
                     <span className={styles.HoverText}>
-                    {size.match(/\d+/) ? `${size.match(/\d+/)[0]}${LOCALIZED_TEXT[locale]?.sizeUnit || LOCALIZED_TEXT.arm.sizeUnit}` : ""}
+                        {size.match(/\d+/) ? `${size.match(/\d+/)[0]}${LOCALIZED_TEXT[locale]?.sizeUnit || LOCALIZED_TEXT.arm.sizeUnit}` : ""}
                     </span>
                     <Link href={`/product/${id}`} className={styles.HoverButton}>
-                    {LOCALIZED_TEXT[locale]?.seeMore || LOCALIZED_TEXT.arm.seeMore}
+                        {LOCALIZED_TEXT[locale]?.seeMore || LOCALIZED_TEXT.arm.seeMore}
                     </Link>
                 </div>
             )}

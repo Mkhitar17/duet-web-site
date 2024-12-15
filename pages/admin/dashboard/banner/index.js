@@ -114,6 +114,7 @@ const AdminBannerSection = () => {
                         {updatedBanner.images?.map((item, index) => (
                             <div key={index} className={styles.ImageContainer}>
                                 <Image
+                                    loading="lazy"
                                     src={item.preview || item}
                                     alt={`Banner Image ${index}`}
                                     className={styles.BannerImage}

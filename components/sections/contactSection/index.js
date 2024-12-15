@@ -1,3 +1,4 @@
+ /* eslint-disable react/jsx-no-target-blank */
 import { useEffect, useState, useMemo, useRef } from "react"; // импорт useRef
 import { useSelector } from "react-redux";
 import styles from "./index.module.css";
@@ -158,25 +159,25 @@ export default function ContactSection() {
                     <div className={styles.ContactItems}>
                         <div className={styles.SocialContacts}>
                             <div className={`${styles.PhoneNumberContaineriner} ${styles.Animated}`}>
-                                <Image src={tel} width={24} height={24} alt="Phone" />
+                                <Image loading="lazy" src={tel} width={24} height={24} alt="Phone" />
                                 <span className={styles.SpanTest}>{contactData?.phone || localizedTexts.noEmail}</span>
                             </div>
                             <div className={`${styles.SocialIcons} ${styles.Animated}`}>
+                           
                                 <a href="https://www.facebook.com/dueticecoffee?locale=ru_RU" target="_blank">
-                                    <Image src={fb} width={24} height={24} alt="Facebook" />
+                                    <Image loading="lazy" src={fb} width={24} height={24} alt="Facebook" />
                                 </a>
-
                                 <a href="https://www.instagram.com/duet_company/profilecard/?igsh=ancxeGx1Ymg0ZjJy" target="_blank">
-                                    <Image src={insta} width={24} height={24} alt="Instagram" />
+                                    <Image loading="lazy" src={insta} width={24} height={24} alt="Instagram" />
                                 </a>
                             </div>
                         </div>
                         <div className={`${styles.EmailContainer} ${styles.Animated}`}> 
-                            <Image src={mail} width={24} height={24} alt="Mail" />
+                            <Image  loading="lazy" src={mail} width={24} height={24} alt="Mail" />
                             <span>{contactData?.email || localizedTexts.noEmail}</span>
                         </div>
                         <div className={`${styles.LocationContainer} ${styles.Animated}`}> 
-                            <Image src={location} width={24} height={24} alt="Location" />
+                            <Image  loading="lazy" src={location} width={24} height={24} alt="Location" />
                             <span>{contactData?.address?.[locale] || localizedTexts.noAddress}</span>
                         </div>
                     </div>

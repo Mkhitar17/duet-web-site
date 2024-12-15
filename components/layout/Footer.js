@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-target-blank */
+
 import Link from "next/link";
 import styles from "./layout.module.css";
 
@@ -53,15 +55,17 @@ export default function Footer() {
       <div className={styles.footerSize}>
         <div className={styles.footerIcon}>
           <Image src={footerImage}
+          loading="lazy"
             width={0}
             height={0}
             className={styles.footerImages} />
+            
         </div>
 
         <div className={styles.footerLinks}>
           <div className={styles.usefulHeadline}>
             <Link href='/' className={styles.linkTitle}>
-            {localizedTexts.usefulLinks}
+              {localizedTexts.usefulLinks}
             </Link>
           </div>
           <div className={styles.footerLinksContainer}>
@@ -75,7 +79,7 @@ export default function Footer() {
 
         <div className={styles.footerContactUs}>
           <h1 className={styles.footerContactUsTitle}>
-          {localizedTexts.contact}
+            {localizedTexts.contact}
           </h1>
 
 
@@ -83,6 +87,7 @@ export default function Footer() {
             <div className={styles.footerContactUsIcons_text_size}>
 
               <Image
+              loading="lazy"
                 src={footerTel}
                 width={0}
                 height={0}
@@ -96,6 +101,7 @@ export default function Footer() {
             <div className={styles.footerContactUsIcons_text_size}>
 
               <Image
+              loading="lazy"
                 src={footerMail}
                 width={0}
                 height={0}
@@ -106,13 +112,14 @@ export default function Footer() {
             </div>
             <div className={styles.footerContactUsIcons_text_size}>
               <Image
+              loading="lazy"
                 src={footerLocation}
                 width={0}
                 height={0}
                 className={styles.footerImageIcons}
                 alt="location"
               />
-              <p className={styles.footerTextStyle}>Հաղթանակ թաղամաս, 1 <br/> <span className={styles.footerSpan}> փողոց 48 շինություն</span></p>
+              <p className={styles.footerTextStyle}>Հաղթանակ թաղամաս, 1 <br /> <span className={styles.footerSpan}> փողոց 48 շինություն</span></p>
             </div>
           </div>
         </div>
@@ -120,33 +127,37 @@ export default function Footer() {
         <div className={styles.footerFollowContent}>
           <h1 className={styles.footerFollowMe}>{localizedTexts.followUs}</h1>
           <div className={styles.footerFollowIcons}>
-          <a href="https://www.facebook.com/dueticecoffee?locale=ru_RU"
-          target="_blank">
-            <Image
-            src={footerFB}
-            alt="facebook"
-            />
-          </a>
-          <a href="https://www.instagram.com/duet_company/profilecard/?igsh=ancxeGx1Ymg0ZjJy" 
-          target="_blank">
-            <Image
-            src={footerInst}
-            alt="instagram"
-            />
-          </a>
-          <a href="#">
-            <Image
-            src={footerWhatsup}
-            alt="whatsapp"
-            />
-            
-          </a>
-          <a href="#">
-            <Image
-            src={footerTg}
-            alt="telegram"
-            />
-          </a>
+            <a href="https://www.facebook.com/dueticecoffee?locale=ru_RU"
+              target="_blank">
+              <Image
+              loading="lazy"
+                src={footerFB}
+                alt="facebook"
+              />
+            </a>
+            <a href="https://www.instagram.com/duet_company/profilecard/?igsh=ancxeGx1Ymg0ZjJy"
+              target="_blank">
+              <Image
+              loading="lazy"
+                src={footerInst}
+                alt="instagram"
+              />
+            </a>
+            <a href="#">
+              <Image
+              loading="lazy"
+                src={footerWhatsup}
+                alt="whatsapp"
+              />
+
+            </a>
+            <a href="#">
+              <Image
+              loading="lazy"
+                src={footerTg}
+                alt="telegram"
+              />
+            </a>
           </div>
         </div>
 

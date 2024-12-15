@@ -1,36 +1,3 @@
-// import axios from "axios";
-
-// export default async function handler(req, res) {
-//   if (req.method === "POST") {
-//     try {
-//       const { image } = req.body;
-
-//       const formData = new FormData();
-//       formData.append("image", image);
-
-//       const response = await axios.post(
-//         "https://api.imgur.com/3/image",
-//         formData,
-//         {
-//           headers: {
-//             Authorization: `Client-ID ${process.env.NEXT_PUBLIC_IMGUR_CLIENT_ID}`,
-//           },
-//         }
-//       );
-
-//       const uploadedImageUrl = response.data.data.link;
-//       res.status(200).json({ url: uploadedImageUrl });
-//     } catch (error) {
-//       console.error("Error uploading image:", error);
-//       res.status(500).json({ error: "Failed to upload image" });
-//     }
-//   } else {
-//     res.setHeader("Allow", ["POST"]);
-//     res.status(405).end(`Method ${req.method} Not Allowed`);
-//   }
-// }
-
-
 import { IncomingForm } from "formidable";
 import axios from "axios";
 import fs from "fs/promises";
@@ -59,9 +26,6 @@ export default async function handler(req, res) {
         }
 
         const filePath = files.image[0].filepath; // Path to the uploaded file
-        console.log(files.image[0].filepath,"TTTTTTTTTTT")
-        console.log("File Path:", filePath);
-
         if (!filePath) {
           console.error("File path is undefined.");
           return res.status(400).json({ error: "File path is undefined." });
@@ -72,7 +36,6 @@ export default async function handler(req, res) {
           const fileBuffer = await fs.readFile(filePath);
           const base64Image = fileBuffer.toString("base64");
 
-          // Send the Base64 image to Imgur
           const response = await axios.post(
             "https://api.imgur.com/3/image",
             {

@@ -132,6 +132,7 @@ export default function OrderModal({ onClose, locale }) {
 
                     <div className={styles.closeButton} onClick={onClose}>
                         <Image
+                        loading="lazy"
                             src={CloseIcon}
                             width={0}
                             height={0}
@@ -143,15 +144,15 @@ export default function OrderModal({ onClose, locale }) {
 
                 <div className={styles.ContactItems}>
                     <div className={styles.PhoneNumberContainer}>
-                        <Image src={tel} width={20} height={20} alt="Phone" />
+                        <Image loading="lazy" src={tel} width={20} height={20} alt="Phone" />
                         <span>{contactData?.phone || localizedTexts.noPhone}</span>
                     </div>
                     <div className={styles.EmailContainer}>
-                        <Image src={mail} width={20} height={20} alt="Mail" />
+                        <Image loading="lazy" src={mail} width={20} height={20} alt="Mail" />
                         <span>{contactData?.email || localizedTexts.noEmail}</span>
                     </div>
                     <div className={styles.LocationContainer}>
-                        <Image src={location} width={20} height={20} alt="Location" />
+                        <Image loading="lazy" src={location} width={20} height={20} alt="Location" />
                         <span>{contactData?.address?.[locale] || localizedTexts.noAddress}</span>
                     </div>
                 </div>

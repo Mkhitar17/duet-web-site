@@ -155,7 +155,7 @@ const AdminProductionSection = () => {
                                     dangerouslySetInnerHTML={{ __html: item.image }}
                                 />
                             ) : (
-                                <Image src={item.image} alt={`Product ${index}`} width={250} height={250} />
+                                <Image loading="lazy" src={item.image} alt={`Product ${index}`} width={250} height={250} />
                             )}
                             <div className={styles.ProductDetails}>
                                 <span><strong>Size:</strong> {item.size}</span>
@@ -167,7 +167,7 @@ const AdminProductionSection = () => {
                                 Edit
                             </div>
                             <div className={styles.DeleteButton} onClick={() => handleDelete(index)}>
-                                <Image src={CloseIcon} width={30} height={30} alt="Delete" />
+                                <Image loading="lazy" src={CloseIcon} width={30} height={30} alt="Delete" />
                             </div>
                         </div>
                     ))}

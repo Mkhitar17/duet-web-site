@@ -59,7 +59,7 @@ export default function Header() {
     <header className={styles.Header}>
       <div className={styles.HeaderContent}>
         <Link href="/">
-          <Image src={DuetLogo} width={0} height={0} className={styles.DuetLogo} alt="Duet Logo" />
+          <Image  loading="lazy" src={DuetLogo} width={0} height={0} className={styles.DuetLogo} alt="Duet Logo" />
         </Link>
         <nav className={styles.nav}>
           {navItems.map((item) => (
@@ -69,13 +69,13 @@ export default function Header() {
           ))}
           <div className={styles.flagSelector}>
             <div className={styles.selectedFlag} onClick={toggleDropdown}>
-              <Image src={FLAGS[locale].src} width={30} height={20} alt={FLAGS[locale].alt} />
+              <Image loading="lazy" src={FLAGS[locale].src} width={30} height={20} alt={FLAGS[locale].alt} />
             </div>
             {isDropdownOpen && (
               <div className={styles.flagContainer}>
                 {availableFlags.map((flag) => (
                   <div key={flag} className={styles.flagOption} onClick={() => handleFlagSelect(flag)}>
-                    <Image src={FLAGS[flag].src} width={30} height={20} alt={FLAGS[flag].alt} />
+                    <Image  loading="lazy" src={FLAGS[flag].src} width={30} height={20} alt={FLAGS[flag].alt} />
                   </div>
                 ))}
               </div>
@@ -84,6 +84,7 @@ export default function Header() {
         </nav>
         <div className={styles.BurgerMenuContainer} onClick={toggleMobileMenu}>
           <Image
+          loading="lazy"
             src={isMobileMenuOpen ? CloseMenu : BurgerMenu}
             width={0}
             height={0}
@@ -103,6 +104,7 @@ export default function Header() {
           <div className={styles.flagSelector}>
             <div className={styles.selectedFlag} onClick={toggleDropdown}>
               <Image
+              loading="lazy"
                 src={FLAGS[locale].src}
                 width={30}
                 height={20}
@@ -114,7 +116,7 @@ export default function Header() {
               <div className={styles.flagContainer}>
                 {availableFlags.map((flag) => (
                   <div key={flag} className={styles.flagOption} onClick={() => handleFlagSelect(flag)}>
-                    <Image src={FLAGS[flag].src} width={30} height={20} alt={FLAGS[flag].alt} />
+                    <Image  loading="lazy"src={FLAGS[flag].src} width={30} height={20} alt={FLAGS[flag].alt} />
                   </div>
                 ))}
               </div>

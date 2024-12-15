@@ -75,6 +75,7 @@ export default function About() {
                 <div className={`${styles.ImageContainer} ${styles.Animated}`}>
                     {pageData?.pageData?.about?.section1?.image ? (
                         <Image
+                            loading="lazy"
                             src={pageData.pageData.about.section1.image}
                             width={1000}
                             height={1000}

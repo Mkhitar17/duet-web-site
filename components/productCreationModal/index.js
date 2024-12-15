@@ -51,7 +51,7 @@ const ProductModal = ({ isOpen, onClose, onSave, initialData, editingIndex }) =>
             <div className={styles.ModalContent}>
                 <div className={styles.ModalHeader}>
                     <h2>{editingIndex ? "Edit Product" : "Add Product"}</h2>
-                    <Image src={CloseIcon} alt="Close" className={styles.CloseIcon} onClick={onClose} />
+                    <Image loading="lazy" src={CloseIcon} alt="Close" className={styles.CloseIcon} onClick={onClose} />
                 </div>
                 <div className={styles.ModalBody}>
                     <div className={styles.FileInputWrapper}>

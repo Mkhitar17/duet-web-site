@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useMemo, useState,useEffect } from "react";
+import { useMemo, useState, useEffect } from "react";
 import styles from "./index.module.css";
 import SectionHeadline from "@/components/sectionHeadline";
 import Image from "next/image";
@@ -26,7 +26,7 @@ export default function ProducTionSection() {
     const section2 = useMemo(() => pageData?.pageData.about?.section2, [pageData]);
     const initialLargeImage = useMemo(() => section2?.image || "", [section2]);
     const initialSmallImages = useMemo(() => section2?.smallImages || [], [section2]);
-    
+
     const [largeImage, setLargeImage] = useState(initialLargeImage);
     const [smallImages, setSmallImages] = useState(initialSmallImages);
 
@@ -42,7 +42,7 @@ export default function ProducTionSection() {
 
     const localizedTexts = useMemo(() => LOCALIZED_TEXTS[locale] || LOCALIZED_TEXTS.arm, [locale]);
 
-     const handleImageClick = (clickedImage, index) => {
+    const handleImageClick = (clickedImage, index) => {
         setLargeImage(clickedImage);
         setSmallImages((prevImages) => {
             const newImages = [...prevImages];
@@ -52,7 +52,7 @@ export default function ProducTionSection() {
     };
 
     const renderedLargeImage = useMemo(() => largeImage, [largeImage, section2]);
-    const renderedSmallImages = useMemo(() => smallImages, [smallImages,section2]);
+    const renderedSmallImages = useMemo(() => smallImages, [smallImages, section2]);
 
     return (
         <div className={styles.Container}>
@@ -66,6 +66,7 @@ export default function ProducTionSection() {
                         <div className={styles.ImageContainer}>
                             {section1?.image && (
                                 <Image
+                                    loading="lazy"
                                     src={section1.image}
                                     width={1000}
                                     height={1000}
@@ -79,9 +80,10 @@ export default function ProducTionSection() {
                     <div className={styles.SectionContainer2}>
                         <div className={styles.ImagesContent}>
                             <div className={styles.ImageContainer}>
-                                 {renderedLargeImage && (
+                                {renderedLargeImage && (
                                     <Image
-                                    key={renderedLargeImage}
+                                        loading="lazy"
+                                        key={renderedLargeImage}
                                         src={renderedLargeImage}
                                         width={1000}
                                         height={1000}
@@ -91,7 +93,7 @@ export default function ProducTionSection() {
                                 )}
                             </div>
                             <div className={styles.SmallImagesContainer}>
-                            {renderedSmallImages.length > 0 ? (
+                                {renderedSmallImages.length > 0 ? (
                                     renderedSmallImages.map((image, index) => (
                                         <div
                                             className={styles.smallImageContainer}
@@ -99,6 +101,7 @@ export default function ProducTionSection() {
                                             onClick={() => handleImageClick(image, index)}
                                         >
                                             <Image
+                                                loading="lazy"
                                                 src={image}
                                                 width={200}
                                                 height={200}

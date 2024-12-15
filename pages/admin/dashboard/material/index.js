@@ -129,10 +129,10 @@ const AdminMaterialsSection = () => {
 
     return (
         <div className={styles.Container}>
-                            <div className={styles.ButtonsContainer}>
-                    <Button text="Add Material Item" onClick={() => openModal()} customStyles={{ width: "200px", background: "blue" }} />
-                    <Button type="button" text="Save Changes" onClick={handleSaveChanges} customStyles={{ width: "255px" }} />
-                </div>
+            <div className={styles.ButtonsContainer}>
+                <Button text="Add Material Item" onClick={() => openModal()} customStyles={{ width: "200px", background: "blue" }} />
+                <Button type="button" text="Save Changes" onClick={handleSaveChanges} customStyles={{ width: "255px" }} />
+            </div>
             <div className={styles.ContentContainer}>
                 <div className={styles.SectionContainer}>
                     <div className={styles.TextContainer}>
@@ -159,6 +159,7 @@ const AdminMaterialsSection = () => {
                                 <div className={styles.SVGContainer} dangerouslySetInnerHTML={{ __html: updatedData.materialImage }} />
                             ) : (
                                 <Image
+                                    loading="lazy"
                                     src={updatedData.materialImage.preview || updatedData.materialImage}
                                     alt="Material Image"
                                     width={450}
@@ -181,7 +182,7 @@ const AdminMaterialsSection = () => {
                                     dangerouslySetInnerHTML={{ __html: item.image }}
                                 />
                             ) : (
-                                <Image src={item.image} alt={`Product ${index}`} width={350} height={350} />
+                                <Image  loading="lazy"src={item.image} alt={`Product ${index}`} width={350} height={350} />
                             )}
                             <div className={styles.ProductDetails}>
                                 <span><strong>Size:</strong> {item.size}</span>
@@ -193,7 +194,7 @@ const AdminMaterialsSection = () => {
                                 Edit
                             </div>
                             <div className={styles.DeleteButton} onClick={() => handleDelete(index)}>
-                                <Image src={CloseIcon} width={30} height={30} alt="Delete" />
+                                <Image loading="lazy" src={CloseIcon} width={30} height={30} alt="Delete" />
                             </div>
                         </div>
                     ))}
