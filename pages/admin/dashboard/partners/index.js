@@ -103,6 +103,7 @@ const AdminPartnersSection = () => {
                                 className={styles.RasterImage}
                                 width={200}
                                 height={150}
+                                unoptimized
                             />
                         )}
                         <input

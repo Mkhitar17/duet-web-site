@@ -155,7 +155,7 @@ const AdminProductionSection = () => {
                                     dangerouslySetInnerHTML={{ __html: item.image }}
                                 />
                             ) : (
-                                <Image loading="lazy" src={item.image} alt={`Product ${index}`} width={250} height={250} />
+                                <Image  loading="lazy" src={item.image} alt={`Product ${index}`} width={250} height={250} unoptimized />
                             )}
                             <div className={styles.ProductDetails}>
                                 <span><strong>Size:</strong> {item.size}</span>

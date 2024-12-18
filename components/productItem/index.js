@@ -21,24 +21,24 @@ const LOCALIZED_TEXT = {
 
 export default function ProductItem({ image, id, size, product, locale }) {
   const [isHovered, setIsHovered] = useState(false);
-  const [isVisible, setIsVisible] = useState(false); // Для отслеживания видимости
-  const itemRef = useRef(null); // Реф на элемент
+  const [isVisible, setIsVisible] = useState(false);
+  const itemRef = useRef(null);
   const isSVG = typeof image === "string" && image.startsWith("<svg");
   const router = useRouter();
 
   useEffect(() => {
-    // IntersectionObserver для отслеживания появления и ухода элемента
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsVisible(true); // Показать элемент
+            setIsVisible(true);
           } else {
-            setIsVisible(false); // Скрыть элемент
+            setIsVisible(false);
           }
         });
       },
-      { threshold: 0.1 } // Срабатывание при 10% видимости
+      { threshold: 0.1 }
     );
 
     if (itemRef.current) {
@@ -66,32 +66,28 @@ export default function ProductItem({ image, id, size, product, locale }) {
     >
       <div className={styles.ProductImageContainer}>
         <div
-          className={`${styles.CircleBackground} ${
-            isHovered ? styles.ShowCircle : ""
-          }`}
+          className={`${styles.CircleBackground} ${isHovered ? styles.ShowCircle : ""
+            }`}
         />
         <div
-          className={`${styles.DefaultCircle} ${
-            isHovered ? styles.HoveredCircle : ""
-          }`}
+          className={`${styles.DefaultCircle} ${isHovered ? styles.HoveredCircle : ""
+            }`}
         />
         {isSVG ? (
           <div
-            className={`${styles.SVGContainer} ${
-              isHovered ? styles.HoveredImage : ""
-            }`}
+            className={`${styles.SVGContainer} ${isHovered ? styles.HoveredImage : ""
+              }`}
             dangerouslySetInnerHTML={{ __html: image }}
           />
         ) : (
           <Image
-          loading="lazy"
+            loading="lazy"
             src={image}
             alt="Product Image"
             width={1000}
             height={1000}
-            className={`${styles.ProductImage} ${
-              isHovered ? styles.HoveredImage : ""
-            }`}
+            className={`${styles.ProductImage} ${isHovered ? styles.HoveredImage : ""}`}
+            unoptimized
           />
         )}
       </div>
@@ -100,10 +96,9 @@ export default function ProductItem({ image, id, size, product, locale }) {
         <div className={styles.HoverContent}>
           <span className={styles.HoverText}>
             {size.match(/\d+/)
-              ? `${size.match(/\d+/)[0]}${
-                  LOCALIZED_TEXT[locale]?.sizeUnit ||
-                  LOCALIZED_TEXT.arm.sizeUnit
-                }`
+              ? `${size.match(/\d+/)[0]}${LOCALIZED_TEXT[locale]?.sizeUnit ||
+              LOCALIZED_TEXT.arm.sizeUnit
+              }`
               : ""}
           </span>
           <Link href={`/product/${id}`} className={styles.HoverButton}>

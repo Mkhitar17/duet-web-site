@@ -49,6 +49,7 @@ const ProductionItemPage = () => {
             width={1000}
             height={1000}
             className={styles.ProductImage}
+            unoptimized
           />
         </div>
 

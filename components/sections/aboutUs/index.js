@@ -81,6 +81,7 @@ export default function About() {
                             height={1000}
                             className={styles.AboutImage}
                             alt={title}
+                            unoptimized
                         />
                     ) : (
                         <span className={styles.NoImage}>{noData}</span>

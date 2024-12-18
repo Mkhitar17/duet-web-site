@@ -191,6 +191,7 @@ const AdminAboutSection = () => {
                                 className={styles.Image}
                                 width={600}
                                 height={300}
+                                unoptimized
                             />
                         )
                     ) : (
@@ -243,6 +244,7 @@ const AdminAboutSection = () => {
                                     className={styles.Image}
                                     width={600}
                                     height={300}
+                                    unoptimized
                                 />
                             )
                         ) : (
@@ -265,6 +267,7 @@ const AdminAboutSection = () => {
                                             className={styles.SmallImage}
                                             width={130}
                                             height={130}
+                                            unoptimized
                                         />
                                     )}
                                     <div className={styles.DeleteButton} onClick={() => handleDeleteSmallImage(index)}>
@@ -275,6 +278,7 @@ const AdminAboutSection = () => {
                                             height={24}
                                             className={styles.Image}
                                             alt="Delete"
+                                            
                                         />
                                     </div>
                                 </div>

@@ -73,6 +73,7 @@ export default function Material() {
                                 height={1000}
                                 className={styles.Image}
                                 alt="Material Image"
+                                unoptimized
                             />
                         )}
                     </div>

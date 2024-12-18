@@ -65,7 +65,7 @@ const ProductModal = ({ isOpen, onClose, onSave, initialData, editingIndex }) =>
                             Choose File
                         </label>
                     </div>
-                    {imagePreview && <Image src={imagePreview} alt="Preview" width={250} height={250} />}
+                    {imagePreview && <Image src={imagePreview} alt="Preview" width={250} height={250}  unoptimized/>}
                     <input type="text" placeholder="Size" value={size} onChange={(e) => setSize(e.target.value)} />
                     <div>
                         <input type="text" placeholder="Name (ARM)" value={name.arm} onChange={(e) => setName({ ...name, arm: e.target.value })} />

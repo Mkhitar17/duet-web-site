@@ -165,6 +165,7 @@ const AdminMaterialsSection = () => {
                                     width={450}
                                     height={253}
                                     className={styles.Image}
+                                    unoptimized
                                 />
                             )
                         ) : (
@@ -182,7 +183,7 @@ const AdminMaterialsSection = () => {
                                     dangerouslySetInnerHTML={{ __html: item.image }}
                                 />
                             ) : (
-                                <Image  loading="lazy"src={item.image} alt={`Product ${index}`} width={350} height={350} />
+                                <Image unoptimized loading="lazy"src={item.image} alt={`Product ${index}`} width={350} height={350} />
                             )}
                             <div className={styles.ProductDetails}>
                                 <span><strong>Size:</strong> {item.size}</span>

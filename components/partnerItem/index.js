@@ -16,7 +16,7 @@ export default function PartnerItem({ logo }) {
         ) : (
           <div className={styles.ImageContainer}>
             <Image
-            loading="lazy"
+              loading="lazy"
               src={logo}
               alt="Partner Logo"
               width={0}

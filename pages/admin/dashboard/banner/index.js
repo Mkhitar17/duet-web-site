@@ -120,6 +120,7 @@ const AdminBannerSection = () => {
                                     className={styles.BannerImage}
                                     width={800}
                                     height={1000}
+                                    unoptimized
                                 />
                                 <div className={styles.DeleteButton} onClick={() => handleDeleteImage(index)}>
                                     <span>Delete Image</span>

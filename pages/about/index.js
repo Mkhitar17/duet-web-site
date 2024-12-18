@@ -72,6 +72,7 @@ export default function ProducTionSection() {
                                     height={1000}
                                     className={styles.Image}
                                     alt="Section 1 Image"
+                                    unoptimized
                                 />
                             )}
                         </div>
@@ -89,6 +90,7 @@ export default function ProducTionSection() {
                                         height={1000}
                                         className={styles.Image}
                                         alt="Large Image"
+                                        unoptimized
                                     />
                                 )}
                             </div>
@@ -107,6 +109,7 @@ export default function ProducTionSection() {
                                                 height={200}
                                                 className={styles.SmallImage}
                                                 alt={`Small Image ${index + 1}`}
+                                                unoptimized
                                             />
                                         </div>
                                     ))
