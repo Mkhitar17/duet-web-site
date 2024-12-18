@@ -54,6 +54,7 @@ export default function ProducItemMobile({ image, id, size, locale }) {
                         width={1000}
                         height={1000}
                         className={`${styles.ProductImage} ${isHovered ? styles.HoveredImage : ""}`}
+                        unoptimized
                     />
                 )}
             </div>
