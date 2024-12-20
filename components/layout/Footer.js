@@ -69,10 +69,12 @@ export default function Footer() {
             </Link>
           </div>
           <div className={styles.footerLinksContainer}>
+
             <Link href="/" className={styles.links}>{localizedTexts.about}</Link>
             <Link href="/about" className={styles.links}>{localizedTexts.production}</Link>
             <Link href="/contact" className={styles.links}>{localizedTexts.material}</Link>
             <Link href="/contact" className={styles.links}>{localizedTexts.contact}</Link>
+
           </div>
 
         </div>

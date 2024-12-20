@@ -10,15 +10,13 @@ const AdminSignIn = () => {
   const dispatch = useDispatch();
   const router = useRouter();
 
-  // Get loading and error states from Redux
   const { loading, error } = useSelector((state) => state.auth);
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent form default behavior
+    e.preventDefault(); 
 
     try {
       await dispatch(signIn({ username, password })).unwrap();
-      // Redirect to Admin Dashboard on success
       router.push('/admin/dashboard');
     } catch (err) {
       console.error('Sign-in failed:', err);
@@ -37,7 +35,6 @@ const AdminSignIn = () => {
           </label>
           <input
             className={styles.adminInput}
-
             type="text"
             id="username"
             value={username}
