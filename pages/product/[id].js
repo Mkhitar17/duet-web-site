@@ -56,7 +56,6 @@ const ProductionItemPage = () => {
         <div className={styles.TextContainer}>
           <div className={styles.HeadlineContainer}>
             <span className={styles.ProductName}>{product.name?.[locale] || localizedTexts.notFound}</span>
-            <span className={styles.ProductSize}>{product.size}</span>
           </div>
 
           <div className={styles.DescriptionContainer}>

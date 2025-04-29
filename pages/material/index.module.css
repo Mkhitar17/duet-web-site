@@ -58,7 +58,8 @@
 
 .ImageContainer {
     display: flex;
-    height: 360px;
+    /* height: 360px; */
+    height: 500px;
     min-width: 636px;
     border-radius: 8px;
 }
@@ -67,6 +68,7 @@
     height: 100%;
     width: 100%;
     background-size: cover;
+    object-fit: contain;
     border-radius: 8px;
 }
 

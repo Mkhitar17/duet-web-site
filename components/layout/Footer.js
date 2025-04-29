@@ -70,9 +70,9 @@ export default function Footer() {
           </div>
           <div className={styles.footerLinksContainer}>
 
-            <Link href="/" className={styles.links}>{localizedTexts.about}</Link>
-            <Link href="/about" className={styles.links}>{localizedTexts.production}</Link>
-            <Link href="/contact" className={styles.links}>{localizedTexts.material}</Link>
+            <Link href="/about" className={styles.links}>{localizedTexts.about}</Link>
+            <Link href="/production" className={styles.links}>{localizedTexts.production}</Link>
+            <Link href="/material" className={styles.links}>{localizedTexts.material}</Link>
             <Link href="/contact" className={styles.links}>{localizedTexts.contact}</Link>
 
           </div>
@@ -121,7 +121,7 @@ export default function Footer() {
                 className={styles.footerImageIcons}
                 alt="location"
               />
-              <p className={styles.footerTextStyle}>Հաղթանակ թաղամաս, 1 <br /> <span className={styles.footerSpan}> փողոց 48 շինություն</span></p>
+              <p className={styles.footerTextStyle}>Հաղթանակ թաղամաս, 1 <br /> <span className={styles.footerSpan}> փողոց 48</span></p>
             </div>
           </div>
         </div>
@@ -145,15 +145,14 @@ export default function Footer() {
                 alt="instagram"
               />
             </a>
-            <a href="#">
+            <a href="https://wa.me/37498604406" target="_blank">
               <Image
               loading="lazy"
                 src={footerWhatsup}
                 alt="whatsapp"
               />
-
             </a>
-            <a href="#">
+            <a href="https://t.me/Duetcompany2025" target="_blank">
               <Image
               loading="lazy"
                 src={footerTg}
@@ -167,7 +166,7 @@ export default function Footer() {
       </div>
 
 
-      <p className={styles.footerArmCoding}>© {new Date().getFullYear()} By ArmCoding - © 2024 All Rights Reserved.</p>
+      <p className={styles.footerArmCoding}>© {new Date().getFullYear()} By ArmCoding - © {new Date().getFullYear()} All Rights Reserved.</p>
     </footer>
   );
 }

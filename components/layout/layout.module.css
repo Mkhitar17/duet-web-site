@@ -209,6 +209,7 @@
 
 .footerSpan {
   padding-right: 35px;
+  display: flex;
 }
 
 .footerFollowContent {

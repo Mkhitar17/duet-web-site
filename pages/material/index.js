@@ -66,18 +66,13 @@ export default function Material() {
 
                     <div className={styles.ImageContainer}>
                         {materialData?.materialImage && (
-                      <video
-                      controls
-                      width="1000"
-                      height="1000"
-                      className={styles.Image}
-                      autoPlay
-                      muted
-                      loop
-                    >
-                      <source src="/duetVideo.mp4" type="video/mp4" />
-                      Ваш браузер не поддерживает видео.
-                    </video>
+                            <Image
+                                src={materialData.materialImage}
+                                alt="Material"
+                                width={1000}
+                                height={1000}
+                                className={styles.Image}
+                            />
                         )}
                     </div>
                 </div>

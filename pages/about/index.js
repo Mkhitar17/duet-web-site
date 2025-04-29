@@ -7,15 +7,15 @@ import Image from "next/image";
 const LOCALIZED_TEXTS = {
     arm: {
         title: "Մեր մասին",
-        noData: "Տվյալները հասանելի չեն",
+        noData: "",
     },
     ru: {
         title: "О нас",
-        noData: "Данные недоступны",
+        noData: "",
     },
     en: {
         title: "About Us",
-        noData: "Data is unavailable",
+        noData: "",
     },
 };
 

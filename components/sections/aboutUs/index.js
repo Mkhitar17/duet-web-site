@@ -10,17 +10,17 @@ const LOCALIZED_TEXT = {
     arm: {
         title: "Մեր մասին",
         button: "Տեսնել ավելին",
-        noData: "Տվյալները հասանելի չեն",
+        noData: "",
     },
     ru: {
         title: "О нас",
         button: "Подробнее",
-        noData: "Данные недоступны",
+        noData: "",
     },
     en: {
         title: "About Us",
         button: "See More",
-        noData: "Data is unavailable",
+        noData: "",
     },
 };
 
